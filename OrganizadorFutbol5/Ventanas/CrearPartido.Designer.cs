@@ -62,7 +62,6 @@
             this.tb_nombrePartido.Name = "tb_nombrePartido";
             this.tb_nombrePartido.Size = new System.Drawing.Size(302, 20);
             this.tb_nombrePartido.TabIndex = 0;
-            this.tb_nombrePartido.TextChanged += new System.EventHandler(this.tb_nombrePartido_TextChanged);
             // 
             // bt_aplicar
             // 

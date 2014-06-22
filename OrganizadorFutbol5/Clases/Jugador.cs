@@ -10,7 +10,7 @@ namespace OrganizadorFutbol5.Clases
         public Partido partido;
         public Notificador notificador;
         public List<Jugador> amigos;
-        List<Infraccion> infraccciones;
+        List<Infraccion> infraccciones = new List<Infraccion>();
 
         public Jugador(string nombreNuevo)
         {

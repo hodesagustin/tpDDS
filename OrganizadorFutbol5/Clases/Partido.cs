@@ -8,14 +8,14 @@ namespace OrganizadorFutbol5.Clases
     public class Partido
     {
         string nombre;
-        List<Jugador> inscriptosStandard;
-        List<Jugador> inscriptosCondicionales;
-        List<Jugador> inscriptosSolidarios;
-        List<Jugador> equipoA;
-        List<Jugador> equipoB;
+        List<Jugador> inscriptosStandard = new List<Jugador>();
+        List<JugadorCondicional> inscriptosCondicionales = new List<JugadorCondicional>();
+        List<Jugador> inscriptosSolidarios = new List<Jugador>();
+        List<Jugador> equipoA = new List<Jugador>();
+        List<Jugador> equipoB = new List<Jugador>();
         public DateTime fecha;
-        Notificador notificador;
-        Administrador admin;
+        Notificador notificador = new Notificador();
+        Administrador admin = new Administrador();
 
         public Partido(string nuevoNombre)
         {
@@ -38,28 +38,34 @@ namespace OrganizadorFutbol5.Clases
             }
         }
 
-        public void inscribirCondicional(Jugador jugador)
+        public void inscribirCondicional(JugadorCondicional jugadorCondicional)
         {
             if (aceptaInscripcion())
             {
-                anotar(jugador,inscriptosCondicionales);
+                anotar(jugadorCondicional,inscriptosCondicionales);
             }
         }
                 
         bool aceptaInscripcion()
         {
-            return (inscriptosStandard.Capacity < 10);
+            return (inscriptosStandard.Count < 10);
         }
 
-        int cantidadDeInscriptos()
+        public int cantidadDeInscriptos()
         {
-            return (inscriptosStandard.Capacity + inscriptosSolidarios.Capacity
-                    + inscriptosCondicionales.Capacity);
+            return (inscriptosStandard.Count + inscriptosSolidarios.Count
+                    + inscriptosCondicionales.Count);
         }
 
         void anotar(Jugador jugador, List<Jugador> lista)
         {
             lista.Add(jugador);
+            if (cantidadDeInscriptos() == 10)
+                notificador.notify("Se ha llegado a los 10 jugadores inscriptos", admin);
+        }
+        void anotar(JugadorCondicional jugadorCondicional, List<JugadorCondicional> lista)
+        {
+            lista.Add(jugadorCondicional);
             if (cantidadDeInscriptos() == 10)
                 notificador.notify("Se ha llegado a los 10 jugadores inscriptos", admin);
         }
@@ -84,13 +90,13 @@ namespace OrganizadorFutbol5.Clases
 
         public List<Jugador> getListaSegunJugador(Jugador jugador)
         {
-            if(inscriptosStandard.Contains(jugador))
+            if (inscriptosStandard.Contains(jugador))
                 return inscriptosStandard;
             else
-                if(inscriptosSolidarios.Contains(jugador))
+                if (inscriptosSolidarios.Contains(jugador))
                     return inscriptosSolidarios;
-                else         
-                    return inscriptosCondicionales;
+                else
+                    return null;//inscriptosCondicionales;
         }
 
         public String getNombre()

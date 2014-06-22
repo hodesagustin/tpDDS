@@ -23,5 +23,10 @@ namespace OrganizadorFutbol5.Ventanas
         {
             partido = unPartido;
         }
+
+        private void Inscripcion_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Partido: " + partido.getNombre());
+        }
     }
 }

@@ -13,22 +13,15 @@ namespace OrganizadorFutbol5.Ventanas
 {
     public partial class CrearPartido : Form
     {
-        string nombreNuevoPartido;
-
         public CrearPartido()
         {
             InitializeComponent();
         }
 
-        private void tb_nombrePartido_TextChanged(object sender, EventArgs e)
-        {
-            nombreNuevoPartido = tb_nombrePartido.Text;
-        }
-
         private void bt_aplicar_Click(object sender, EventArgs e)
         {
-            Partido partido = new Partido (nombreNuevoPartido);
-            Inicio.nuevoPartido = partido;
+            Partido partido = new Partido (tb_nombrePartido.Text);
+            Inicio.partidos.Add(partido);
             this.Close();
         }
 

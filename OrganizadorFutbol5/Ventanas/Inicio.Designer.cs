@@ -50,7 +50,7 @@
             // 
             // bt_crearPartido
             // 
-            this.bt_crearPartido.Location = new System.Drawing.Point(779, 221);
+            this.bt_crearPartido.Location = new System.Drawing.Point(347, 221);
             this.bt_crearPartido.Name = "bt_crearPartido";
             this.bt_crearPartido.Size = new System.Drawing.Size(92, 23);
             this.bt_crearPartido.TabIndex = 1;
@@ -119,7 +119,6 @@
             this.Name = "Inicio";
             this.Text = "Organizador de partidos Fútbol 5";
             this.Load += new System.EventHandler(this.Inicio_Load);
-            this.Activated += new System.EventHandler(this.Inicio_Activated);
             this.gb_partidosCreados.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

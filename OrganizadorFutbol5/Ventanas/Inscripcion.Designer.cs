@@ -48,6 +48,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Inscripcion";
             this.Text = "Inscripcion";
+            this.Load += new System.EventHandler(this.Inscripcion_Load);
             this.ResumeLayout(false);
 
         }
