@@ -7,14 +7,16 @@ namespace OrganizadorFutbol5.Clases
 {
     public class Jugador : Persona
     {
+        public decimal calificacion;
         public Partido partido;
         public Notificador notificador;
         public List<Jugador> amigos;
         List<Infraccion> infraccciones = new List<Infraccion>();
 
-        public Jugador(string nombreNuevo)
+        public Jugador(string nombreNuevo,decimal calif)
         {
             nombre = nombreNuevo;
+            calificacion = calif;
         }
 
         void inscripcionStandard()
@@ -41,5 +43,13 @@ namespace OrganizadorFutbol5.Clases
         {
             infraccciones.Add(infraccion);
         }
+
+        override public String ToString()
+        {
+            return this.nombre + " (" + calificacion + ")";
+        }
+
+        public String getNombre() { return this.nombre; }
+        public decimal getCalificacion() { return this.calificacion; }
     }
 }

@@ -11,8 +11,8 @@ namespace OrganizadorFutbol5.Clases
 
         public bool cumple(Partido partido)
         {
+            //HARCODEADO
             return true;
-            //HARDCODE
         }
 
     }

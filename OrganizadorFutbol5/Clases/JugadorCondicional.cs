@@ -7,7 +7,7 @@ namespace OrganizadorFutbol5.Clases
 {
     public class JugadorCondicional : Jugador
     {
-        public JugadorCondicional(string nombreNuevo,Condicion unaCondicion) : base (nombreNuevo)
+        public JugadorCondicional(string nombreNuevo,decimal calif,Condicion unaCondicion) : base (nombreNuevo,calif)
         {
             condicion = unaCondicion;
         }

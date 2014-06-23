@@ -17,9 +17,10 @@ namespace OrganizadorFutbol5.Clases
         Notificador notificador = new Notificador();
         Administrador admin = new Administrador();
 
-        public Partido(string nuevoNombre)
+        public Partido(string nuevoNombre, DateTime unaFecha)
         {
-           nombre = nuevoNombre;     
+           nombre = nuevoNombre;
+           fecha = unaFecha;
         }
 
         public void inscribirStandard(Jugador jugador)
@@ -51,7 +52,7 @@ namespace OrganizadorFutbol5.Clases
             return (inscriptosStandard.Count < 10);
         }
 
-        public int cantidadDeInscriptos()
+        public int getCantidadDeInscriptos()
         {
             return (inscriptosStandard.Count + inscriptosSolidarios.Count
                     + inscriptosCondicionales.Count);
@@ -60,32 +61,48 @@ namespace OrganizadorFutbol5.Clases
         void anotar(Jugador jugador, List<Jugador> lista)
         {
             lista.Add(jugador);
-            if (cantidadDeInscriptos() == 10)
+            if (getCantidadDeInscriptos() == 10)
                 notificador.notify("Se ha llegado a los 10 jugadores inscriptos", admin);
         }
         void anotar(JugadorCondicional jugadorCondicional, List<JugadorCondicional> lista)
         {
             lista.Add(jugadorCondicional);
-            if (cantidadDeInscriptos() == 10)
+            if (getCantidadDeInscriptos() == 10)
                 notificador.notify("Se ha llegado a los 10 jugadores inscriptos", admin);
         }
 
-        void darDeBaja(Jugador jugador)
+        public void darDeBaja(Jugador jugador)
         {
             Infraccion infraccion = new Infraccion("Baja sin reemplazo");
             List<Jugador> lista = getListaSegunJugador(jugador);
 
             lista.Remove(jugador);
             jugador.agregarInfraccion(infraccion);
-            if (cantidadDeInscriptos() == 9)
+            if (getCantidadDeInscriptos() == 9)
+                notificador.notify("Ha dejado de haber 10 jugadores inscriptos", admin);
+        }
+        public void darDeBaja(JugadorCondicional jugadorCondicional)
+        {
+            Infraccion infraccion = new Infraccion("Baja sin reemplazo");
+            List<JugadorCondicional> lista = getListaSegunJugador(jugadorCondicional);
+
+            lista.Remove(jugadorCondicional);
+            jugadorCondicional.agregarInfraccion(infraccion);
+            if (getCantidadDeInscriptos() == 9)
                 notificador.notify("Ha dejado de haber 10 jugadores inscriptos", admin);
         }
 
-        void darDeBaja(Jugador jugador, Jugador reemplazo)
+        public void reemplazar(Jugador jugador, Jugador reemplazo)
         {
             List<Jugador> lista = getListaSegunJugador(jugador);
             lista.Remove(jugador);
             lista.Add(reemplazo);
+        }
+        public void reemplazar(JugadorCondicional jugadorCondicional, JugadorCondicional reemplazoCondicional)
+        {
+            List<JugadorCondicional> lista = getListaSegunJugador(jugadorCondicional);
+            lista.Remove(jugadorCondicional);
+            lista.Add(reemplazoCondicional);
         }
 
         public List<Jugador> getListaSegunJugador(Jugador jugador)
@@ -93,13 +110,24 @@ namespace OrganizadorFutbol5.Clases
             if (inscriptosStandard.Contains(jugador))
                 return inscriptosStandard;
             else
-                if (inscriptosSolidarios.Contains(jugador))
-                    return inscriptosSolidarios;
-                else
-                    return null;//inscriptosCondicionales;
+                return inscriptosSolidarios;
+        }
+        public List<JugadorCondicional> getListaSegunJugador(JugadorCondicional jugadorCondicional)
+        { return inscriptosCondicionales; }
+
+        public override string ToString()
+        {
+            return this.nombre + " : " + this.fecha;
         }
 
         public String getNombre()
         { return nombre; }
+
+        public List<Jugador> getInscriptosStandard()
+        { return inscriptosStandard; }
+        public List<Jugador> getInscriptosSolidarios()
+        { return inscriptosSolidarios; }
+        public List<JugadorCondicional> getInscriptosCondicionales()
+        { return inscriptosCondicionales; }
     }
 }

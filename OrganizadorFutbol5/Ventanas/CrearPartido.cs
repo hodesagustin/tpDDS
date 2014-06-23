@@ -20,7 +20,7 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void bt_aplicar_Click(object sender, EventArgs e)
         {
-            Partido partido = new Partido (tb_nombrePartido.Text);
+            Partido partido = new Partido (tb_nombrePartido.Text,dateFecha.Value);
             Inicio.partidos.Add(partido);
             this.Close();
         }

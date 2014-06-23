@@ -62,6 +62,12 @@
     <Compile Include="Ventanas\CrearPartido.Designer.cs">
       <DependentUpon>CrearPartido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\FormJugador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FormJugador.Designer.cs">
+      <DependentUpon>FormJugador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     <EmbeddedResource Include="Ventanas\CrearPartido.resx">
       <DependentUpon>CrearPartido.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FormJugador.resx">
+      <DependentUpon>FormJugador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\Inscripcion.resx">
       <DependentUpon>Inscripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FormPartido.resx">
+      <DependentUpon>FormPartido.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -102,6 +114,12 @@
     </Compile>
     <Compile Include="Ventanas\Inscripcion.Designer.cs">
       <DependentUpon>Inscripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\FormPartido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FormPartido.Designer.cs">
+      <DependentUpon>FormPartido.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
