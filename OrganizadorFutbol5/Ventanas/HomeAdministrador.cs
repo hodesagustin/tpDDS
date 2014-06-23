@@ -25,9 +25,9 @@ namespace OrganizadorFutbol5.Ventanas
 
         public void crearPartidos()
         {
-            partidos.Add(new Partido("Partido 1", new DateTime(2014, 01, 10)));
-            partidos.Add(new Partido("Partido 2", new DateTime(2014, 01, 15)));
-            partidos.Add(new Partido("Partido 3", new DateTime(2014, 01, 31)));
+            partidos.Add(new Partido("Partido 1", new DateTime(2014, 01, 10), "Administrador 1"));
+            partidos.Add(new Partido("Partido 2", new DateTime(2014, 01, 15), "Administrador 2"));
+            partidos.Add(new Partido("Partido 3", new DateTime(2014, 01, 31), "Administrador 3"));
         }
 
         private void crearJugadores()
@@ -93,7 +93,7 @@ namespace OrganizadorFutbol5.Ventanas
             llenarListaPartidos();
             llenarListaJugadores();
             llenarListaJugadoresCondicionales();
-
+        //Inscribo Jugadores al 'Partido 1'
             partidos[0].inscribirStandard(jugadores[0]);
             partidos[0].inscribirStandard(jugadores[1]);
             partidos[0].inscribirStandard(jugadores[2]);
@@ -102,6 +102,18 @@ namespace OrganizadorFutbol5.Ventanas
             partidos[0].inscribirSolidario(jugadores[5]);
             partidos[0].inscribirCondicional(jugadoresCondicionales[0]);
             partidos[0].inscribirCondicional(jugadoresCondicionales[1]);
+            //Inscribo Jugadores al 'Partido 2'
+            partidos[1].inscribirStandard(jugadores[0]);
+            partidos[1].inscribirStandard(jugadores[1]);
+            partidos[1].inscribirStandard(jugadores[2]);
+            partidos[1].inscribirStandard(jugadores[3]);
+            partidos[1].inscribirStandard(jugadores[4]);
+            partidos[1].inscribirStandard(jugadores[5]);
+            partidos[1].inscribirSolidario(jugadores[6]);
+            partidos[1].inscribirSolidario(jugadores[7]);
+            partidos[1].inscribirSolidario(jugadores[8]);
+            partidos[1].inscribirCondicional(jugadoresCondicionales[0]);
+            partidos[1].inscribirCondicional(jugadoresCondicionales[1]);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

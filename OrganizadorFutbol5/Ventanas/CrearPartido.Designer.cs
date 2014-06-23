@@ -35,18 +35,22 @@
             this.ll_nombrePartido = new System.Windows.Forms.Label();
             this.bt_aplicar = new System.Windows.Forms.Button();
             this.bt_cancelar = new System.Windows.Forms.Button();
+            this.lblAdministrador = new System.Windows.Forms.Label();
+            this.txtAdministrador = new System.Windows.Forms.TextBox();
             this.gb_datosPartido.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_datosPartido
             // 
+            this.gb_datosPartido.Controls.Add(this.txtAdministrador);
+            this.gb_datosPartido.Controls.Add(this.lblAdministrador);
             this.gb_datosPartido.Controls.Add(this.dateFecha);
             this.gb_datosPartido.Controls.Add(this.tb_nombrePartido);
             this.gb_datosPartido.Controls.Add(this.ll_fecha);
             this.gb_datosPartido.Controls.Add(this.ll_nombrePartido);
             this.gb_datosPartido.Location = new System.Drawing.Point(12, 12);
             this.gb_datosPartido.Name = "gb_datosPartido";
-            this.gb_datosPartido.Size = new System.Drawing.Size(457, 93);
+            this.gb_datosPartido.Size = new System.Drawing.Size(457, 123);
             this.gb_datosPartido.TabIndex = 0;
             this.gb_datosPartido.TabStop = false;
             this.gb_datosPartido.Text = "Datos del Partido";
@@ -85,7 +89,7 @@
             // 
             // bt_aplicar
             // 
-            this.bt_aplicar.Location = new System.Drawing.Point(12, 111);
+            this.bt_aplicar.Location = new System.Drawing.Point(12, 150);
             this.bt_aplicar.Name = "bt_aplicar";
             this.bt_aplicar.Size = new System.Drawing.Size(75, 23);
             this.bt_aplicar.TabIndex = 1;
@@ -95,7 +99,7 @@
             // 
             // bt_cancelar
             // 
-            this.bt_cancelar.Location = new System.Drawing.Point(394, 111);
+            this.bt_cancelar.Location = new System.Drawing.Point(394, 150);
             this.bt_cancelar.Name = "bt_cancelar";
             this.bt_cancelar.Size = new System.Drawing.Size(75, 23);
             this.bt_cancelar.TabIndex = 2;
@@ -103,11 +107,27 @@
             this.bt_cancelar.UseVisualStyleBackColor = true;
             this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
             // 
+            // lblAdministrador
+            // 
+            this.lblAdministrador.AutoSize = true;
+            this.lblAdministrador.Location = new System.Drawing.Point(21, 96);
+            this.lblAdministrador.Name = "lblAdministrador";
+            this.lblAdministrador.Size = new System.Drawing.Size(110, 13);
+            this.lblAdministrador.TabIndex = 4;
+            this.lblAdministrador.Text = "Nombre Administrador";
+            // 
+            // txtAdministrador
+            // 
+            this.txtAdministrador.Location = new System.Drawing.Point(137, 93);
+            this.txtAdministrador.Name = "txtAdministrador";
+            this.txtAdministrador.Size = new System.Drawing.Size(314, 20);
+            this.txtAdministrador.TabIndex = 5;
+            // 
             // CrearPartido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 146);
+            this.ClientSize = new System.Drawing.Size(481, 185);
             this.Controls.Add(this.bt_cancelar);
             this.Controls.Add(this.bt_aplicar);
             this.Controls.Add(this.gb_datosPartido);
@@ -128,5 +148,7 @@
         private System.Windows.Forms.Label ll_nombrePartido;
         private System.Windows.Forms.Button bt_aplicar;
         private System.Windows.Forms.Button bt_cancelar;
+        private System.Windows.Forms.TextBox txtAdministrador;
+        private System.Windows.Forms.Label lblAdministrador;
     }
 }

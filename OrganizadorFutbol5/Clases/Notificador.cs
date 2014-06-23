@@ -8,9 +8,11 @@ namespace OrganizadorFutbol5.Clases
     public class Notificador
     {
         private int cantidadDeNotificacionesEnviadas;
+        private List<String> notificaciones = new List<string>();
 
         public void notify(string mensaje, Persona jugador)
         {
+            notificaciones.Add(jugador.ToString() + ": " + mensaje);
             cantidadDeNotificacionesEnviadas ++; 
         }
 
@@ -18,5 +20,6 @@ namespace OrganizadorFutbol5.Clases
         {
             return cantidadDeNotificacionesEnviadas;
         }
+        public List<String> getNotificaciones() { return notificaciones; }
     }
 }

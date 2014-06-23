@@ -7,6 +7,6 @@ namespace OrganizadorFutbol5.Clases
 {
     class Administrador : Persona
     {
-
+        public Administrador(String unNombre) : base(unNombre) { }
     }
 }

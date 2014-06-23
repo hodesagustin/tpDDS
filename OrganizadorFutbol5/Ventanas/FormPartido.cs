@@ -30,8 +30,18 @@ namespace OrganizadorFutbol5.Ventanas
             llenarListBox(lb_inscriptosSolidarios, partido.getInscriptosSolidarios());
             llenarListBox(lb_inscriptosCondicionales, partido.getInscriptosCondicionales());
             tb_cantidadInscriptos.Text = partido.getCantidadDeInscriptos().ToString();
+            llenarListInfracciones();
 
             this.ShowDialog();
+        }
+
+        private void llenarListInfracciones()
+        {
+            listNotificaciones.Items.Clear();
+            foreach (String notificacion in partido.getNotificador().getNotificaciones())
+            {
+                listNotificaciones.Items.Add(notificacion);
+            }
         }
 
         private void llenarListBox(ListBox listBox, List<Jugador> jugadores)
@@ -60,6 +70,7 @@ namespace OrganizadorFutbol5.Ventanas
                 partido.darDeBaja(partido.getInscriptosStandard()[lb_inscriptosStandard.SelectedIndex]);
                 llenarListBox(lb_inscriptosStandard, partido.getInscriptosStandard());
                 tb_cantidadInscriptos.Text = partido.getCantidadDeInscriptos().ToString();
+                llenarListInfracciones();
             }
             else
                 MessageBox.Show("Debe seleccionarl un Jugador Standard");
@@ -72,6 +83,7 @@ namespace OrganizadorFutbol5.Ventanas
                 partido.darDeBaja(partido.getInscriptosSolidarios()[lb_inscriptosSolidarios.SelectedIndex]);
                 llenarListBox(lb_inscriptosSolidarios, partido.getInscriptosSolidarios());
                 tb_cantidadInscriptos.Text = partido.getCantidadDeInscriptos().ToString();
+                llenarListInfracciones();
             }
             else
                 MessageBox.Show("Debe seleccionarl un Jugador Solidario");
@@ -84,6 +96,7 @@ namespace OrganizadorFutbol5.Ventanas
                 partido.darDeBaja(partido.getInscriptosCondicionales()[lb_inscriptosCondicionales.SelectedIndex]);
                 llenarListBox(lb_inscriptosCondicionales, partido.getInscriptosCondicionales());
                 tb_cantidadInscriptos.Text = partido.getCantidadDeInscriptos().ToString();
+                llenarListInfracciones();
             }
             else
                 MessageBox.Show("Debe seleccionarl un Jugador Condicional");
@@ -141,6 +154,11 @@ namespace OrganizadorFutbol5.Ventanas
                 partido.reemplazar(reemplazado, reemplazo);
                 llenarListBox(lb_inscriptosCondicionales, partido.getInscriptosCondicionales());
             }
+        }
+
+        private void FormPartido_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -15,12 +15,13 @@ namespace OrganizadorFutbol5.Clases
         List<Jugador> equipoB = new List<Jugador>();
         public DateTime fecha;
         Notificador notificador = new Notificador();
-        Administrador admin = new Administrador();
+        Administrador admin;
 
-        public Partido(string nuevoNombre, DateTime unaFecha)
+        public Partido(string nuevoNombre, DateTime unaFecha,String nombreAdmin)
         {
            nombre = nuevoNombre;
            fecha = unaFecha;
+           admin = new Administrador(nombreAdmin);
         }
 
         public void inscribirStandard(Jugador jugador)
@@ -129,5 +130,6 @@ namespace OrganizadorFutbol5.Clases
         { return inscriptosSolidarios; }
         public List<JugadorCondicional> getInscriptosCondicionales()
         { return inscriptosCondicionales; }
+        public Notificador getNotificador() { return notificador; }
     }
 }

@@ -46,6 +46,8 @@
             this.tb_cantidadInscriptos = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.listNotificaciones = new System.Windows.Forms.ListBox();
+            this.lblNotificaciones = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -180,7 +182,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(366, 322);
+            this.label6.Location = new System.Drawing.Point(376, 35);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 13);
             this.label6.TabIndex = 11;
@@ -188,10 +190,11 @@
             // 
             // tb_cantidadInscriptos
             // 
-            this.tb_cantidadInscriptos.Location = new System.Drawing.Point(484, 319);
+            this.tb_cantidadInscriptos.Location = new System.Drawing.Point(494, 32);
             this.tb_cantidadInscriptos.Name = "tb_cantidadInscriptos";
             this.tb_cantidadInscriptos.Size = new System.Drawing.Size(50, 20);
             this.tb_cantidadInscriptos.TabIndex = 12;
+            this.tb_cantidadInscriptos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox2
             // 
@@ -213,11 +216,30 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Inscriptos Condicionales";
             // 
+            // listNotificaciones
+            // 
+            this.listNotificaciones.FormattingEnabled = true;
+            this.listNotificaciones.Location = new System.Drawing.Point(15, 335);
+            this.listNotificaciones.Name = "listNotificaciones";
+            this.listNotificaciones.Size = new System.Drawing.Size(536, 95);
+            this.listNotificaciones.TabIndex = 15;
+            // 
+            // lblNotificaciones
+            // 
+            this.lblNotificaciones.AutoSize = true;
+            this.lblNotificaciones.Location = new System.Drawing.Point(12, 319);
+            this.lblNotificaciones.Name = "lblNotificaciones";
+            this.lblNotificaciones.Size = new System.Drawing.Size(74, 13);
+            this.lblNotificaciones.TabIndex = 16;
+            this.lblNotificaciones.Text = "Notificaciones";
+            // 
             // FormPartido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 346);
+            this.ClientSize = new System.Drawing.Size(559, 440);
+            this.Controls.Add(this.lblNotificaciones);
+            this.Controls.Add(this.listNotificaciones);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.tb_cantidadInscriptos);
@@ -235,6 +257,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormPartido";
             this.Text = "FormPartido";
+            this.Load += new System.EventHandler(this.FormPartido_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -263,5 +286,7 @@
         private System.Windows.Forms.TextBox tb_cantidadInscriptos;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListBox listNotificaciones;
+        private System.Windows.Forms.Label lblNotificaciones;
     }
 }
