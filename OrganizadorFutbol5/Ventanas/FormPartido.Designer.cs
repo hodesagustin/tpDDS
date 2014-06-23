@@ -96,25 +96,25 @@
             // lb_inscriptosStandard
             // 
             this.lb_inscriptosStandard.FormattingEnabled = true;
-            this.lb_inscriptosStandard.Location = new System.Drawing.Point(11, 19);
+            this.lb_inscriptosStandard.Location = new System.Drawing.Point(6, 19);
             this.lb_inscriptosStandard.Name = "lb_inscriptosStandard";
-            this.lb_inscriptosStandard.Size = new System.Drawing.Size(143, 160);
+            this.lb_inscriptosStandard.Size = new System.Drawing.Size(157, 160);
             this.lb_inscriptosStandard.TabIndex = 0;
             // 
             // lb_inscriptosCondicionales
             // 
             this.lb_inscriptosCondicionales.FormattingEnabled = true;
-            this.lb_inscriptosCondicionales.Location = new System.Drawing.Point(15, 19);
+            this.lb_inscriptosCondicionales.Location = new System.Drawing.Point(6, 19);
             this.lb_inscriptosCondicionales.Name = "lb_inscriptosCondicionales";
-            this.lb_inscriptosCondicionales.Size = new System.Drawing.Size(143, 160);
+            this.lb_inscriptosCondicionales.Size = new System.Drawing.Size(172, 160);
             this.lb_inscriptosCondicionales.TabIndex = 2;
             // 
             // lb_inscriptosSolidarios
             // 
             this.lb_inscriptosSolidarios.FormattingEnabled = true;
-            this.lb_inscriptosSolidarios.Location = new System.Drawing.Point(11, 19);
+            this.lb_inscriptosSolidarios.Location = new System.Drawing.Point(6, 19);
             this.lb_inscriptosSolidarios.Name = "lb_inscriptosSolidarios";
-            this.lb_inscriptosSolidarios.Size = new System.Drawing.Size(143, 160);
+            this.lb_inscriptosSolidarios.Size = new System.Drawing.Size(168, 160);
             this.lb_inscriptosSolidarios.TabIndex = 1;
             // 
             // bt_darDeBajaStandard
@@ -198,7 +198,7 @@
             this.groupBox2.Controls.Add(this.lb_inscriptosSolidarios);
             this.groupBox2.Location = new System.Drawing.Point(187, 58);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(168, 193);
+            this.groupBox2.Size = new System.Drawing.Size(180, 193);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Inscriptos Solidarios";
@@ -206,9 +206,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lb_inscriptosCondicionales);
-            this.groupBox3.Location = new System.Drawing.Point(361, 58);
+            this.groupBox3.Location = new System.Drawing.Point(373, 58);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(168, 193);
+            this.groupBox3.Size = new System.Drawing.Size(184, 193);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Inscriptos Condicionales";
@@ -217,7 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 346);
+            this.ClientSize = new System.Drawing.Size(559, 346);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.tb_cantidadInscriptos);

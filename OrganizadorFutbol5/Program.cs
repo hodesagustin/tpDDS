@@ -16,7 +16,8 @@ namespace OrganizadorFutbol5
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            //Application.Run(new Login());
+            Application.Run(new HomeAdministrador(-1));
         }
     }
 }

@@ -70,7 +70,7 @@
             this.gb_partidosCreados.Controls.Add(this.lb_listaPartidos);
             this.gb_partidosCreados.Location = new System.Drawing.Point(12, 83);
             this.gb_partidosCreados.Name = "gb_partidosCreados";
-            this.gb_partidosCreados.Size = new System.Drawing.Size(200, 153);
+            this.gb_partidosCreados.Size = new System.Drawing.Size(200, 194);
             this.gb_partidosCreados.TabIndex = 2;
             this.gb_partidosCreados.TabStop = false;
             this.gb_partidosCreados.Text = "Partidos Creados";
@@ -78,9 +78,9 @@
             // lb_listaPartidos
             // 
             this.lb_listaPartidos.FormattingEnabled = true;
-            this.lb_listaPartidos.Location = new System.Drawing.Point(14, 19);
+            this.lb_listaPartidos.Location = new System.Drawing.Point(6, 19);
             this.lb_listaPartidos.Name = "lb_listaPartidos";
-            this.lb_listaPartidos.Size = new System.Drawing.Size(171, 121);
+            this.lb_listaPartidos.Size = new System.Drawing.Size(188, 173);
             this.lb_listaPartidos.TabIndex = 0;
             this.lb_listaPartidos.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -89,7 +89,7 @@
             this.gb_jugadoresCreados.Controls.Add(this.lb_jugadores);
             this.gb_jugadoresCreados.Location = new System.Drawing.Point(218, 83);
             this.gb_jugadoresCreados.Name = "gb_jugadoresCreados";
-            this.gb_jugadoresCreados.Size = new System.Drawing.Size(200, 153);
+            this.gb_jugadoresCreados.Size = new System.Drawing.Size(233, 194);
             this.gb_jugadoresCreados.TabIndex = 3;
             this.gb_jugadoresCreados.TabStop = false;
             this.gb_jugadoresCreados.Text = "Jugadores Creados";
@@ -97,17 +97,17 @@
             // lb_jugadores
             // 
             this.lb_jugadores.FormattingEnabled = true;
-            this.lb_jugadores.Location = new System.Drawing.Point(15, 19);
+            this.lb_jugadores.Location = new System.Drawing.Point(6, 19);
             this.lb_jugadores.Name = "lb_jugadores";
-            this.lb_jugadores.Size = new System.Drawing.Size(170, 121);
+            this.lb_jugadores.Size = new System.Drawing.Size(221, 173);
             this.lb_jugadores.TabIndex = 0;
             // 
             // gb_jugadoresCondicionalesCreados
             // 
             this.gb_jugadoresCondicionalesCreados.Controls.Add(this.lb_jugadoresCondicionales);
-            this.gb_jugadoresCondicionalesCreados.Location = new System.Drawing.Point(424, 83);
+            this.gb_jugadoresCondicionalesCreados.Location = new System.Drawing.Point(457, 83);
             this.gb_jugadoresCondicionalesCreados.Name = "gb_jugadoresCondicionalesCreados";
-            this.gb_jugadoresCondicionalesCreados.Size = new System.Drawing.Size(200, 153);
+            this.gb_jugadoresCondicionalesCreados.Size = new System.Drawing.Size(200, 194);
             this.gb_jugadoresCondicionalesCreados.TabIndex = 4;
             this.gb_jugadoresCondicionalesCreados.TabStop = false;
             this.gb_jugadoresCondicionalesCreados.Text = "Jugadores Creados";
@@ -115,14 +115,14 @@
             // lb_jugadoresCondicionales
             // 
             this.lb_jugadoresCondicionales.FormattingEnabled = true;
-            this.lb_jugadoresCondicionales.Location = new System.Drawing.Point(17, 19);
+            this.lb_jugadoresCondicionales.Location = new System.Drawing.Point(6, 19);
             this.lb_jugadoresCondicionales.Name = "lb_jugadoresCondicionales";
-            this.lb_jugadoresCondicionales.Size = new System.Drawing.Size(168, 121);
+            this.lb_jugadoresCondicionales.Size = new System.Drawing.Size(188, 173);
             this.lb_jugadoresCondicionales.TabIndex = 0;
             // 
             // bt_crearPartido
             // 
-            this.bt_crearPartido.Location = new System.Drawing.Point(12, 242);
+            this.bt_crearPartido.Location = new System.Drawing.Point(27, 295);
             this.bt_crearPartido.Name = "bt_crearPartido";
             this.bt_crearPartido.Size = new System.Drawing.Size(90, 23);
             this.bt_crearPartido.TabIndex = 5;
@@ -132,7 +132,7 @@
             // 
             // bt_abrirPartido
             // 
-            this.bt_abrirPartido.Location = new System.Drawing.Point(108, 242);
+            this.bt_abrirPartido.Location = new System.Drawing.Point(123, 295);
             this.bt_abrirPartido.Name = "bt_abrirPartido";
             this.bt_abrirPartido.Size = new System.Drawing.Size(75, 23);
             this.bt_abrirPartido.TabIndex = 6;
@@ -142,7 +142,7 @@
             // 
             // bt_crearJugador
             // 
-            this.bt_crearJugador.Location = new System.Drawing.Point(218, 242);
+            this.bt_crearJugador.Location = new System.Drawing.Point(233, 295);
             this.bt_crearJugador.Name = "bt_crearJugador";
             this.bt_crearJugador.Size = new System.Drawing.Size(91, 23);
             this.bt_crearJugador.TabIndex = 7;
@@ -152,7 +152,7 @@
             // 
             // bt_abrirJugador
             // 
-            this.bt_abrirJugador.Location = new System.Drawing.Point(315, 242);
+            this.bt_abrirJugador.Location = new System.Drawing.Point(330, 295);
             this.bt_abrirJugador.Name = "bt_abrirJugador";
             this.bt_abrirJugador.Size = new System.Drawing.Size(75, 23);
             this.bt_abrirJugador.TabIndex = 8;
@@ -162,9 +162,9 @@
             // 
             // bt_inscribirStandard
             // 
-            this.bt_inscribirStandard.Location = new System.Drawing.Point(630, 102);
+            this.bt_inscribirStandard.Location = new System.Drawing.Point(663, 102);
             this.bt_inscribirStandard.Name = "bt_inscribirStandard";
-            this.bt_inscribirStandard.Size = new System.Drawing.Size(146, 23);
+            this.bt_inscribirStandard.Size = new System.Drawing.Size(113, 23);
             this.bt_inscribirStandard.TabIndex = 9;
             this.bt_inscribirStandard.Text = "Inscribir Standard";
             this.bt_inscribirStandard.UseVisualStyleBackColor = true;
@@ -172,9 +172,9 @@
             // 
             // bt_inscribirSolidario
             // 
-            this.bt_inscribirSolidario.Location = new System.Drawing.Point(630, 152);
+            this.bt_inscribirSolidario.Location = new System.Drawing.Point(663, 152);
             this.bt_inscribirSolidario.Name = "bt_inscribirSolidario";
-            this.bt_inscribirSolidario.Size = new System.Drawing.Size(146, 23);
+            this.bt_inscribirSolidario.Size = new System.Drawing.Size(113, 23);
             this.bt_inscribirSolidario.TabIndex = 10;
             this.bt_inscribirSolidario.Text = "Inscribir Solidario";
             this.bt_inscribirSolidario.UseVisualStyleBackColor = true;
@@ -182,9 +182,9 @@
             // 
             // bt_inscribirCondicional
             // 
-            this.bt_inscribirCondicional.Location = new System.Drawing.Point(630, 200);
+            this.bt_inscribirCondicional.Location = new System.Drawing.Point(663, 200);
             this.bt_inscribirCondicional.Name = "bt_inscribirCondicional";
-            this.bt_inscribirCondicional.Size = new System.Drawing.Size(146, 23);
+            this.bt_inscribirCondicional.Size = new System.Drawing.Size(113, 23);
             this.bt_inscribirCondicional.TabIndex = 11;
             this.bt_inscribirCondicional.Text = "Inscribir Condicional";
             this.bt_inscribirCondicional.UseVisualStyleBackColor = true;
@@ -204,7 +204,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 279);
+            this.ClientSize = new System.Drawing.Size(788, 330);
             this.Controls.Add(this.ll_titulo);
             this.Controls.Add(this.bt_inscribirCondicional);
             this.Controls.Add(this.bt_abrirJugador);

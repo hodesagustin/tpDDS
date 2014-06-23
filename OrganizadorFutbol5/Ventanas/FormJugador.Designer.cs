@@ -33,6 +33,8 @@
             this.tb_nombre = new System.Windows.Forms.TextBox();
             this.nd_calificacion = new System.Windows.Forms.NumericUpDown();
             this.bt_crear = new System.Windows.Forms.Button();
+            this.lblInfracciones = new System.Windows.Forms.Label();
+            this.listInfracciones = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.nd_calificacion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +83,7 @@
             // 
             // bt_crear
             // 
-            this.bt_crear.Location = new System.Drawing.Point(197, 58);
+            this.bt_crear.Location = new System.Drawing.Point(197, 217);
             this.bt_crear.Name = "bt_crear";
             this.bt_crear.Size = new System.Drawing.Size(75, 23);
             this.bt_crear.TabIndex = 4;
@@ -89,11 +91,30 @@
             this.bt_crear.UseVisualStyleBackColor = true;
             this.bt_crear.Click += new System.EventHandler(this.bt_crear_Click);
             // 
+            // lblInfracciones
+            // 
+            this.lblInfracciones.AutoSize = true;
+            this.lblInfracciones.Location = new System.Drawing.Point(12, 66);
+            this.lblInfracciones.Name = "lblInfracciones";
+            this.lblInfracciones.Size = new System.Drawing.Size(65, 13);
+            this.lblInfracciones.TabIndex = 5;
+            this.lblInfracciones.Text = "Infracciones";
+            // 
+            // listInfracciones
+            // 
+            this.listInfracciones.FormattingEnabled = true;
+            this.listInfracciones.Location = new System.Drawing.Point(15, 82);
+            this.listInfracciones.Name = "listInfracciones";
+            this.listInfracciones.Size = new System.Drawing.Size(257, 95);
+            this.listInfracciones.TabIndex = 6;
+            // 
             // FormJugador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 91);
+            this.ClientSize = new System.Drawing.Size(284, 252);
+            this.Controls.Add(this.listInfracciones);
+            this.Controls.Add(this.lblInfracciones);
             this.Controls.Add(this.bt_crear);
             this.Controls.Add(this.nd_calificacion);
             this.Controls.Add(this.tb_nombre);
@@ -114,5 +135,7 @@
         private System.Windows.Forms.TextBox tb_nombre;
         private System.Windows.Forms.NumericUpDown nd_calificacion;
         private System.Windows.Forms.Button bt_crear;
+        private System.Windows.Forms.Label lblInfracciones;
+        private System.Windows.Forms.ListBox listInfracciones;
     }
 }

@@ -25,6 +25,10 @@ namespace OrganizadorFutbol5.Ventanas
             jugador = unJugador;
             tb_nombre.Text = jugador.getNombre();
             nd_calificacion.Value = jugador.getCalificacion();
+            foreach (Infraccion infraccion in jugador.getInfracciones())
+            {
+                listInfracciones.Items.Add(infraccion.ToString());
+            }
 
             bt_crear.Visible = false;
 

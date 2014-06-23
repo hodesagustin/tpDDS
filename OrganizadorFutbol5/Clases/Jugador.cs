@@ -51,5 +51,6 @@ namespace OrganizadorFutbol5.Clases
 
         public String getNombre() { return this.nombre; }
         public decimal getCalificacion() { return this.calificacion; }
+        public List<Infraccion> getInfracciones() { return infraccciones; }
     }
 }
