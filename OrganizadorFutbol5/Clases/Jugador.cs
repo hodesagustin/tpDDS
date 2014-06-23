@@ -13,7 +13,7 @@ namespace OrganizadorFutbol5.Clases
         public List<Jugador> amigos;
         List<Infraccion> infraccciones = new List<Infraccion>();
 
-        public Jugador(string nombreNuevo,decimal calif)
+        public Jugador(string nombreNuevo, decimal calif)
         {
             nombre = nombreNuevo;
             calificacion = calif;

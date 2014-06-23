@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using OrganizadorFutbol5.Ventanas;
 using OrganizadorFutbol5.Clases;
 
 namespace OrganizadorFutbol5.Ventanas
@@ -23,19 +23,17 @@ namespace OrganizadorFutbol5.Ventanas
         public void abrir(Jugador unJugador)
         {
             jugador = unJugador;
+            textBox1.Text = jugador.getNombre();
+            numericUpDown1.Value = jugador.getCalificacion();
 
-            txtNombre.Text = jugador.getNombre();
-            numCalificacion.Value = jugador.getCalificacion();
-
-            btnCrear.Visible = false;
+            button1.Visible = false;
 
             this.ShowDialog();
         }
 
-        private void btnCrear_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Inicio.jugadores.Add(new Jugador(txtNombre.Text, numCalificacion.Value));
-
+            HomeAdministrador.jugadores.Add(new Jugador(textBox1.Text, numericUpDown1.Value));
             this.Close();
         }
     }

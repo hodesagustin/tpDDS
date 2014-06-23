@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using OrganizadorFutbol5.Ventanas;
 
 namespace OrganizadorFutbol5
 {
@@ -15,7 +16,7 @@ namespace OrganizadorFutbol5
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Inicio());
+            Application.Run(new Login());
         }
     }
 }

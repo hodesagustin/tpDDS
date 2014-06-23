@@ -28,80 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.numCalificacion = new System.Windows.Forms.NumericUpDown();
-            this.lblCalificacion = new System.Windows.Forms.Label();
-            this.btnCrear = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numCalificacion)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtNombre
+            // label1
             // 
-            this.txtNombre.Location = new System.Drawing.Point(57, 12);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(223, 20);
-            this.txtNombre.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
             // 
-            // lblNombre
+            // label2
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(7, 15);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombre";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(31, 120);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "label2";
             // 
-            // numCalificacion
+            // textBox1
             // 
-            this.numCalificacion.DecimalPlaces = 1;
-            this.numCalificacion.Increment = new decimal(new int[] {
+            this.textBox1.Location = new System.Drawing.Point(129, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.DecimalPlaces = 1;
+            this.numericUpDown1.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numCalificacion.Location = new System.Drawing.Point(74, 49);
-            this.numCalificacion.Maximum = new decimal(new int[] {
+            this.numericUpDown1.Location = new System.Drawing.Point(129, 112);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numCalificacion.Name = "numCalificacion";
-            this.numCalificacion.Size = new System.Drawing.Size(206, 20);
-            this.numCalificacion.TabIndex = 4;
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 4;
             // 
-            // lblCalificacion
+            // button1
             // 
-            this.lblCalificacion.AutoSize = true;
-            this.lblCalificacion.Location = new System.Drawing.Point(7, 51);
-            this.lblCalificacion.Name = "lblCalificacion";
-            this.lblCalificacion.Size = new System.Drawing.Size(61, 13);
-            this.lblCalificacion.TabIndex = 5;
-            this.lblCalificacion.Text = "Calificacion";
-            // 
-            // btnCrear
-            // 
-            this.btnCrear.Location = new System.Drawing.Point(205, 93);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(75, 23);
-            this.btnCrear.TabIndex = 6;
-            this.btnCrear.Text = "Crear";
-            this.btnCrear.UseVisualStyleBackColor = true;
-            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            this.button1.Location = new System.Drawing.Point(197, 226);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormJugador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 127);
-            this.Controls.Add(this.btnCrear);
-            this.Controls.Add(this.lblCalificacion);
-            this.Controls.Add(this.numCalificacion);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lblNombre);
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Name = "FormJugador";
             this.Text = "FormJugador";
-            ((System.ComponentModel.ISupportInitialize)(this.numCalificacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,10 +109,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.NumericUpDown numCalificacion;
-        private System.Windows.Forms.Label lblCalificacion;
-        private System.Windows.Forms.Button btnCrear;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button button1;
     }
 }
