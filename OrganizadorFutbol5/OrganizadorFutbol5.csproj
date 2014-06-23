@@ -12,6 +12,9 @@
     <AssemblyName>OrganizadorFutbol5</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>mein fuhrer.ico</ApplicationIcon>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -85,6 +88,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -137,6 +141,15 @@
     <Compile Include="Ventanas\RegistroUsuario.Designer.cs">
       <DependentUpon>RegistroUsuario.cs</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mein Führer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mein fuhrer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mein fuhrer.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilidades\" />
