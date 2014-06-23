@@ -28,105 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1.SuspendLayout();
+            this.gb_datosPartido = new System.Windows.Forms.GroupBox();
+            this.dateFecha = new System.Windows.Forms.DateTimePicker();
+            this.tb_nombrePartido = new System.Windows.Forms.TextBox();
+            this.ll_fecha = new System.Windows.Forms.Label();
+            this.ll_nombrePartido = new System.Windows.Forms.Label();
+            this.bt_aplicar = new System.Windows.Forms.Button();
+            this.bt_cancelar = new System.Windows.Forms.Button();
+            this.gb_datosPartido.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gb_datosPartido
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(391, 144);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.gb_datosPartido.Controls.Add(this.dateFecha);
+            this.gb_datosPartido.Controls.Add(this.tb_nombrePartido);
+            this.gb_datosPartido.Controls.Add(this.ll_fecha);
+            this.gb_datosPartido.Controls.Add(this.ll_nombrePartido);
+            this.gb_datosPartido.Location = new System.Drawing.Point(12, 12);
+            this.gb_datosPartido.Name = "gb_datosPartido";
+            this.gb_datosPartido.Size = new System.Drawing.Size(457, 93);
+            this.gb_datosPartido.TabIndex = 0;
+            this.gb_datosPartido.TabStop = false;
+            this.gb_datosPartido.Text = "Datos del Partido";
             // 
-            // label1
+            // dateFecha
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.dateFecha.Location = new System.Drawing.Point(107, 64);
+            this.dateFecha.Name = "dateFecha";
+            this.dateFecha.Size = new System.Drawing.Size(344, 20);
+            this.dateFecha.TabIndex = 3;
             // 
-            // label2
+            // tb_nombrePartido
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.tb_nombrePartido.Location = new System.Drawing.Point(107, 38);
+            this.tb_nombrePartido.Name = "tb_nombrePartido";
+            this.tb_nombrePartido.Size = new System.Drawing.Size(344, 20);
+            this.tb_nombrePartido.TabIndex = 2;
             // 
-            // button1
+            // ll_fecha
             // 
-            this.button1.Location = new System.Drawing.Point(41, 211);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ll_fecha.AutoSize = true;
+            this.ll_fecha.Location = new System.Drawing.Point(21, 64);
+            this.ll_fecha.Name = "ll_fecha";
+            this.ll_fecha.Size = new System.Drawing.Size(37, 13);
+            this.ll_fecha.TabIndex = 1;
+            this.ll_fecha.Text = "Fecha";
             // 
-            // button2
+            // ll_nombrePartido
             // 
-            this.button2.Location = new System.Drawing.Point(208, 210);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ll_nombrePartido.AutoSize = true;
+            this.ll_nombrePartido.Location = new System.Drawing.Point(21, 41);
+            this.ll_nombrePartido.Name = "ll_nombrePartido";
+            this.ll_nombrePartido.Size = new System.Drawing.Size(80, 13);
+            this.ll_nombrePartido.TabIndex = 0;
+            this.ll_nombrePartido.Text = "Nombre Partido";
             // 
-            // textBox1
+            // bt_aplicar
             // 
-            this.textBox1.Location = new System.Drawing.Point(107, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.bt_aplicar.Location = new System.Drawing.Point(12, 111);
+            this.bt_aplicar.Name = "bt_aplicar";
+            this.bt_aplicar.Size = new System.Drawing.Size(75, 23);
+            this.bt_aplicar.TabIndex = 1;
+            this.bt_aplicar.Text = "Aplicar";
+            this.bt_aplicar.UseVisualStyleBackColor = true;
+            this.bt_aplicar.Click += new System.EventHandler(this.bt_aplicar_Click);
             // 
-            // dateTimePicker1
+            // bt_cancelar
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(107, 87);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.bt_cancelar.Location = new System.Drawing.Point(394, 111);
+            this.bt_cancelar.Name = "bt_cancelar";
+            this.bt_cancelar.Size = new System.Drawing.Size(75, 23);
+            this.bt_cancelar.TabIndex = 2;
+            this.bt_cancelar.Text = "Cancelar";
+            this.bt_cancelar.UseVisualStyleBackColor = true;
+            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
             // 
             // CrearPartido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 261);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(481, 146);
+            this.Controls.Add(this.bt_cancelar);
+            this.Controls.Add(this.bt_aplicar);
+            this.Controls.Add(this.gb_datosPartido);
             this.Name = "CrearPartido";
             this.Text = "CrearPartido";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gb_datosPartido.ResumeLayout(false);
+            this.gb_datosPartido.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox gb_datosPartido;
+        private System.Windows.Forms.DateTimePicker dateFecha;
+        private System.Windows.Forms.TextBox tb_nombrePartido;
+        private System.Windows.Forms.Label ll_fecha;
+        private System.Windows.Forms.Label ll_nombrePartido;
+        private System.Windows.Forms.Button bt_aplicar;
+        private System.Windows.Forms.Button bt_cancelar;
     }
 }

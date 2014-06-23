@@ -18,14 +18,14 @@ namespace OrganizadorFutbol5.Ventanas
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bt_aplicar_Click(object sender, EventArgs e)
         {
-            Partido partido = new Partido(textBox1.Text, dateTimePicker1.Value);
+            Partido partido = new Partido(tb_nombrePartido.Text, dateFecha.Value);
             HomeAdministrador.partidos.Add(partido);
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bt_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }

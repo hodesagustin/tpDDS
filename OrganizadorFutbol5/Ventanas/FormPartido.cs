@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OrganizadorFutbol5.Clases;
-using OrganizadorFurbol5.Ventanas;
+using OrganizadorFutbol5.Ventanas;
 
 namespace OrganizadorFutbol5.Ventanas
 {
@@ -24,12 +24,12 @@ namespace OrganizadorFutbol5.Ventanas
         {
             partido = unPartido;
 
-            textBox1.Text = partido.getNombre();
-            textBox2.Text = partido.fecha.ToString();
-            llenarListBox(listBox1, partido.getInscriptosStandard());
-            llenarListBox(listBox2, partido.getInscriptosSolidarios());
-            llenarListBox(listBox3, partido.getInscriptosCondicionales());
-            textBox3.Text = partido.getCantidadDeInscriptos().ToString();
+            tb_nombre.Text = partido.getNombre();
+            tb_fecha.Text = partido.fecha.ToString();
+            llenarListBox(lb_inscriptosStandard, partido.getInscriptosStandard());
+            llenarListBox(lb_inscriptosSolidarios, partido.getInscriptosSolidarios());
+            llenarListBox(lb_inscriptosCondicionales, partido.getInscriptosCondicionales());
+            tb_cantidadInscriptos.Text = partido.getCantidadDeInscriptos().ToString();
 
             this.ShowDialog();
         }
@@ -53,37 +53,37 @@ namespace OrganizadorFutbol5.Ventanas
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bt_darDeBajaStandard_Click(object sender, EventArgs e)
         {
             if (isStandardSeleccionado())
             {
-                partido.darDeBaja(partido.getInscriptosStandard()[listBox1.SelectedIndex]);
-                llenarListBox(listBox1, partido.getInscriptosStandard());
-                textBox3.Text = partido.getCantidadDeInscriptos().ToString();
+                partido.darDeBaja(partido.getInscriptosStandard()[lb_inscriptosStandard.SelectedIndex]);
+                llenarListBox(lb_inscriptosStandard, partido.getInscriptosStandard());
+                tb_cantidadInscriptos.Text = partido.getCantidadDeInscriptos().ToString();
             }
             else
                 MessageBox.Show("Debe seleccionarl un Jugador Standard");
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void bt_darDeBajaSolidario_Click(object sender, EventArgs e)
         {
             if (isSolidarioSeleccionado())
             {
-                partido.darDeBaja(partido.getInscriptosSolidarios()[listBox2.SelectedIndex]);
-                llenarListBox(listBox2, partido.getInscriptosSolidarios());
-                textBox3.Text = partido.getCantidadDeInscriptos().ToString();
+                partido.darDeBaja(partido.getInscriptosSolidarios()[lb_inscriptosSolidarios.SelectedIndex]);
+                llenarListBox(lb_inscriptosSolidarios, partido.getInscriptosSolidarios());
+                tb_cantidadInscriptos.Text = partido.getCantidadDeInscriptos().ToString();
             }
             else
                 MessageBox.Show("Debe seleccionarl un Jugador Solidario");
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void bt_darDeBajaCondicional_Click(object sender, EventArgs e)
         {
             if (isCondicionalSeleccionado())
             {
-                partido.darDeBaja(partido.getInscriptosCondicionales()[listBox3.SelectedIndex]);
-                llenarListBox(listBox3, partido.getInscriptosCondicionales());
-                textBox3.Text = partido.getCantidadDeInscriptos().ToString();
+                partido.darDeBaja(partido.getInscriptosCondicionales()[lb_inscriptosCondicionales.SelectedIndex]);
+                llenarListBox(lb_inscriptosCondicionales, partido.getInscriptosCondicionales());
+                tb_cantidadInscriptos.Text = partido.getCantidadDeInscriptos().ToString();
             }
             else
                 MessageBox.Show("Debe seleccionarl un Jugador Condicional");
@@ -91,58 +91,56 @@ namespace OrganizadorFutbol5.Ventanas
 
         private bool isStandardSeleccionado()
         {
-            return listBox1.SelectedIndex != -1;
+            return lb_inscriptosStandard.SelectedIndex != -1;
         }
 
         private bool isSolidarioSeleccionado()
         {
-            return listBox2.SelectedIndex != -1;
+            return lb_inscriptosSolidarios.SelectedIndex != -1;
         }
 
         private bool isCondicionalSeleccionado()
         {
-            return listBox3.SelectedIndex != -1;
+            return lb_inscriptosCondicionales.SelectedIndex != -1;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bt_reemplazarStandard_Click(object sender, EventArgs e)
         {
             if (isStandardSeleccionado())
             {
-                Jugador reemplazado = partido.getInscriptosStandard()[listBox1.SelectedIndex];
+                Jugador reemplazado = partido.getInscriptosStandard()[lb_inscriptosStandard.SelectedIndex];
                 Jugador reemplazo = new Jugador("Reemplazo Standard", (decimal)9.9);
                 HomeAdministrador.jugadores.Add(reemplazo);
 
                 partido.reemplazar(reemplazado, reemplazo);
-                llenarListBox(listBox1, partido.getInscriptosStandard());
+                llenarListBox(lb_inscriptosStandard, partido.getInscriptosStandard());
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void bt_reemplazarSolidario_Click(object sender, EventArgs e)
         {
             if (isSolidarioSeleccionado())
             {
-                Jugador reemplazado = partido.getInscriptosSolidarios()[listBox2.SelectedIndex];
+                Jugador reemplazado = partido.getInscriptosSolidarios()[lb_inscriptosSolidarios.SelectedIndex];
                 Jugador reemplazo = new Jugador("Reemplazo Solidario", 5);
                 HomeAdministrador.jugadores.Add(reemplazo);
 
                 partido.reemplazar(reemplazado, reemplazo);
-                llenarListBox(listBox2, partido.getInscriptosSolidarios());
+                llenarListBox(lb_inscriptosSolidarios, partido.getInscriptosSolidarios());
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void bt_reemplazarCondicional_Click(object sender, EventArgs e)
         {
             if (isCondicionalSeleccionado())
             {
-                JugadorCondicional reemplazado = partido.getInscriptosCondicionales()[listBox3.SelectedIndex];
+                JugadorCondicional reemplazado = partido.getInscriptosCondicionales()[lb_inscriptosCondicionales.SelectedIndex];
                 JugadorCondicional reemplazo = new JugadorCondicional("Reemplazo Condicional", 1, new Condicion());
-                HomeAdministrador.jugadores.Add(reemplazo);
+                HomeAdministrador.jugadoresCondicionales.Add(reemplazo);
 
                 partido.reemplazar(reemplazado, reemplazo);
-                llenarListBox(listBox3, partido.getInscriptosCondicionales());
+                llenarListBox(lb_inscriptosCondicionales, partido.getInscriptosCondicionales());
             }
         }
-
-
     }
 }

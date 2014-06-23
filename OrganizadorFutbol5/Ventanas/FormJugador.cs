@@ -23,17 +23,17 @@ namespace OrganizadorFutbol5.Ventanas
         public void abrir(Jugador unJugador)
         {
             jugador = unJugador;
-            textBox1.Text = jugador.getNombre();
-            numericUpDown1.Value = jugador.getCalificacion();
+            tb_nombre.Text = jugador.getNombre();
+            nd_calificacion.Value = jugador.getCalificacion();
 
-            button1.Visible = false;
+            bt_crear.Visible = false;
 
             this.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bt_crear_Click(object sender, EventArgs e)
         {
-            HomeAdministrador.jugadores.Add(new Jugador(textBox1.Text, numericUpDown1.Value));
+            HomeAdministrador.jugadores.Add(new Jugador(tb_nombre.Text, nd_calificacion.Value));
             this.Close();
         }
     }

@@ -30,222 +30,214 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_nombre = new System.Windows.Forms.TextBox();
+            this.tb_fecha = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.lb_inscriptosStandard = new System.Windows.Forms.ListBox();
+            this.lb_inscriptosCondicionales = new System.Windows.Forms.ListBox();
+            this.lb_inscriptosSolidarios = new System.Windows.Forms.ListBox();
+            this.bt_darDeBajaStandard = new System.Windows.Forms.Button();
+            this.bt_reemplazarStandard = new System.Windows.Forms.Button();
+            this.bt_darDeBajaSolidario = new System.Windows.Forms.Button();
+            this.bt_reemplazarSolidario = new System.Windows.Forms.Button();
+            this.bt_darDeBajaCondicional = new System.Windows.Forms.Button();
+            this.bt_reemplazarCondicional = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tb_cantidadInscriptos = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 22);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label1.Text = "Nombre";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 51);
+            this.label2.Location = new System.Drawing.Point(12, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.label2.Text = "Fecha";
             // 
-            // textBox1
+            // tb_nombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(87, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.tb_nombre.Location = new System.Drawing.Point(62, 6);
+            this.tb_nombre.Name = "tb_nombre";
+            this.tb_nombre.Size = new System.Drawing.Size(293, 20);
+            this.tb_nombre.TabIndex = 2;
             // 
-            // textBox2
+            // tb_fecha
             // 
-            this.textBox2.Location = new System.Drawing.Point(87, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.tb_fecha.Location = new System.Drawing.Point(62, 32);
+            this.tb_fecha.Name = "tb_fecha";
+            this.tb_fecha.Size = new System.Drawing.Size(293, 20);
+            this.tb_fecha.TabIndex = 3;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.listBox3);
-            this.groupBox1.Controls.Add(this.listBox2);
-            this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(25, 94);
+            this.groupBox1.Controls.Add(this.lb_inscriptosStandard);
+            this.groupBox1.Location = new System.Drawing.Point(12, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(644, 193);
+            this.groupBox1.Size = new System.Drawing.Size(169, 193);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Inscriptos Standard";
             // 
-            // listBox1
+            // lb_inscriptosStandard
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(25, 81);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 0;
+            this.lb_inscriptosStandard.FormattingEnabled = true;
+            this.lb_inscriptosStandard.Location = new System.Drawing.Point(11, 19);
+            this.lb_inscriptosStandard.Name = "lb_inscriptosStandard";
+            this.lb_inscriptosStandard.Size = new System.Drawing.Size(143, 160);
+            this.lb_inscriptosStandard.TabIndex = 0;
             // 
-            // listBox2
+            // lb_inscriptosCondicionales
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(219, 81);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 95);
-            this.listBox2.TabIndex = 1;
+            this.lb_inscriptosCondicionales.FormattingEnabled = true;
+            this.lb_inscriptosCondicionales.Location = new System.Drawing.Point(15, 19);
+            this.lb_inscriptosCondicionales.Name = "lb_inscriptosCondicionales";
+            this.lb_inscriptosCondicionales.Size = new System.Drawing.Size(143, 160);
+            this.lb_inscriptosCondicionales.TabIndex = 2;
             // 
-            // listBox3
+            // lb_inscriptosSolidarios
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(489, 81);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(120, 95);
-            this.listBox3.TabIndex = 2;
+            this.lb_inscriptosSolidarios.FormattingEnabled = true;
+            this.lb_inscriptosSolidarios.Location = new System.Drawing.Point(11, 19);
+            this.lb_inscriptosSolidarios.Name = "lb_inscriptosSolidarios";
+            this.lb_inscriptosSolidarios.Size = new System.Drawing.Size(143, 160);
+            this.lb_inscriptosSolidarios.TabIndex = 1;
             // 
-            // label3
+            // bt_darDeBajaStandard
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "label3";
+            this.bt_darDeBajaStandard.Location = new System.Drawing.Point(23, 257);
+            this.bt_darDeBajaStandard.Name = "bt_darDeBajaStandard";
+            this.bt_darDeBajaStandard.Size = new System.Drawing.Size(75, 23);
+            this.bt_darDeBajaStandard.TabIndex = 5;
+            this.bt_darDeBajaStandard.Text = "Dar de Baja";
+            this.bt_darDeBajaStandard.UseVisualStyleBackColor = true;
+            this.bt_darDeBajaStandard.Click += new System.EventHandler(this.bt_darDeBajaStandard_Click);
             // 
-            // label4
+            // bt_reemplazarStandard
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(216, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "label4";
+            this.bt_reemplazarStandard.Location = new System.Drawing.Point(23, 283);
+            this.bt_reemplazarStandard.Name = "bt_reemplazarStandard";
+            this.bt_reemplazarStandard.Size = new System.Drawing.Size(75, 23);
+            this.bt_reemplazarStandard.TabIndex = 6;
+            this.bt_reemplazarStandard.Text = "Reemplazar";
+            this.bt_reemplazarStandard.UseVisualStyleBackColor = true;
+            this.bt_reemplazarStandard.Click += new System.EventHandler(this.bt_reemplazarStandard_Click);
             // 
-            // label5
+            // bt_darDeBajaSolidario
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(503, 45);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "label5";
+            this.bt_darDeBajaSolidario.Location = new System.Drawing.Point(198, 257);
+            this.bt_darDeBajaSolidario.Name = "bt_darDeBajaSolidario";
+            this.bt_darDeBajaSolidario.Size = new System.Drawing.Size(75, 23);
+            this.bt_darDeBajaSolidario.TabIndex = 7;
+            this.bt_darDeBajaSolidario.Text = "Dar de Baja";
+            this.bt_darDeBajaSolidario.UseVisualStyleBackColor = true;
+            this.bt_darDeBajaSolidario.Click += new System.EventHandler(this.bt_darDeBajaSolidario_Click);
             // 
-            // button1
+            // bt_reemplazarSolidario
             // 
-            this.button1.Location = new System.Drawing.Point(23, 293);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bt_reemplazarSolidario.Location = new System.Drawing.Point(198, 283);
+            this.bt_reemplazarSolidario.Name = "bt_reemplazarSolidario";
+            this.bt_reemplazarSolidario.Size = new System.Drawing.Size(75, 23);
+            this.bt_reemplazarSolidario.TabIndex = 8;
+            this.bt_reemplazarSolidario.Text = "Reemplazar";
+            this.bt_reemplazarSolidario.UseVisualStyleBackColor = true;
+            this.bt_reemplazarSolidario.Click += new System.EventHandler(this.bt_reemplazarSolidario_Click);
             // 
-            // button2
+            // bt_darDeBajaCondicional
             // 
-            this.button2.Location = new System.Drawing.Point(28, 323);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.bt_darDeBajaCondicional.Location = new System.Drawing.Point(376, 257);
+            this.bt_darDeBajaCondicional.Name = "bt_darDeBajaCondicional";
+            this.bt_darDeBajaCondicional.Size = new System.Drawing.Size(75, 23);
+            this.bt_darDeBajaCondicional.TabIndex = 9;
+            this.bt_darDeBajaCondicional.Text = "Dar de Baja";
+            this.bt_darDeBajaCondicional.UseVisualStyleBackColor = true;
+            this.bt_darDeBajaCondicional.Click += new System.EventHandler(this.bt_darDeBajaCondicional_Click);
             // 
-            // button3
+            // bt_reemplazarCondicional
             // 
-            this.button3.Location = new System.Drawing.Point(232, 294);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(244, 324);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(514, 294);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(514, 322);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.bt_reemplazarCondicional.Location = new System.Drawing.Point(376, 283);
+            this.bt_reemplazarCondicional.Name = "bt_reemplazarCondicional";
+            this.bt_reemplazarCondicional.Size = new System.Drawing.Size(75, 23);
+            this.bt_reemplazarCondicional.TabIndex = 10;
+            this.bt_reemplazarCondicional.Text = "Reemplazar";
+            this.bt_reemplazarCondicional.UseVisualStyleBackColor = true;
+            this.bt_reemplazarCondicional.Click += new System.EventHandler(this.bt_reemplazarCondicional_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 404);
+            this.label6.Location = new System.Drawing.Point(366, 322);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(112, 13);
             this.label6.TabIndex = 11;
-            this.label6.Text = "label6";
+            this.label6.Text = "Cantidad de Inscriptos";
             // 
-            // textBox3
+            // tb_cantidadInscriptos
             // 
-            this.textBox3.Location = new System.Drawing.Point(106, 404);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 12;
+            this.tb_cantidadInscriptos.Location = new System.Drawing.Point(484, 319);
+            this.tb_cantidadInscriptos.Name = "tb_cantidadInscriptos";
+            this.tb_cantidadInscriptos.Size = new System.Drawing.Size(50, 20);
+            this.tb_cantidadInscriptos.TabIndex = 12;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lb_inscriptosSolidarios);
+            this.groupBox2.Location = new System.Drawing.Point(187, 58);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(168, 193);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Inscriptos Solidarios";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lb_inscriptosCondicionales);
+            this.groupBox3.Location = new System.Drawing.Point(361, 58);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(168, 193);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Inscriptos Condicionales";
             // 
             // FormPartido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 454);
-            this.Controls.Add(this.textBox3);
+            this.ClientSize = new System.Drawing.Size(546, 346);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.tb_cantidadInscriptos);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bt_reemplazarCondicional);
+            this.Controls.Add(this.bt_darDeBajaCondicional);
+            this.Controls.Add(this.bt_reemplazarSolidario);
+            this.Controls.Add(this.bt_darDeBajaSolidario);
+            this.Controls.Add(this.bt_reemplazarStandard);
+            this.Controls.Add(this.bt_darDeBajaStandard);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_fecha);
+            this.Controls.Add(this.tb_nombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormPartido";
             this.Text = "FormPartido";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,22 +247,21 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tb_nombre;
+        private System.Windows.Forms.TextBox tb_fecha;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ListBox lb_inscriptosCondicionales;
+        private System.Windows.Forms.ListBox lb_inscriptosSolidarios;
+        private System.Windows.Forms.ListBox lb_inscriptosStandard;
+        private System.Windows.Forms.Button bt_darDeBajaStandard;
+        private System.Windows.Forms.Button bt_reemplazarStandard;
+        private System.Windows.Forms.Button bt_darDeBajaSolidario;
+        private System.Windows.Forms.Button bt_reemplazarSolidario;
+        private System.Windows.Forms.Button bt_darDeBajaCondicional;
+        private System.Windows.Forms.Button bt_reemplazarCondicional;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_cantidadInscriptos;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

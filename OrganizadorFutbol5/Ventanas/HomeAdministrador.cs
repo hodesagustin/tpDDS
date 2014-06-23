@@ -51,7 +51,7 @@ namespace OrganizadorFutbol5.Ventanas
             jugadoresCondicionales.Add(new JugadorCondicional("Jugador Condicional 03", (decimal)2.1, new Condicion()));
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bt_crearPartido_Click(object sender, EventArgs e)
         {
             CrearPartido crearPartido = new CrearPartido();
             crearPartido.ShowDialog();
@@ -60,28 +60,28 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void llenarListaPartidos()
         {
-            listBox1.Items.Clear();
+            lb_listaPartidos.Items.Clear();
             foreach (Partido partido in partidos)
             {
-                listBox1.Items.Add(partido.ToString());
+                lb_listaPartidos.Items.Add(partido.ToString());
             }
         }
 
         private void llenarListaJugadores()
         {
-            listBox2.Items.Clear();
+            lb_jugadores.Items.Clear();
             foreach (Jugador jugador in jugadores)
             {
-                listBox2.Items.Add(jugador.ToString());
+                lb_jugadores.Items.Add(jugador.ToString());
             }
         }
 
         private void llenarListaJugadoresCondicionales()
         {
-            listBox3.Items.Clear();
+            lb_jugadoresCondicionales.Items.Clear();
             foreach (JugadorCondicional jugadorCondicional in jugadoresCondicionales)
             {
-                listBox3.Items.Add(jugadorCondicional.ToString());
+                lb_jugadoresCondicionales.Items.Add(jugadorCondicional.ToString());
             }
         }
 
@@ -106,15 +106,15 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox1.Text = listBox1.Text;
+            tb_partidoSeleccionado.Text = lb_listaPartidos.Text;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void bt_inscribirStandard_Click(object sender, EventArgs e)
         {
             if (isPartidoSeleccionado() && isJugadorSeleccionado())
             {
-                Partido partidoSeleccionado = partidos[listBox1.SelectedIndex];
-                Jugador jugadorSeleccionado = jugadores[listBox2.SelectedIndex];
+                Partido partidoSeleccionado = partidos[lb_listaPartidos.SelectedIndex];
+                Jugador jugadorSeleccionado = jugadores[lb_jugadores.SelectedIndex];
 
                 partidoSeleccionado.inscribirStandard(jugadorSeleccionado);
                 MessageBox.Show("Inscripcion Realizada");
@@ -127,25 +127,25 @@ namespace OrganizadorFutbol5.Ventanas
 
         private bool isJugadorSeleccionado()
         {
-            return listBox2.SelectedIndex != -1;
+            return lb_jugadores.SelectedIndex != -1;
         }
 
         private bool isJugadorCondicionalSeleccionado()
         {
-            return listBox3.SelectedIndex != -1;
+            return lb_jugadoresCondicionales.SelectedIndex != -1;
         }
 
         private bool isPartidoSeleccionado()
         {
-            return listBox1.SelectedIndex != -1;
+            return lb_listaPartidos.SelectedIndex != -1;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bt_abrirPartido_Click(object sender, EventArgs e)
         {
             if (isPartidoSeleccionado())
             {
                 FormPartido formPartido = new FormPartido();
-                formPartido.abrir(partidos[listBox1.SelectedIndex]);
+                formPartido.abrir(partidos[lb_listaPartidos.SelectedIndex]);
 
                 llenarListaPartidos();
                 llenarListaJugadores();
@@ -155,23 +155,23 @@ namespace OrganizadorFutbol5.Ventanas
                 MessageBox.Show("Debe seleccionar Partido");
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void bt_abrirJugador_Click(object sender, EventArgs e)
         {
             if (isJugadorSeleccionado())
             {
                 FormJugador formJugador = new FormJugador();
-                formJugador.abrir(partidos[listBox2.SelectedIndex]);
+                formJugador.abrir(jugadores[lb_jugadores.SelectedIndex]);
             }
             else
                 MessageBox.Show("Debe seleccionar Jugador");
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void bt_inscribirSolidario_Click(object sender, EventArgs e)
         {
             if (isPartidoSeleccionado() && isJugadorSeleccionado())
             {
-                Partido partidoSeleccionado = partidos[listBox1.SelectedIndex];
-                Jugador jugadorSeleccionado = jugadores[listBox2.SelectedIndex];
+                Partido partidoSeleccionado = partidos[lb_listaPartidos.SelectedIndex];
+                Jugador jugadorSeleccionado = jugadores[lb_jugadores.SelectedIndex];
 
                 partidoSeleccionado.inscribirSolidario(jugadorSeleccionado);
                 MessageBox.Show("Inscripcion Realizada");
@@ -182,19 +182,19 @@ namespace OrganizadorFutbol5.Ventanas
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void bt_crearJugador_Click(object sender, EventArgs e)
         {
             FormJugador formJugador = new FormJugador();
             formJugador.ShowDialog();
             llenarListaJugadores();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void bt_inscribirCondicional_Click(object sender, EventArgs e)
         {
             if (isPartidoSeleccionado() && isJugadorCondicionalSeleccionado())
             {
-                Partido partidoSeleccionado = partidos[listBox1.SelectedIndex];
-                JugadorCondicional jugadorCondicionalSeleccionado = jugadoresCondicionales[listBox3.SelectedIndex];
+                Partido partidoSeleccionado = partidos[lb_listaPartidos.SelectedIndex];
+                JugadorCondicional jugadorCondicionalSeleccionado = jugadoresCondicionales[lb_jugadoresCondicionales.SelectedIndex];
 
                 partidoSeleccionado.inscribirCondicional(jugadorCondicionalSeleccionado);
                 MessageBox.Show("Inscripcion Realizada");
