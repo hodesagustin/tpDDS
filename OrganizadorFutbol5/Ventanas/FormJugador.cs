@@ -29,7 +29,10 @@ namespace OrganizadorFutbol5.Ventanas
             {
                 listInfracciones.Items.Add(infraccion.ToString());
             }
-
+            foreach (String notificacion in jugador.getNotificador().getNotificaciones())
+            {
+                listNotificaciones.Items.Add(notificacion);
+            }
             bt_crear.Visible = false;
 
             this.ShowDialog();

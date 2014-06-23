@@ -32,10 +32,19 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void crearJugadores()
         {
-            jugadores.Add(new Jugador("Jugador 01", 7));
-            jugadores.Add(new Jugador("Jugador 02", (decimal) 8.5));
-            jugadores.Add(new Jugador("Jugador 03", 9));
-            jugadores.Add(new Jugador("Jugador 04", 4));
+            Jugador jugador1 = new Jugador("Jugador 01", 7);
+            Jugador jugador2 = new Jugador("Jugador 02", (decimal) 8.5);
+            Jugador jugador3 = new Jugador("Jugador 03", 9);
+            Jugador jugador4 = new Jugador("Jugador 04", 4);
+
+            jugador1.agregarAmigo(jugador2);
+            jugador1.agregarAmigo(jugador3);
+            jugador1.agregarAmigo(jugador4);
+
+            jugadores.Add(jugador1);
+            jugadores.Add(jugador2);
+            jugadores.Add(jugador3);
+            jugadores.Add(jugador4);
             jugadores.Add(new Jugador("Jugador 05", 3));
             jugadores.Add(new Jugador("Jugador 06", 9));
             jugadores.Add(new Jugador("Jugador 07", (decimal)6.2));

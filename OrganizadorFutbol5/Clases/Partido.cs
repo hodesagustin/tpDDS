@@ -62,12 +62,14 @@ namespace OrganizadorFutbol5.Clases
         void anotar(Jugador jugador, List<Jugador> lista)
         {
             lista.Add(jugador);
+            jugador.avisarInscripcion(this);
             if (getCantidadDeInscriptos() == 10)
                 notificador.notify("Se ha llegado a los 10 jugadores inscriptos", admin);
         }
         void anotar(JugadorCondicional jugadorCondicional, List<JugadorCondicional> lista)
         {
             lista.Add(jugadorCondicional);
+            jugadorCondicional.avisarInscripcion(this);
             if (getCantidadDeInscriptos() == 10)
                 notificador.notify("Se ha llegado a los 10 jugadores inscriptos", admin);
         }

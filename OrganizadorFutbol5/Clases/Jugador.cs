@@ -9,8 +9,8 @@ namespace OrganizadorFutbol5.Clases
     {
         public decimal calificacion;
         public Partido partido;
-        public Notificador notificador;
-        public List<Jugador> amigos;
+        public Notificador notificador = new Notificador();
+        public List<Jugador> amigos = new List<Jugador>();
         List<Infraccion> infraccciones = new List<Infraccion>();
 
         public Jugador(string nombreNuevo, decimal calif) :base(nombreNuevo)
@@ -28,9 +28,10 @@ namespace OrganizadorFutbol5.Clases
             partido.inscribirSolidario(this);
         }
 
-        void avisarInscripcion(Partido partido)
+        public void avisarInscripcion(Partido partido)
         {
-            string mensaje = "Me he anotado para un partido el día y hora:" + partido.fecha.ToString();
+            //string mensaje = "Me he anotado para un partido el día y hora:" + partido.fecha.ToString();
+            string mensaje = "Me he anotado para " + partido.ToString();
 
             foreach (Jugador amigo in amigos)
             {
@@ -43,6 +44,11 @@ namespace OrganizadorFutbol5.Clases
             infraccciones.Add(infraccion);
         }
 
+        public void agregarAmigo(Jugador amigo)
+        { 
+            amigos.Add(amigo); 
+        }
+
         override public String ToString()
         {
             return this.nombre + " (" + calificacion + ")";
@@ -51,5 +57,7 @@ namespace OrganizadorFutbol5.Clases
         public String getNombre() { return this.nombre; }
         public decimal getCalificacion() { return this.calificacion; }
         public List<Infraccion> getInfracciones() { return infraccciones; }
+        public List<Jugador> getAmigos() { return amigos; }
+        public Notificador getNotificador() { return notificador; }
     }
 }

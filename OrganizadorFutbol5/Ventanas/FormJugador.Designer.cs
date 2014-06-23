@@ -35,6 +35,8 @@
             this.bt_crear = new System.Windows.Forms.Button();
             this.lblInfracciones = new System.Windows.Forms.Label();
             this.listInfracciones = new System.Windows.Forms.ListBox();
+            this.lblNotificaciones = new System.Windows.Forms.Label();
+            this.listNotificaciones = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.nd_calificacion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +85,7 @@
             // 
             // bt_crear
             // 
-            this.bt_crear.Location = new System.Drawing.Point(197, 217);
+            this.bt_crear.Location = new System.Drawing.Point(335, 311);
             this.bt_crear.Name = "bt_crear";
             this.bt_crear.Size = new System.Drawing.Size(75, 23);
             this.bt_crear.TabIndex = 4;
@@ -108,11 +110,31 @@
             this.listInfracciones.Size = new System.Drawing.Size(257, 95);
             this.listInfracciones.TabIndex = 6;
             // 
+            // lblNotificaciones
+            // 
+            this.lblNotificaciones.AutoSize = true;
+            this.lblNotificaciones.Location = new System.Drawing.Point(12, 184);
+            this.lblNotificaciones.Name = "lblNotificaciones";
+            this.lblNotificaciones.Size = new System.Drawing.Size(74, 13);
+            this.lblNotificaciones.TabIndex = 18;
+            this.lblNotificaciones.Text = "Notificaciones";
+            // 
+            // listNotificaciones
+            // 
+            this.listNotificaciones.FormattingEnabled = true;
+            this.listNotificaciones.Location = new System.Drawing.Point(12, 200);
+            this.listNotificaciones.MultiColumn = true;
+            this.listNotificaciones.Name = "listNotificaciones";
+            this.listNotificaciones.Size = new System.Drawing.Size(398, 95);
+            this.listNotificaciones.TabIndex = 17;
+            // 
             // FormJugador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 252);
+            this.ClientSize = new System.Drawing.Size(422, 346);
+            this.Controls.Add(this.lblNotificaciones);
+            this.Controls.Add(this.listNotificaciones);
             this.Controls.Add(this.listInfracciones);
             this.Controls.Add(this.lblInfracciones);
             this.Controls.Add(this.bt_crear);
@@ -137,5 +159,7 @@
         private System.Windows.Forms.Button bt_crear;
         private System.Windows.Forms.Label lblInfracciones;
         private System.Windows.Forms.ListBox listInfracciones;
+        private System.Windows.Forms.Label lblNotificaciones;
+        private System.Windows.Forms.ListBox listNotificaciones;
     }
 }
