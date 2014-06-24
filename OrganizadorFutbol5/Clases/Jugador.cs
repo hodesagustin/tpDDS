@@ -7,17 +7,18 @@ namespace OrganizadorFutbol5.Clases
 {
     public class Jugador : Persona
     {
-        public decimal calificacion;
-        public Partido partido;
+        private List<decimal> calificaciones = new List<decimal>();
+        //private List<Partido> partidos = new List<Partido>();
         public Notificador notificador = new Notificador();
         public List<Jugador> amigos = new List<Jugador>();
         List<Infraccion> infraccciones = new List<Infraccion>();
 
-        public Jugador(string nombreNuevo, decimal calif) :base(nombreNuevo)
+        public Jugador(string nombreNuevo, decimal calificacion) :base(nombreNuevo)
         {
-            calificacion = calif;
+            this.agregarCalificacion(calificacion);
         }
 
+        /*
         void inscripcionStandard()
         {
             partido.inscribirStandard(this);
@@ -27,16 +28,21 @@ namespace OrganizadorFutbol5.Clases
         {
             partido.inscribirSolidario(this);
         }
+        */
 
         public void avisarInscripcion(Partido partido)
         {
-            //string mensaje = "Me he anotado para un partido el día y hora:" + partido.fecha.ToString();
             string mensaje = "Me he anotado para " + partido.ToString();
 
             foreach (Jugador amigo in amigos)
             {
                 notificador.notify(mensaje, amigo);
             }
+        }
+
+        public void agregarCalificacion(decimal calificacion)
+        {
+            calificaciones.Add(calificacion);
         }
 
         public void agregarInfraccion(Infraccion infraccion)
@@ -51,11 +57,14 @@ namespace OrganizadorFutbol5.Clases
 
         override public String ToString()
         {
-            return this.nombre + " (" + calificacion + ")";
+            return this.getNombre() + " (" + this.getCalificacion() + ")";
+        }
+        public override bool Equals(object obj)
+        {
+            return this.ToString().Equals(obj.ToString());
         }
 
-        public String getNombre() { return this.nombre; }
-        public decimal getCalificacion() { return this.calificacion; }
+        public decimal getCalificacion() { return calificaciones.Average(); }
         public List<Infraccion> getInfracciones() { return infraccciones; }
         public List<Jugador> getAmigos() { return amigos; }
         public Notificador getNotificador() { return notificador; }

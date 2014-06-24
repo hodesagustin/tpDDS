@@ -13,12 +13,20 @@ namespace OrganizadorFutbol5.Clases
             condicion = unaCondicion;
         }
 
-        public Condicion condicion;
+        private Condicion condicion;
 
+        /*
         void inscripcionCondicional()
         {
             if (condicion.cumple(this.partido))
                 this.partido.inscribirCondicional(this);
+        }
+        */
+        public Condicion getCondicion() { return condicion; }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
         }
     }
 }

@@ -25,7 +25,8 @@ namespace OrganizadorFutbol5.Ventanas
             partido = unPartido;
 
             tb_nombre.Text = partido.getNombre();
-            tb_fecha.Text = partido.fecha.ToString();
+            txtAdmin.Text = partido.getAdministrador().ToString();
+            tb_fecha.Text = partido.getFecha().ToString();
             llenarListBox(lb_inscriptosStandard, partido.getInscriptosStandard());
             llenarListBox(lb_inscriptosSolidarios, partido.getInscriptosSolidarios());
             llenarListBox(lb_inscriptosCondicionales, partido.getInscriptosCondicionales());

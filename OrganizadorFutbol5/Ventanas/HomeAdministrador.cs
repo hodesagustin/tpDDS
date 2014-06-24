@@ -17,17 +17,26 @@ namespace OrganizadorFutbol5.Ventanas
         public static List<Partido> partidos = new List<Partido>();
         public static List<Jugador> jugadores = new List<Jugador>();
         public static List<JugadorCondicional> jugadoresCondicionales = new List<JugadorCondicional>();
+        public static List<Administrador> administradores = new List<Administrador>();
 
         public HomeAdministrador(int idUsuario)
         {
             InitializeComponent();
         }
 
-        public void crearPartidos()
+        private void crearAdministradores()
         {
-            partidos.Add(new Partido("Partido 1", new DateTime(2014, 01, 10), "Administrador 1"));
-            partidos.Add(new Partido("Partido 2", new DateTime(2014, 01, 15), "Administrador 2"));
-            partidos.Add(new Partido("Partido 3", new DateTime(2014, 01, 31), "Administrador 3"));
+            administradores.Add(new Administrador("Administrador 1", true));
+            administradores.Add(new Administrador("Administrador 2", false));
+            administradores.Add(new Administrador("Administrador 3", true));
+            administradores.Add(new Administrador("Administrador 4", true));
+        }
+
+        private void crearPartidos()
+        {
+            partidos.Add(new Partido("Partido 1", new DateTime(2014, 01, 10), administradores[0]));
+            partidos.Add(new Partido("Partido 2", new DateTime(2014, 01, 15), administradores[1]));
+            partidos.Add(new Partido("Partido 3", new DateTime(2014, 01, 31), administradores[2]));
         }
 
         private void crearJugadores()
@@ -40,7 +49,7 @@ namespace OrganizadorFutbol5.Ventanas
             jugador1.agregarAmigo(jugador2);
             jugador1.agregarAmigo(jugador3);
             jugador1.agregarAmigo(jugador4);
-
+            
             jugadores.Add(jugador1);
             jugadores.Add(jugador2);
             jugadores.Add(jugador3);
@@ -64,44 +73,28 @@ namespace OrganizadorFutbol5.Ventanas
         {
             CrearPartido crearPartido = new CrearPartido();
             crearPartido.ShowDialog();
-            llenarListaPartidos();
+            llenarLista(lb_Partidos,partidos);
         }
 
-        private void llenarListaPartidos()
+        private void llenarLista<T>(ListBox listBox, IEnumerable<T> lista)
         {
-            lb_listaPartidos.Items.Clear();
-            foreach (Partido partido in partidos)
+            listBox.Items.Clear();
+            foreach (T elem in lista)
             {
-                lb_listaPartidos.Items.Add(partido.ToString());
-            }
-        }
-
-        private void llenarListaJugadores()
-        {
-            lb_jugadores.Items.Clear();
-            foreach (Jugador jugador in jugadores)
-            {
-                lb_jugadores.Items.Add(jugador.ToString());
-            }
-        }
-
-        private void llenarListaJugadoresCondicionales()
-        {
-            lb_jugadoresCondicionales.Items.Clear();
-            foreach (JugadorCondicional jugadorCondicional in jugadoresCondicionales)
-            {
-                lb_jugadoresCondicionales.Items.Add(jugadorCondicional.ToString());
+                listBox.Items.Add(elem);
             }
         }
 
         private void HomeAdministrador_Load(object sender, EventArgs e)
         {
+            crearAdministradores();
             crearPartidos();
             crearJugadores();
             crearJugadoresCondicionales();
-            llenarListaPartidos();
-            llenarListaJugadores();
-            llenarListaJugadoresCondicionales();
+            llenarLista(lb_Administradores, administradores);
+            llenarLista(lb_Partidos, partidos);
+            llenarLista(lb_Jugadores, jugadores);
+            llenarLista(lb_JugadoresCondicionales,jugadoresCondicionales);
         //Inscribo Jugadores al 'Partido 1'
             partidos[0].inscribirStandard(jugadores[0]);
             partidos[0].inscribirStandard(jugadores[1]);
@@ -111,7 +104,7 @@ namespace OrganizadorFutbol5.Ventanas
             partidos[0].inscribirSolidario(jugadores[5]);
             partidos[0].inscribirCondicional(jugadoresCondicionales[0]);
             partidos[0].inscribirCondicional(jugadoresCondicionales[1]);
-            //Inscribo Jugadores al 'Partido 2'
+        //Inscribo Jugadores al 'Partido 2'
             partidos[1].inscribirStandard(jugadores[0]);
             partidos[1].inscribirStandard(jugadores[1]);
             partidos[1].inscribirStandard(jugadores[2]);
@@ -125,40 +118,41 @@ namespace OrganizadorFutbol5.Ventanas
             partidos[1].inscribirCondicional(jugadoresCondicionales[1]);
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tb_partidoSeleccionado.Text = lb_listaPartidos.Text;
-        }
-
         private void bt_inscribirStandard_Click(object sender, EventArgs e)
         {
             if (isPartidoSeleccionado() && isJugadorSeleccionado())
             {
-                Partido partidoSeleccionado = partidos[lb_listaPartidos.SelectedIndex];
-                Jugador jugadorSeleccionado = jugadores[lb_jugadores.SelectedIndex];
+                try
+                {
+                    Partido partidoSeleccionado = partidos[lb_Partidos.SelectedIndex];
+                    Jugador jugadorSeleccionado = jugadores[lb_Jugadores.SelectedIndex];
 
-                partidoSeleccionado.inscribirStandard(jugadorSeleccionado);
-                MessageBox.Show("Inscripcion Realizada");
+                    partidoSeleccionado.inscribirStandard(jugadorSeleccionado);
+                    MessageBox.Show("Inscripcion Realizada");
+                }
+                catch (Exception inscripcionException)
+                {
+                    MessageBox.Show(inscripcionException.Message);
+                    return;
+                }
             }
             else
-            {
                 MessageBox.Show("Debe elegir Partido y Jugador");
-            }
         }
 
         private bool isJugadorSeleccionado()
         {
-            return lb_jugadores.SelectedIndex != -1;
+            return lb_Jugadores.SelectedIndex != -1;
         }
 
         private bool isJugadorCondicionalSeleccionado()
         {
-            return lb_jugadoresCondicionales.SelectedIndex != -1;
+            return lb_JugadoresCondicionales.SelectedIndex != -1;
         }
 
         private bool isPartidoSeleccionado()
         {
-            return lb_listaPartidos.SelectedIndex != -1;
+            return lb_Partidos.SelectedIndex != -1;
         }
 
         private void bt_abrirPartido_Click(object sender, EventArgs e)
@@ -166,11 +160,11 @@ namespace OrganizadorFutbol5.Ventanas
             if (isPartidoSeleccionado())
             {
                 FormPartido formPartido = new FormPartido();
-                formPartido.abrir(partidos[lb_listaPartidos.SelectedIndex]);
+                formPartido.abrir(partidos[lb_Partidos.SelectedIndex]);
 
-                llenarListaPartidos();
-                llenarListaJugadores();
-                llenarListaJugadoresCondicionales();
+                llenarLista(lb_Partidos,partidos);
+                llenarLista(lb_Jugadores,jugadores);
+                llenarLista(lb_JugadoresCondicionales,jugadoresCondicionales);
             }
             else
                 MessageBox.Show("Debe seleccionar Partido");
@@ -181,7 +175,7 @@ namespace OrganizadorFutbol5.Ventanas
             if (isJugadorSeleccionado())
             {
                 FormJugador formJugador = new FormJugador();
-                formJugador.abrir(jugadores[lb_jugadores.SelectedIndex]);
+                formJugador.abrir(jugadores[lb_Jugadores.SelectedIndex]);
             }
             else
                 MessageBox.Show("Debe seleccionar Jugador");
@@ -191,39 +185,71 @@ namespace OrganizadorFutbol5.Ventanas
         {
             if (isPartidoSeleccionado() && isJugadorSeleccionado())
             {
-                Partido partidoSeleccionado = partidos[lb_listaPartidos.SelectedIndex];
-                Jugador jugadorSeleccionado = jugadores[lb_jugadores.SelectedIndex];
+                try
+                {
+                    Partido partidoSeleccionado = partidos[lb_Partidos.SelectedIndex];
+                    Jugador jugadorSeleccionado = jugadores[lb_Jugadores.SelectedIndex];
 
-                partidoSeleccionado.inscribirSolidario(jugadorSeleccionado);
-                MessageBox.Show("Inscripcion Realizada");
+                    partidoSeleccionado.inscribirSolidario(jugadorSeleccionado);
+                    MessageBox.Show("Inscripcion Realizada");
+                }
+                catch (Exception inscripcionException)
+                {
+                    MessageBox.Show(inscripcionException.Message);
+                }
             }
             else
-            {
                 MessageBox.Show("Debe elegir Partido y Jugador");
-            }
         }
 
         private void bt_crearJugador_Click(object sender, EventArgs e)
         {
             FormJugador formJugador = new FormJugador();
             formJugador.ShowDialog();
-            llenarListaJugadores();
+            llenarLista(lb_Jugadores,jugadores);
         }
 
         private void bt_inscribirCondicional_Click(object sender, EventArgs e)
         {
             if (isPartidoSeleccionado() && isJugadorCondicionalSeleccionado())
             {
-                Partido partidoSeleccionado = partidos[lb_listaPartidos.SelectedIndex];
-                JugadorCondicional jugadorCondicionalSeleccionado = jugadoresCondicionales[lb_jugadoresCondicionales.SelectedIndex];
+                try
+                {
+                    Partido partidoSeleccionado = partidos[lb_Partidos.SelectedIndex];
+                    JugadorCondicional jugadorCondicionalSeleccionado = jugadoresCondicionales[lb_JugadoresCondicionales.SelectedIndex];
 
-                partidoSeleccionado.inscribirCondicional(jugadorCondicionalSeleccionado);
-                MessageBox.Show("Inscripcion Realizada");
+                    partidoSeleccionado.inscribirCondicional(jugadorCondicionalSeleccionado);
+                    MessageBox.Show("Inscripcion Realizada");
+                }
+                catch (Exception inscripcionException)
+                {
+                    MessageBox.Show(inscripcionException.Message);
+                }
             }
             else
-            {
                 MessageBox.Show("Debe elegir Partido y Jugador");
+        }
+
+        private void btnCrear_ProponerJugadores_Click(object sender, EventArgs e)
+        {
+            if (isPartidoSeleccionado())
+            {
+                Partido partidoSeleccionado = partidos[lb_Partidos.SelectedIndex];
+                Jugador jugadorPropuestoStandard = new Jugador("Jugador Propuesto Standard", 7);
+                Jugador jugadorPropuestoSolidario = new Jugador("Jugador Propuesto Solidario", 4);
+
+                jugadores.Add(jugadorPropuestoStandard);
+                jugadores.Add(jugadorPropuestoSolidario);
+                llenarLista(lb_Jugadores, jugadores); 
+
+                partidoSeleccionado.proponerJugador(jugadorPropuestoStandard, "Standard");
+                partidoSeleccionado.proponerJugador(jugadorPropuestoSolidario, "Solidario");
+                
+                MessageBox.Show("Jugadores Creados y Propuestos");
             }
-        }   
+            else
+                MessageBox.Show("Debe elegir Partido");
+
+        }
     }
 }

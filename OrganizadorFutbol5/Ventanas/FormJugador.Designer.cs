@@ -123,7 +123,6 @@
             // 
             this.listNotificaciones.FormattingEnabled = true;
             this.listNotificaciones.Location = new System.Drawing.Point(12, 200);
-            this.listNotificaciones.MultiColumn = true;
             this.listNotificaciones.Name = "listNotificaciones";
             this.listNotificaciones.Size = new System.Drawing.Size(398, 95);
             this.listNotificaciones.TabIndex = 17;

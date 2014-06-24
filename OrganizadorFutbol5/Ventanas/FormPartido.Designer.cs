@@ -48,6 +48,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.listNotificaciones = new System.Windows.Forms.ListBox();
             this.lblNotificaciones = new System.Windows.Forms.Label();
+            this.txtAdmin = new System.Windows.Forms.TextBox();
+            this.lblAdmin = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,7 +77,7 @@
             // 
             this.tb_nombre.Location = new System.Drawing.Point(62, 6);
             this.tb_nombre.Name = "tb_nombre";
-            this.tb_nombre.Size = new System.Drawing.Size(293, 20);
+            this.tb_nombre.Size = new System.Drawing.Size(211, 20);
             this.tb_nombre.TabIndex = 2;
             // 
             // tb_fecha
@@ -233,11 +235,29 @@
             this.lblNotificaciones.TabIndex = 16;
             this.lblNotificaciones.Text = "Notificaciones";
             // 
+            // txtAdmin
+            // 
+            this.txtAdmin.Location = new System.Drawing.Point(333, 6);
+            this.txtAdmin.Name = "txtAdmin";
+            this.txtAdmin.Size = new System.Drawing.Size(211, 20);
+            this.txtAdmin.TabIndex = 18;
+            // 
+            // lblAdmin
+            // 
+            this.lblAdmin.AutoSize = true;
+            this.lblAdmin.Location = new System.Drawing.Point(283, 9);
+            this.lblAdmin.Name = "lblAdmin";
+            this.lblAdmin.Size = new System.Drawing.Size(36, 13);
+            this.lblAdmin.TabIndex = 17;
+            this.lblAdmin.Text = "Admin";
+            // 
             // FormPartido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 440);
+            this.Controls.Add(this.txtAdmin);
+            this.Controls.Add(this.lblAdmin);
             this.Controls.Add(this.lblNotificaciones);
             this.Controls.Add(this.listNotificaciones);
             this.Controls.Add(this.groupBox3);
@@ -288,5 +308,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ListBox listNotificaciones;
         private System.Windows.Forms.Label lblNotificaciones;
+        private System.Windows.Forms.TextBox txtAdmin;
+        private System.Windows.Forms.Label lblAdmin;
     }
 }

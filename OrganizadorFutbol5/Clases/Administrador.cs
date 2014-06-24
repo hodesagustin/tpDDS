@@ -5,8 +5,22 @@ using System.Text;
 
 namespace OrganizadorFutbol5.Clases
 {
-    class Administrador : Persona
+    public class Administrador : Persona
     {
-        public Administrador(String unNombre) : base(unNombre) { }
+        private bool aceptaPropuestos;
+
+        public Administrador(String unNombre,bool dejaProponer) 
+            : base(unNombre) 
+        {
+            aceptaPropuestos = dejaProponer;
+        }
+
+        public bool getAceptaPropuestos() { return aceptaPropuestos; }
+
+        public override string ToString()
+        {
+            return this.getNombre() + " (" + aceptaPropuestos + ")";
+        }
     }
+
 }

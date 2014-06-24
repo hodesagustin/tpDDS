@@ -7,10 +7,12 @@ namespace OrganizadorFutbol5.Clases
 {
     public class Persona
     {
-        public string nombre;
+        private string nombre;
 
         public Persona(String unNombre)
         { nombre = unNombre; }
+
+        public String getNombre() { return nombre; }
 
         public override string ToString()
         {
