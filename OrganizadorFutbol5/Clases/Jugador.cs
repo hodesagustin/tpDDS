@@ -18,18 +18,6 @@ namespace OrganizadorFutbol5.Clases
             this.agregarCalificacion(calificacion);
         }
 
-        /*
-        void inscripcionStandard()
-        {
-            partido.inscribirStandard(this);
-        }
-
-        void inscripcionSolidaria()
-        {
-            partido.inscribirSolidario(this);
-        }
-        */
-
         public void avisarInscripcion(Partido partido)
         {
             string mensaje = "Me he anotado para " + partido.ToString();
@@ -57,11 +45,28 @@ namespace OrganizadorFutbol5.Clases
 
         override public String ToString()
         {
-            return this.getNombre() + " (" + this.getCalificacion() + ")";
+            return this.getNombre() + " (" + this.getCalificacion()  + ")";
         }
+        
         public override bool Equals(object obj)
         {
-            return this.ToString().Equals(obj.ToString());
+            if (obj == null)
+                return false;
+            else
+                return this.ToString().Equals(obj.ToString());
+        }
+
+        public bool Equals(Jugador otroJugador)
+        {
+            if ((object)otroJugador == null)
+                return false;
+            else
+                return this.ToString().Equals(otroJugador.ToString());
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
         public decimal getCalificacion() { return calificaciones.Average(); }

@@ -237,7 +237,7 @@
             this.btnCrear_ProponerJugadores.Name = "btnCrear_ProponerJugadores";
             this.btnCrear_ProponerJugadores.Size = new System.Drawing.Size(111, 38);
             this.btnCrear_ProponerJugadores.TabIndex = 14;
-            this.btnCrear_ProponerJugadores.Text = "Crear y Proponer Jugador";
+            this.btnCrear_ProponerJugadores.Text = "Crear y Proponer Jugadores";
             this.btnCrear_ProponerJugadores.UseVisualStyleBackColor = true;
             this.btnCrear_ProponerJugadores.Click += new System.EventHandler(this.btnCrear_ProponerJugadores_Click);
             // 
