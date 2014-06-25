@@ -77,9 +77,14 @@ namespace OrganizadorFutbol5.Clases
         public decimal getCalificacion() {
             decimal calificacion = 0;
 
-            foreach (Calificacion calif in calificaciones)
-                calificacion += calif.getPuntaje();
-            return calificacion / calificaciones.Count ; 
+            if (calificaiones.Count != 0)
+            {
+                foreach (Calificacion calif in calificaciones)
+                    calificacion += calif.getPuntaje();
+                return calificacion / calificaciones.Count ;
+            }
+            else
+                return 0;
         }
         
         public List<Infraccion> getInfracciones() { return infraccciones; }
