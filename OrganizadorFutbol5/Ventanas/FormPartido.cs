@@ -27,13 +27,29 @@ namespace OrganizadorFutbol5.Ventanas
             tb_nombre.Text = partido.getNombre();
             txtAdmin.Text = partido.getAdministrador().ToString();
             tb_fecha.Text = partido.getFecha().ToString();
+            tb_cantidadInscriptos.Text = partido.getCantidadDeInscriptos().ToString();
             llenarListBox(lb_inscriptosStandard, partido.getInscriptosStandard());
             llenarListBox(lb_inscriptosSolidarios, partido.getInscriptosSolidarios());
             llenarListBox(lb_inscriptosCondicionales, partido.getInscriptosCondicionales());
-            tb_cantidadInscriptos.Text = partido.getCantidadDeInscriptos().ToString();
             llenarListInfracciones();
+            llenarListRechazos();
 
             this.ShowDialog();
+        }
+
+        private void llenarListRechazos()
+        {
+            listRechazos.Items.Clear();
+            llenarLista(listRechazos, partido.getRechazos());
+        }
+
+        private void llenarLista<T>(ListBox listBox, IEnumerable<T> lista)
+        {
+            listBox.Items.Clear();
+            foreach (T elem in lista)
+            {
+                listBox.Items.Add(elem);
+            }
         }
 
         private void llenarListInfracciones()
@@ -155,11 +171,6 @@ namespace OrganizadorFutbol5.Ventanas
                 partido.reemplazar(reemplazado, reemplazo);
                 llenarListBox(lb_inscriptosCondicionales, partido.getInscriptosCondicionales());
             }
-        }
-
-        private void FormPartido_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

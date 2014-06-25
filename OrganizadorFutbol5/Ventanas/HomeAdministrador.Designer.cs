@@ -33,11 +33,13 @@
             this.bt_crearPartido = new System.Windows.Forms.Button();
             this.bt_abrirPartido = new System.Windows.Forms.Button();
             this.gb_jugadoresCreados = new System.Windows.Forms.GroupBox();
+            this.btnProponerSolidario = new System.Windows.Forms.Button();
+            this.btnProponerStandard = new System.Windows.Forms.Button();
             this.lb_Jugadores = new System.Windows.Forms.ListBox();
             this.bt_crearJugador = new System.Windows.Forms.Button();
             this.bt_abrirJugador = new System.Windows.Forms.Button();
             this.gb_jugadoresCondicionalesCreados = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAbrirJugadorCondicional = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.lb_JugadoresCondicionales = new System.Windows.Forms.ListBox();
             this.bt_inscribirStandard = new System.Windows.Forms.Button();
@@ -47,6 +49,7 @@
             this.gb_AdministradoresCreados = new System.Windows.Forms.GroupBox();
             this.lb_Administradores = new System.Windows.Forms.ListBox();
             this.btnCrear_ProponerJugadores = new System.Windows.Forms.Button();
+            this.btnProponerCondicional = new System.Windows.Forms.Button();
             this.gb_partidosCreados.SuspendLayout();
             this.gb_jugadoresCreados.SuspendLayout();
             this.gb_jugadoresCondicionalesCreados.SuspendLayout();
@@ -95,6 +98,8 @@
             // 
             // gb_jugadoresCreados
             // 
+            this.gb_jugadoresCreados.Controls.Add(this.btnProponerSolidario);
+            this.gb_jugadoresCreados.Controls.Add(this.btnProponerStandard);
             this.gb_jugadoresCreados.Controls.Add(this.lb_Jugadores);
             this.gb_jugadoresCreados.Controls.Add(this.bt_crearJugador);
             this.gb_jugadoresCreados.Controls.Add(this.bt_abrirJugador);
@@ -104,6 +109,26 @@
             this.gb_jugadoresCreados.TabIndex = 3;
             this.gb_jugadoresCreados.TabStop = false;
             this.gb_jugadoresCreados.Text = "Jugadores Creados";
+            // 
+            // btnProponerSolidario
+            // 
+            this.btnProponerSolidario.Location = new System.Drawing.Point(164, 205);
+            this.btnProponerSolidario.Name = "btnProponerSolidario";
+            this.btnProponerSolidario.Size = new System.Drawing.Size(63, 37);
+            this.btnProponerSolidario.TabIndex = 10;
+            this.btnProponerSolidario.Text = "Proponer Solidario";
+            this.btnProponerSolidario.UseVisualStyleBackColor = true;
+            this.btnProponerSolidario.Click += new System.EventHandler(this.btnProponerSolidario_Click);
+            // 
+            // btnProponerStandard
+            // 
+            this.btnProponerStandard.Location = new System.Drawing.Point(96, 205);
+            this.btnProponerStandard.Name = "btnProponerStandard";
+            this.btnProponerStandard.Size = new System.Drawing.Size(62, 37);
+            this.btnProponerStandard.TabIndex = 9;
+            this.btnProponerStandard.Text = "Proponer Standard";
+            this.btnProponerStandard.UseVisualStyleBackColor = true;
+            this.btnProponerStandard.Click += new System.EventHandler(this.btnProponerStandard_Click);
             // 
             // lb_Jugadores
             // 
@@ -115,19 +140,19 @@
             // 
             // bt_crearJugador
             // 
-            this.bt_crearJugador.Location = new System.Drawing.Point(15, 212);
+            this.bt_crearJugador.Location = new System.Drawing.Point(6, 205);
             this.bt_crearJugador.Name = "bt_crearJugador";
-            this.bt_crearJugador.Size = new System.Drawing.Size(91, 23);
+            this.bt_crearJugador.Size = new System.Drawing.Size(40, 37);
             this.bt_crearJugador.TabIndex = 7;
-            this.bt_crearJugador.Text = "Crear Jugador";
+            this.bt_crearJugador.Text = "Crear";
             this.bt_crearJugador.UseVisualStyleBackColor = true;
             this.bt_crearJugador.Click += new System.EventHandler(this.bt_crearJugador_Click);
             // 
             // bt_abrirJugador
             // 
-            this.bt_abrirJugador.Location = new System.Drawing.Point(119, 212);
+            this.bt_abrirJugador.Location = new System.Drawing.Point(52, 205);
             this.bt_abrirJugador.Name = "bt_abrirJugador";
-            this.bt_abrirJugador.Size = new System.Drawing.Size(75, 23);
+            this.bt_abrirJugador.Size = new System.Drawing.Size(38, 37);
             this.bt_abrirJugador.TabIndex = 8;
             this.bt_abrirJugador.Text = "Abrir";
             this.bt_abrirJugador.UseVisualStyleBackColor = true;
@@ -135,7 +160,8 @@
             // 
             // gb_jugadoresCondicionalesCreados
             // 
-            this.gb_jugadoresCondicionalesCreados.Controls.Add(this.button1);
+            this.gb_jugadoresCondicionalesCreados.Controls.Add(this.btnProponerCondicional);
+            this.gb_jugadoresCondicionalesCreados.Controls.Add(this.btnAbrirJugadorCondicional);
             this.gb_jugadoresCondicionalesCreados.Controls.Add(this.button2);
             this.gb_jugadoresCondicionalesCreados.Controls.Add(this.lb_JugadoresCondicionales);
             this.gb_jugadoresCondicionalesCreados.Location = new System.Drawing.Point(272, 310);
@@ -145,24 +171,24 @@
             this.gb_jugadoresCondicionalesCreados.TabStop = false;
             this.gb_jugadoresCondicionalesCreados.Text = "Jugadores Creados";
             // 
-            // button1
+            // btnAbrirJugadorCondicional
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(107, 212);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Abrir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAbrirJugadorCondicional.Location = new System.Drawing.Point(63, 205);
+            this.btnAbrirJugadorCondicional.Name = "btnAbrirJugadorCondicional";
+            this.btnAbrirJugadorCondicional.Size = new System.Drawing.Size(48, 37);
+            this.btnAbrirJugadorCondicional.TabIndex = 14;
+            this.btnAbrirJugadorCondicional.Text = "Abrir";
+            this.btnAbrirJugadorCondicional.UseVisualStyleBackColor = true;
+            this.btnAbrirJugadorCondicional.Click += new System.EventHandler(this.btnAbrirJugadorCondicional_Click);
             // 
             // button2
             // 
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(10, 212);
+            this.button2.Location = new System.Drawing.Point(10, 205);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 23);
+            this.button2.Size = new System.Drawing.Size(47, 37);
             this.button2.TabIndex = 13;
-            this.button2.Text = "Crear Jugador";
+            this.button2.Text = "Crear";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // lb_JugadoresCondicionales
@@ -241,6 +267,16 @@
             this.btnCrear_ProponerJugadores.UseVisualStyleBackColor = true;
             this.btnCrear_ProponerJugadores.Click += new System.EventHandler(this.btnCrear_ProponerJugadores_Click);
             // 
+            // btnProponerCondicional
+            // 
+            this.btnProponerCondicional.Location = new System.Drawing.Point(117, 205);
+            this.btnProponerCondicional.Name = "btnProponerCondicional";
+            this.btnProponerCondicional.Size = new System.Drawing.Size(77, 37);
+            this.btnProponerCondicional.TabIndex = 15;
+            this.btnProponerCondicional.Text = "Proponer Condicional";
+            this.btnProponerCondicional.UseVisualStyleBackColor = true;
+            this.btnProponerCondicional.Click += new System.EventHandler(this.btnProponerCondicional_Click);
+            // 
             // HomeAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,10 +319,13 @@
         private System.Windows.Forms.Button bt_inscribirSolidario;
         private System.Windows.Forms.Button bt_inscribirCondicional;
         private System.Windows.Forms.Label ll_titulo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAbrirJugadorCondicional;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox gb_AdministradoresCreados;
         private System.Windows.Forms.ListBox lb_Administradores;
         private System.Windows.Forms.Button btnCrear_ProponerJugadores;
+        private System.Windows.Forms.Button btnProponerSolidario;
+        private System.Windows.Forms.Button btnProponerStandard;
+        private System.Windows.Forms.Button btnProponerCondicional;
     }
 }

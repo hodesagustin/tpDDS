@@ -113,7 +113,6 @@ namespace OrganizadorFutbol5.Ventanas
             partidos[1].inscribirStandard(jugadores[5]);
             partidos[1].inscribirSolidario(jugadores[6]);
             partidos[1].inscribirSolidario(jugadores[7]);
-            partidos[1].inscribirSolidario(jugadores[8]);
             partidos[1].inscribirCondicional(jugadoresCondicionales[0]);
             partidos[1].inscribirCondicional(jugadoresCondicionales[1]);
         }
@@ -240,16 +239,98 @@ namespace OrganizadorFutbol5.Ventanas
 
                 jugadores.Add(jugadorPropuestoStandard);
                 jugadores.Add(jugadorPropuestoSolidario);
-                llenarLista(lb_Jugadores, jugadores); 
+                llenarLista(lb_Jugadores, jugadores);
 
-                partidoSeleccionado.proponerJugador(jugadorPropuestoStandard, "Standard");
-                partidoSeleccionado.proponerJugador(jugadorPropuestoSolidario, "Solidario");
+                try
+                {
+                    partidoSeleccionado.proponerJugador(jugadorPropuestoStandard, "Standard");
+                    partidoSeleccionado.proponerJugador(jugadorPropuestoSolidario, "Solidario");
+                }
+                catch (Exception excepcion)
+                {
+                    MessageBox.Show(excepcion.Message);
+                }
+                
                 
                 MessageBox.Show("Jugadores Creados y Propuestos");
             }
             else
                 MessageBox.Show("Debe elegir Partido");
 
+        }
+
+        private void btnProponerStandard_Click(object sender, EventArgs e)
+        {
+            if (isPartidoSeleccionado() && isJugadorSeleccionado())
+            {
+                Partido partidoSeleccionado = partidos[lb_Partidos.SelectedIndex];
+                Jugador jugadorPropuesto = jugadores[lb_Jugadores.SelectedIndex];
+
+                try
+                {
+                    partidoSeleccionado.proponerJugador(jugadorPropuesto, "Standard");
+                    MessageBox.Show("Jugador Anotado como Standard");
+                }
+                catch (Exception excepcion)
+                { 
+                    MessageBox.Show(excepcion.Message); 
+                }
+            }
+            else
+                MessageBox.Show("Debe elegir Partido y Jugador");
+        }
+
+        private void btnProponerSolidario_Click(object sender, EventArgs e)
+        {
+                if (isPartidoSeleccionado() && isJugadorSeleccionado())
+                {
+                    Partido partidoSeleccionado = partidos[lb_Partidos.SelectedIndex];
+                    Jugador jugadorPropuesto = jugadores[lb_Jugadores.SelectedIndex];
+
+                    try
+                    {
+                        partidoSeleccionado.proponerJugador(jugadorPropuesto, "Solidario");
+                        MessageBox.Show("Jugador Anotado como Solidario");
+                    }
+                    catch (Exception excepcion)
+                    {
+                        MessageBox.Show(excepcion.Message);
+                    }
+                }
+                else
+                    MessageBox.Show("Debe elegir Partido y Jugador");
+            }
+
+        private void btnProponerCondicional_Click(object sender, EventArgs e)
+            {
+                if (isPartidoSeleccionado() && isJugadorCondicionalSeleccionado())
+                {
+                    Partido partidoSeleccionado = partidos[lb_Partidos.SelectedIndex];
+                    JugadorCondicional jugadorPropuesto = jugadoresCondicionales[lb_JugadoresCondicionales.SelectedIndex];
+
+                    try
+                    {
+                        partidoSeleccionado.proponerJugador(jugadorPropuesto);
+                        MessageBox.Show("Jugador Anotado como Condicional");
+                    }
+                    catch (Exception excepcion)
+                    {
+                        MessageBox.Show(excepcion.Message);
+                    }
+                }
+                else
+                    MessageBox.Show("Debe elegir Partido y Jugador");
+            }
+
+        private void btnAbrirJugadorCondicional_Click(object sender, EventArgs e)
+        {
+            if (isJugadorCondicionalSeleccionado())
+            {
+                FormJugador formJugador = new FormJugador();
+                formJugador.abrir((Jugador)jugadoresCondicionales[lb_JugadoresCondicionales.SelectedIndex]);
+            }
+            else
+                MessageBox.Show("Debe elegir Jugador Condicional");
         }
     }
 }

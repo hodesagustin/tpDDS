@@ -31,13 +31,15 @@
             this.ll_nombre = new System.Windows.Forms.Label();
             this.ll_calificacion = new System.Windows.Forms.Label();
             this.tb_nombre = new System.Windows.Forms.TextBox();
-            this.nd_calificacion = new System.Windows.Forms.NumericUpDown();
             this.bt_crear = new System.Windows.Forms.Button();
             this.lblInfracciones = new System.Windows.Forms.Label();
             this.listInfracciones = new System.Windows.Forms.ListBox();
             this.lblNotificaciones = new System.Windows.Forms.Label();
             this.listNotificaciones = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.nd_calificacion)).BeginInit();
+            this.listCalificaciones = new System.Windows.Forms.ListBox();
+            this.lblCalificaciones = new System.Windows.Forms.Label();
+            this.btnAgregarCalificacion = new System.Windows.Forms.Button();
+            this.tb_Calificacion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ll_nombre
@@ -52,7 +54,7 @@
             // ll_calificacion
             // 
             this.ll_calificacion.AutoSize = true;
-            this.ll_calificacion.Location = new System.Drawing.Point(12, 34);
+            this.ll_calificacion.Location = new System.Drawing.Point(12, 155);
             this.ll_calificacion.Name = "ll_calificacion";
             this.ll_calificacion.Size = new System.Drawing.Size(61, 13);
             this.ll_calificacion.TabIndex = 1;
@@ -65,27 +67,9 @@
             this.tb_nombre.Size = new System.Drawing.Size(176, 20);
             this.tb_nombre.TabIndex = 2;
             // 
-            // nd_calificacion
-            // 
-            this.nd_calificacion.DecimalPlaces = 1;
-            this.nd_calificacion.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.nd_calificacion.Location = new System.Drawing.Point(96, 32);
-            this.nd_calificacion.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.nd_calificacion.Name = "nd_calificacion";
-            this.nd_calificacion.Size = new System.Drawing.Size(176, 20);
-            this.nd_calificacion.TabIndex = 4;
-            // 
             // bt_crear
             // 
-            this.bt_crear.Location = new System.Drawing.Point(335, 311);
+            this.bt_crear.Location = new System.Drawing.Point(335, 425);
             this.bt_crear.Name = "bt_crear";
             this.bt_crear.Size = new System.Drawing.Size(75, 23);
             this.bt_crear.TabIndex = 4;
@@ -96,7 +80,7 @@
             // lblInfracciones
             // 
             this.lblInfracciones.AutoSize = true;
-            this.lblInfracciones.Location = new System.Drawing.Point(12, 66);
+            this.lblInfracciones.Location = new System.Drawing.Point(12, 178);
             this.lblInfracciones.Name = "lblInfracciones";
             this.lblInfracciones.Size = new System.Drawing.Size(65, 13);
             this.lblInfracciones.TabIndex = 5;
@@ -105,7 +89,7 @@
             // listInfracciones
             // 
             this.listInfracciones.FormattingEnabled = true;
-            this.listInfracciones.Location = new System.Drawing.Point(15, 82);
+            this.listInfracciones.Location = new System.Drawing.Point(15, 194);
             this.listInfracciones.Name = "listInfracciones";
             this.listInfracciones.Size = new System.Drawing.Size(257, 95);
             this.listInfracciones.TabIndex = 6;
@@ -113,7 +97,7 @@
             // lblNotificaciones
             // 
             this.lblNotificaciones.AutoSize = true;
-            this.lblNotificaciones.Location = new System.Drawing.Point(12, 184);
+            this.lblNotificaciones.Location = new System.Drawing.Point(12, 296);
             this.lblNotificaciones.Name = "lblNotificaciones";
             this.lblNotificaciones.Size = new System.Drawing.Size(74, 13);
             this.lblNotificaciones.TabIndex = 18;
@@ -122,28 +106,66 @@
             // listNotificaciones
             // 
             this.listNotificaciones.FormattingEnabled = true;
-            this.listNotificaciones.Location = new System.Drawing.Point(12, 200);
+            this.listNotificaciones.Location = new System.Drawing.Point(12, 312);
             this.listNotificaciones.Name = "listNotificaciones";
             this.listNotificaciones.Size = new System.Drawing.Size(398, 95);
             this.listNotificaciones.TabIndex = 17;
+            // 
+            // listCalificaciones
+            // 
+            this.listCalificaciones.FormattingEnabled = true;
+            this.listCalificaciones.Location = new System.Drawing.Point(15, 46);
+            this.listCalificaciones.Name = "listCalificaciones";
+            this.listCalificaciones.Size = new System.Drawing.Size(257, 95);
+            this.listCalificaciones.TabIndex = 20;
+            // 
+            // lblCalificaciones
+            // 
+            this.lblCalificaciones.AutoSize = true;
+            this.lblCalificaciones.Location = new System.Drawing.Point(12, 30);
+            this.lblCalificaciones.Name = "lblCalificaciones";
+            this.lblCalificaciones.Size = new System.Drawing.Size(72, 13);
+            this.lblCalificaciones.TabIndex = 19;
+            this.lblCalificaciones.Text = "Calificaciones";
+            // 
+            // btnAgregarCalificacion
+            // 
+            this.btnAgregarCalificacion.Location = new System.Drawing.Point(295, 46);
+            this.btnAgregarCalificacion.Name = "btnAgregarCalificacion";
+            this.btnAgregarCalificacion.Size = new System.Drawing.Size(75, 38);
+            this.btnAgregarCalificacion.TabIndex = 22;
+            this.btnAgregarCalificacion.Text = "Agregar Calificacion";
+            this.btnAgregarCalificacion.UseVisualStyleBackColor = true;
+            this.btnAgregarCalificacion.Click += new System.EventHandler(this.btnAgregarCalificacion_Click);
+            // 
+            // tb_Calificacion
+            // 
+            this.tb_Calificacion.AutoSize = true;
+            this.tb_Calificacion.Location = new System.Drawing.Point(93, 155);
+            this.tb_Calificacion.Name = "tb_Calificacion";
+            this.tb_Calificacion.Size = new System.Drawing.Size(28, 13);
+            this.tb_Calificacion.TabIndex = 23;
+            this.tb_Calificacion.Text = "###";
             // 
             // FormJugador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 346);
+            this.ClientSize = new System.Drawing.Size(422, 457);
+            this.Controls.Add(this.tb_Calificacion);
+            this.Controls.Add(this.btnAgregarCalificacion);
+            this.Controls.Add(this.listCalificaciones);
+            this.Controls.Add(this.lblCalificaciones);
             this.Controls.Add(this.lblNotificaciones);
             this.Controls.Add(this.listNotificaciones);
             this.Controls.Add(this.listInfracciones);
             this.Controls.Add(this.lblInfracciones);
             this.Controls.Add(this.bt_crear);
-            this.Controls.Add(this.nd_calificacion);
             this.Controls.Add(this.tb_nombre);
             this.Controls.Add(this.ll_calificacion);
             this.Controls.Add(this.ll_nombre);
             this.Name = "FormJugador";
             this.Text = "FormJugador";
-            ((System.ComponentModel.ISupportInitialize)(this.nd_calificacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,11 +176,14 @@
         private System.Windows.Forms.Label ll_nombre;
         private System.Windows.Forms.Label ll_calificacion;
         private System.Windows.Forms.TextBox tb_nombre;
-        private System.Windows.Forms.NumericUpDown nd_calificacion;
         private System.Windows.Forms.Button bt_crear;
         private System.Windows.Forms.Label lblInfracciones;
         private System.Windows.Forms.ListBox listInfracciones;
         private System.Windows.Forms.Label lblNotificaciones;
         private System.Windows.Forms.ListBox listNotificaciones;
+        private System.Windows.Forms.ListBox listCalificaciones;
+        private System.Windows.Forms.Label lblCalificaciones;
+        private System.Windows.Forms.Button btnAgregarCalificacion;
+        private System.Windows.Forms.Label tb_Calificacion;
     }
 }

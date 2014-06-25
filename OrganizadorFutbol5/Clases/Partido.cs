@@ -13,6 +13,7 @@ namespace OrganizadorFutbol5.Clases
         private List<Jugador> inscriptosSolidarios = new List<Jugador>();
         private List<Jugador> equipoA = new List<Jugador>();
         private List<Jugador> equipoB = new List<Jugador>();
+        private List<Rechazo> rechazos = new List<Rechazo>();
         private DateTime fecha;
         private Notificador notificador = new Notificador();
         private Administrador administrador;
@@ -81,7 +82,8 @@ namespace OrganizadorFutbol5.Clases
             }
             else
             {
-                //FALTA HACER -> Crear RECHAZO
+                rechazos.Add(new Rechazo("El Administrador no acepta Propuesto a " + jugador.ToString()));
+                throw new Exception("El Administrador no acepta Propuestos");
             }
         }
         public void proponerJugador(JugadorCondicional jugadorCondicional)
@@ -92,7 +94,10 @@ namespace OrganizadorFutbol5.Clases
             }
             else
             {
-                //FALTA HACER -> Crear RECHAZO
+                {
+                    rechazos.Add(new Rechazo("El Administrador no acepta Propuesto a " + jugadorCondicional.ToString()));
+                    throw new Exception("El Administrador no acepta Propuestos");
+                }
             }
         }
 
@@ -178,5 +183,6 @@ namespace OrganizadorFutbol5.Clases
         public List<Jugador> getInscriptosSolidarios() { return inscriptosSolidarios; }
         public List<JugadorCondicional> getInscriptosCondicionales() { return inscriptosCondicionales; }
         public Notificador getNotificador() { return notificador; }
+        public List<Rechazo> getRechazos() { return rechazos; }
     }
 }

@@ -43,13 +43,15 @@
             this.bt_darDeBajaCondicional = new System.Windows.Forms.Button();
             this.bt_reemplazarCondicional = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.tb_cantidadInscriptos = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.listNotificaciones = new System.Windows.Forms.ListBox();
             this.lblNotificaciones = new System.Windows.Forms.Label();
             this.txtAdmin = new System.Windows.Forms.TextBox();
             this.lblAdmin = new System.Windows.Forms.Label();
+            this.lblRechazos = new System.Windows.Forms.Label();
+            this.listRechazos = new System.Windows.Forms.ListBox();
+            this.tb_cantidadInscriptos = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -190,14 +192,6 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Cantidad de Inscriptos";
             // 
-            // tb_cantidadInscriptos
-            // 
-            this.tb_cantidadInscriptos.Location = new System.Drawing.Point(494, 32);
-            this.tb_cantidadInscriptos.Name = "tb_cantidadInscriptos";
-            this.tb_cantidadInscriptos.Size = new System.Drawing.Size(50, 20);
-            this.tb_cantidadInscriptos.TabIndex = 12;
-            this.tb_cantidadInscriptos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lb_inscriptosSolidarios);
@@ -251,18 +245,46 @@
             this.lblAdmin.TabIndex = 17;
             this.lblAdmin.Text = "Admin";
             // 
+            // lblRechazos
+            // 
+            this.lblRechazos.AutoSize = true;
+            this.lblRechazos.Location = new System.Drawing.Point(12, 432);
+            this.lblRechazos.Name = "lblRechazos";
+            this.lblRechazos.Size = new System.Drawing.Size(55, 13);
+            this.lblRechazos.TabIndex = 20;
+            this.lblRechazos.Text = "Rechazos";
+            // 
+            // listRechazos
+            // 
+            this.listRechazos.FormattingEnabled = true;
+            this.listRechazos.Location = new System.Drawing.Point(15, 448);
+            this.listRechazos.Name = "listRechazos";
+            this.listRechazos.Size = new System.Drawing.Size(536, 95);
+            this.listRechazos.TabIndex = 19;
+            // 
+            // tb_cantidadInscriptos
+            // 
+            this.tb_cantidadInscriptos.AutoSize = true;
+            this.tb_cantidadInscriptos.Location = new System.Drawing.Point(494, 35);
+            this.tb_cantidadInscriptos.Name = "tb_cantidadInscriptos";
+            this.tb_cantidadInscriptos.Size = new System.Drawing.Size(28, 13);
+            this.tb_cantidadInscriptos.TabIndex = 21;
+            this.tb_cantidadInscriptos.Text = "###";
+            // 
             // FormPartido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 440);
+            this.ClientSize = new System.Drawing.Size(559, 559);
+            this.Controls.Add(this.tb_cantidadInscriptos);
+            this.Controls.Add(this.lblRechazos);
+            this.Controls.Add(this.listRechazos);
             this.Controls.Add(this.txtAdmin);
             this.Controls.Add(this.lblAdmin);
             this.Controls.Add(this.lblNotificaciones);
             this.Controls.Add(this.listNotificaciones);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.tb_cantidadInscriptos);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.bt_reemplazarCondicional);
             this.Controls.Add(this.bt_darDeBajaCondicional);
@@ -277,7 +299,6 @@
             this.Controls.Add(this.label1);
             this.Name = "FormPartido";
             this.Text = "FormPartido";
-            this.Load += new System.EventHandler(this.FormPartido_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -303,12 +324,14 @@
         private System.Windows.Forms.Button bt_darDeBajaCondicional;
         private System.Windows.Forms.Button bt_reemplazarCondicional;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tb_cantidadInscriptos;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ListBox listNotificaciones;
         private System.Windows.Forms.Label lblNotificaciones;
         private System.Windows.Forms.TextBox txtAdmin;
         private System.Windows.Forms.Label lblAdmin;
+        private System.Windows.Forms.Label lblRechazos;
+        private System.Windows.Forms.ListBox listRechazos;
+        private System.Windows.Forms.Label tb_cantidadInscriptos;
     }
 }

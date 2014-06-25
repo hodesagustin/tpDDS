@@ -24,15 +24,10 @@ namespace OrganizadorFutbol5.Ventanas
         {
             jugador = unJugador;
             tb_nombre.Text = jugador.getNombre();
-            nd_calificacion.Value = jugador.getCalificacion();
-            foreach (Infraccion infraccion in jugador.getInfracciones())
-            {
-                listInfracciones.Items.Add(infraccion.ToString());
-            }
-            foreach (String notificacion in jugador.getNotificador().getNotificaciones())
-            {
-                listNotificaciones.Items.Add(notificacion);
-            }
+            jugador.fillWithCalificaciones(listCalificaciones);
+            tb_Calificacion.Text = jugador.getCalificacion().ToString();
+            jugador.fillWithInfracciones(listInfracciones);
+            jugador.fillWithNotificaciones(listNotificaciones);
             bt_crear.Visible = false;
 
             this.ShowDialog();
@@ -40,8 +35,16 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void bt_crear_Click(object sender, EventArgs e)
         {
-            HomeAdministrador.jugadores.Add(new Jugador(tb_nombre.Text, nd_calificacion.Value));
+            HomeAdministrador.jugadores.Add(new Jugador(tb_nombre.Text));
             this.Close();
+        }
+
+        private void btnAgregarCalificacion_Click(object sender, EventArgs e)
+        {
+            FormCalificacion formCalificacion = new FormCalificacion(jugador);
+            formCalificacion.ShowDialog();
+            jugador.fillWithCalificaciones(listCalificaciones);
+            tb_Calificacion.Text = jugador.getCalificacion().ToString();
         }
     }
 }

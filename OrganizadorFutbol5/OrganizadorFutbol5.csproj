@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Administrador.cs" />
+    <Compile Include="Clases\Calificacion.cs" />
     <Compile Include="Clases\Condicion.cs" />
     <Compile Include="Clases\Infraccion.cs" />
     <Compile Include="Clases\Jugador.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Clases\Notificador.cs" />
     <Compile Include="Clases\Partido.cs" />
     <Compile Include="Clases\Persona.cs" />
+    <Compile Include="Clases\Rechazo.cs" />
     <Compile Include="ConexionBase\ConexionDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +71,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\CrearPartido.resx">
       <DependentUpon>CrearPartido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\FormCalificacion.resx">
+      <DependentUpon>FormCalificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\FormJugador.resx">
       <DependentUpon>FormJugador.cs</DependentUpon>
@@ -104,6 +109,12 @@
     </Compile>
     <Compile Include="Ventanas\CrearPartido.Designer.cs">
       <DependentUpon>CrearPartido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\FormCalificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\FormCalificacion.Designer.cs">
+      <DependentUpon>FormCalificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\FormJugador.cs">
       <SubType>Form</SubType>
