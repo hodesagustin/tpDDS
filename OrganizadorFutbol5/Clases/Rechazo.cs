@@ -5,20 +5,20 @@ using System.Text;
 
 namespace OrganizadorFutbol5.Clases
 {
-    public class Rechazo
+    class Rechazo
     {
-        private String motivo;
-        private DateTime fecha;
+        public String descripcion {get; private set;}
+        public DateTime fecha { get; private set; }
 
-        public Rechazo(String unMotivo)
+        public Rechazo(String unaDescripcion)
         {
-            motivo = unMotivo;
+            descripcion = unaDescripcion;
             fecha = DateTime.Now;
         }
 
         public override string ToString()
         {
-            return fecha + ": " + motivo;
+            return descripcion;
         }
     }
 }

@@ -5,8 +5,8 @@ using System.Text;
 
 namespace OrganizadorFutbol5.Clases
 {
-    interface Condicion
+    interface CriterioDivision
     {
-        bool cumple(Partido partido);
+        void dividir(List<Jugador> jugadores, List<Jugador> equipoA, List<Jugador> equipoB);
     }
 }

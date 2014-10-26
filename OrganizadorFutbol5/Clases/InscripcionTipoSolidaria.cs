@@ -5,8 +5,9 @@ using System.Text;
 
 namespace OrganizadorFutbol5.Clases
 {
-    interface Condicion
+    public class InscripcionTipoSolidaria:InscripcionTipo
     {
-        bool cumple(Partido partido);
+        public InscripcionTipoSolidaria() : base("Solidaria", 2) { }
+
     }
 }

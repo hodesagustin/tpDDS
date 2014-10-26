@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -54,41 +55,32 @@
     <Compile Include="Clases\Administrador.cs" />
     <Compile Include="Clases\Calificacion.cs" />
     <Compile Include="Clases\Condicion.cs" />
+    <Compile Include="Clases\CondicionCompuesta.cs" />
+    <Compile Include="Clases\CriterioDivision.cs" />
+    <Compile Include="Clases\CriterioDivisionParImpar.cs" />
+    <Compile Include="Clases\CriterioDivisionPredeterminado.cs" />
+    <Compile Include="Clases\CriterioOrdenamiento.cs" />
+    <Compile Include="Clases\CriterioOrdenamientoCompuesto.cs" />
+    <Compile Include="Clases\CriterioOrdenamientoPorHandicap.cs" />
+    <Compile Include="Clases\CriterioOrdenamientoPorPromedio.cs" />
+    <Compile Include="Clases\CriterioOrdenamientoPorPromedioUltimoPartido.cs" />
     <Compile Include="Clases\Infraccion.cs" />
+    <Compile Include="Clases\InscripcionTipoStandard.cs" />
+    <Compile Include="Clases\Inscripcion.cs" />
+    <Compile Include="Clases\InscripcionTipo.cs" />
+    <Compile Include="Clases\InscripcionTipoCondicional.cs" />
+    <Compile Include="Clases\InscripcionTipoSolidaria.cs" />
     <Compile Include="Clases\Jugador.cs" />
-    <Compile Include="Clases\JugadorCondicional.cs" />
     <Compile Include="Clases\Notificador.cs" />
     <Compile Include="Clases\Partido.cs" />
-    <Compile Include="Clases\Persona.cs" />
+    <Compile Include="Clases\PartidoEstado.cs" />
     <Compile Include="Clases\Rechazo.cs" />
-    <Compile Include="ConexionBase\ConexionDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas\CrearPartido.resx">
-      <DependentUpon>CrearPartido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas\FormCalificacion.resx">
-      <DependentUpon>FormCalificacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas\FormJugador.resx">
-      <DependentUpon>FormJugador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas\FormPartido.resx">
-      <DependentUpon>FormPartido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas\HomeAdministrador.resx">
-      <DependentUpon>HomeAdministrador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas\RegistroUsuario.resx">
-      <DependentUpon>RegistroUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -104,54 +96,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Ventanas\CrearPartido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\CrearPartido.Designer.cs">
-      <DependentUpon>CrearPartido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ventanas\FormCalificacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\FormCalificacion.Designer.cs">
-      <DependentUpon>FormCalificacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ventanas\FormJugador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\FormJugador.Designer.cs">
-      <DependentUpon>FormJugador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ventanas\FormPartido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\FormPartido.Designer.cs">
-      <DependentUpon>FormPartido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ventanas\HomeAdministrador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\HomeAdministrador.Designer.cs">
-      <DependentUpon>HomeAdministrador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ventanas\HomeInteresado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\HomeInteresado.Designer.cs">
-      <DependentUpon>HomeInteresado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ventanas\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ventanas\RegistroUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\RegistroUsuario.Designer.cs">
-      <DependentUpon>RegistroUsuario.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Mein Führer.ico" />
@@ -163,7 +107,7 @@
     <Content Include="mein fuhrer.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Utilidades\" />
+    <Folder Include="Ventanas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

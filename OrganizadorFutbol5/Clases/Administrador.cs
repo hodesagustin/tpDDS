@@ -5,21 +5,21 @@ using System.Text;
 
 namespace OrganizadorFutbol5.Clases
 {
-    public class Administrador : Persona
+    public class Administrador
     {
-        private bool aceptaPropuestos;
+        //public int id {get; private set;}
+        public String nombre { get; private set; }
+        public String mail { get; private set; }
 
-        public Administrador(String unNombre,bool dejaProponer) 
-            : base(unNombre) 
+        public Administrador(String unNombre, String unMail) 
         {
-            aceptaPropuestos = dejaProponer;
+            nombre = unNombre;
+            mail = unMail;
         }
-
-        public bool getAceptaPropuestos() { return aceptaPropuestos; }
 
         public override string ToString()
         {
-            return this.getNombre() + " (" + aceptaPropuestos + ")";
+            return nombre + " (" + mail + ")";
         }
     }
 

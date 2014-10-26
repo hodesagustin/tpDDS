@@ -5,8 +5,9 @@ using System.Text;
 
 namespace OrganizadorFutbol5.Clases
 {
-    interface Condicion
+    interface CriterioOrdenamiento
     {
-        bool cumple(Partido partido);
+
+        double getPuntaje(Jugador jugador);
     }
 }

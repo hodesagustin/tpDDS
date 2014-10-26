@@ -5,15 +5,17 @@ using System.Text;
 
 namespace OrganizadorFutbol5.Clases
 {
-    public class Infraccion
+    class Infraccion
     {
-        public string descripcion;
-        DateTime fecha;
+        public String descripcion {get; private set;}
+        public DateTime fecha {get; private set;}
+        public Partido partido { get; private set; } //CAPAZ ESTá DE MáS
 
-        public Infraccion(string causa)
+        public Infraccion(String unaDescripcion,Partido unPartido)
         {
-            descripcion = causa;
+            descripcion = unaDescripcion;
             fecha = DateTime.Now;
+            partido = unPartido; //CAPAZ ESTá DE MáS
         }
 
         public override string ToString()

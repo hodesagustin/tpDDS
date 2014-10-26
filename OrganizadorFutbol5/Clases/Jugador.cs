@@ -5,114 +5,81 @@ using System.Text;
 
 namespace OrganizadorFutbol5.Clases
 {
-    public class Jugador : Persona
+    class Jugador
     {
-        private List<Calificacion> calificaciones = new List<Calificacion>();
-        //private List<Partido> partidos = new List<Partido>();
-        public Notificador notificador = new Notificador();
-        public List<Jugador> amigos = new List<Jugador>();
-        List<Infraccion> infraccciones = new List<Infraccion>();
+        public String nombre { get; private set; }
+        public String mail { get; private set; }
+        //public DateTime fechaNacimiento { get; private set; }
+        public int edad { get; private set; }
+        public List<String> amigos { get; private set; }
 
-        public Jugador(string nombreNuevo)
-            : base(nombreNuevo) { }
-
-        /*CONSTRUCTOR PARA CREACION INICIAL*/
-        public Jugador(string nombreNuevo, decimal calificacion) 
-            :base(nombreNuevo)
-        {
-            this.agregarCalificacion("Calificacion Inicial",calificacion);
-        }
-        /*******************************************************/
-        public void avisarInscripcion(Partido partido)
-        {
-            string mensaje = "Me he anotado para " + partido.ToString();
-
-            foreach (Jugador amigo in amigos)
-            {
-                notificador.notify(mensaje, amigo);
-            }
-        }
-
-        public void agregarCalificacion(String descripcion,decimal calificacion)
-        {
-            calificaciones.Add(new Calificacion(descripcion,calificacion));
-        }
-
-        public void agregarInfraccion(Infraccion infraccion)
-        {
-            infraccciones.Add(infraccion);
-        }
-
-        public void agregarAmigo(Jugador amigo)
-        { 
-            amigos.Add(amigo); 
-        }
-
-        override public String ToString()
-        {
-            return this.getNombre() + " (" + this.getCalificacion()  + ")";
-        }
+        public int handicap { get; private set; }
+        public List<Infraccion> infracciones { get; private set; }
+        public List<Calificacion> calificaciones { get; private set; }
+        public List<CalificacionPendiente> calificacionesPendientes { get; private set; }        
         
-        public override bool Equals(object obj)
+        public Jugador(String unNombre, String unMail, /*DateTime unaFechaNacimiento,*/ int unaEdad, List<String> unosAmigos, int unHandicap) 
         {
-            if (obj == null)
-                return false;
-            else
-                return this.ToString().Equals(obj.ToString());
+            nombre = unNombre;
+            mail = unMail;
+            //fechaNacimiento = unaFechaNacimiento;
+            edad = unaEdad;
+            amigos = unosAmigos;
+
+            handicap = unHandicap;
+            infracciones = new List<Infraccion>();
+            calificaciones = new List<Calificacion>();
+            calificacionesPendientes = new List<CalificacionPendiente>();
+        }
+
+        public void addInfraccion(Infraccion infraccion)
+        {
+            infracciones.Add(infraccion);
+            infracciones = infracciones.OrderByDescending(i => i.fecha).ToList();
+        }
+
+        public void addCalificacion(Calificacion calificacion)
+        {
+            calificaciones.Add(calificacion);
+            calificaciones = calificaciones.OrderByDescending(c => c.partido.fecha).ToList();
+        }
+
+        public void addCalificacionPendiente(Partido unPartido, Jugador unJugador)
+        {
+            calificacionesPendientes.Add(new CalificacionPendiente(unPartido, unJugador));
+        }
+
+        public override string ToString()
+        {
+            return nombre;
         }
 
         public bool Equals(Jugador otroJugador)
         {
-            if ((object)otroJugador == null)
-                return false;
-            else
-                return this.ToString().Equals(otroJugador.ToString());
+            return nombre.Equals(otroJugador.nombre);
         }
 
-        public override int GetHashCode()
+        public double getPromedio(int cantidadPartidos)
         {
-            return base.GetHashCode();
-        }
-
-        public decimal getCalificacion() {
-            decimal calificacion = 0;
-
-            if (calificaciones.Count != 0)
+            /*
+            double promedio = 0.0;
+            //FALTA HACER BIEN ESTO. AHORA ES 4 * cantidadPartidos (porque por cada partido, lo califican los 4 que jugaron con el)
+            for (int i = 0; i < 4 * cantidadPartidos; i++)
             {
-                foreach (Calificacion calif in calificaciones)
-                    calificacion += calif.getPuntaje();
-                return calificacion / calificaciones.Count ;
+                promedio += (double)calificaciones[i].puntaje;
             }
-            else
-                return 0;
-        }
-        
-        public List<Infraccion> getInfracciones() { return infraccciones; }
-        public List<Jugador> getAmigos() { return amigos; }
-        public Notificador getNotificador() { return notificador; }
+            promedio /= cantidadPartidos;
 
-        private void fill<T>(System.Windows.Forms.ListBox listBox, List<T> list)
-        {
-            listBox.Items.Clear();
-            foreach (T elem in list)
-            {
-                listBox.Items.Add(elem);
-            }
+            return promedio;
+            */
+
+            throw new NotImplementedException();
         }
 
-        internal void fillWithInfracciones(System.Windows.Forms.ListBox listInfracciones)
+        public void calificarJugador(CalificacionPendiente calificacionPendiente, int puntaje, String descripcion)
         {
-            this.fill(listInfracciones, this.infraccciones);
-        }
-
-        internal void fillWithNotificaciones(System.Windows.Forms.ListBox listNotificaciones)
-        {
-            this.fill(listNotificaciones,notificador.getNotificaciones());
-        }
-
-        internal void fillWithCalificaciones(System.Windows.Forms.ListBox listCalificaciones)
-        {
-            this.fill(listCalificaciones, calificaciones);
+            calificacionPendiente.jugador.addCalificacion(new Calificacion(descripcion, puntaje, calificacionPendiente.partido));
+            calificacionesPendientes.Remove(calificacionPendiente);
         }
     }
 }

@@ -5,184 +5,116 @@ using System.Text;
 
 namespace OrganizadorFutbol5.Clases
 {
-    public class Partido
-    {
-        private string nombre;
-        private List<Jugador> inscriptosStandard = new List<Jugador>();
-        private List<JugadorCondicional> inscriptosCondicionales = new List<JugadorCondicional>();
-        private List<Jugador> inscriptosSolidarios = new List<Jugador>();
-        private List<Jugador> equipoA = new List<Jugador>();
-        private List<Jugador> equipoB = new List<Jugador>();
-        private List<Rechazo> rechazos = new List<Rechazo>();
-        private DateTime fecha;
-        private Notificador notificador = new Notificador();
-        private Administrador administrador;
+    class Partido{
 
-        public Partido(string nuevoNombre, DateTime unaFecha,Administrador unAdmin)
+        public DateTime fecha { get; private set; }
+        public List<Inscripcion> inscripciones { get; private set; }
+        public List<String> pendientes { get; private set; }
+        public List<Rechazo> rechazos { get; private set; }
+        public List<Jugador> equipoA { get; private set; }
+        public List<Jugador> equipoB { get; private set; }
+        public Administrador administrador { get; private set; }
+        public Notificador notificador {get; private set;}
+        public PartidoEstado estado { get; private set; }
+
+        public Partido(DateTime unaFecha,Administrador unAdministrador)
         {
-           nombre = nuevoNombre;
-           fecha = unaFecha;
-           administrador = unAdmin;
+            fecha = unaFecha;
+            inscripciones = new List<Inscripcion>();
+            pendientes = new List<String>();
+            rechazos = new List<Rechazo>();
+            equipoA = new List<Jugador>();
+            equipoB = new List<Jugador>();
+            administrador = unAdministrador;
+            notificador = new Notificador();
+            estado = new PartidoEstadoAbierto();
         }
 
-        private bool estaInscripto(Jugador jugador)
+        public void inscribir(Inscripcion unaInscripcion)
         {
-            return inscriptosStandard.Contains(jugador) || inscriptosSolidarios.Contains(jugador);
-        }
-        private bool estaInscripto(JugadorCondicional jugadorCondicional)
-        {
-            return inscriptosCondicionales.Contains(jugadorCondicional);
-        }
+            int mayorPrioridad;
 
-        public void inscribirStandard(Jugador jugador)
-        {
-            if (aceptaInscripcion())
+            if (inscripciones.Count < 10)
             {
-                if (!estaInscripto(jugador))
-                    anotar(jugador, inscriptosStandard);
-                else
-                    throw new Exception("Ya esta Inscripto");
+                inscribirYordenar(unaInscripcion);
+                if (inscripciones.Count == 10)
+                    notificador.notify(administrador.ToString(),"Llegamos a 10");
             }
-        }
-
-        public void inscribirSolidario(Jugador jugador)
-        {
-            if (aceptaInscripcion())
+            else
             {
-                if (!estaInscripto(jugador))
-                    anotar(jugador, inscriptosSolidarios);
-                else
-                    throw new Exception("Ya esta Inscripto");
-            }
-        }
-
-        public void inscribirCondicional(JugadorCondicional jugadorCondicional)
-        {
-            if (aceptaInscripcion())
-            {
-                if (!estaInscripto(jugadorCondicional))
-                    anotar(jugadorCondicional, inscriptosCondicionales);
-                else
-                    throw new Exception("Ya esta Inscripto");
-            } 
-        }
-
-        public void proponerJugador(Jugador jugador,String modalidad)
-        {
-            if (administrador.getAceptaPropuestos())
-            {
-                if (modalidad.Equals("Standard"))
-                    this.inscribirStandard(jugador);
-                else if (modalidad.Equals("Solidario"))
-                    this.inscribirSolidario(jugador);
-                else
+                mayorPrioridad = getMayorPrioridadInscriptos();
+                if (unaInscripcion.getPrioridad() < mayorPrioridad)
                 {
-                    throw new Exception("Error en Modalidad");
+                    inscripciones.Remove(inscripciones.Last());
+                    inscribirYordenar(unaInscripcion);
                 }
-            }
-            else
-            {
-                rechazos.Add(new Rechazo("El Administrador no acepta Propuesto a " + jugador.ToString()));
-                throw new Exception("El Administrador no acepta Propuestos");
-            }
-        }
-        public void proponerJugador(JugadorCondicional jugadorCondicional)
-        {
-            if (administrador.getAceptaPropuestos())
-            {
-                this.inscribirCondicional(jugadorCondicional);
-            }
-            else
-            {
-                {
-                    rechazos.Add(new Rechazo("El Administrador no acepta Propuesto a " + jugadorCondicional.ToString()));
-                    throw new Exception("El Administrador no acepta Propuestos");
-                }
+                else
+                    notificador.notify(unaInscripcion.jugador.mail,"Ya hay 10 Jugadores con mayor o igual prioridad");
             }
         }
 
-        bool aceptaInscripcion()
+        private int getMayorPrioridadInscriptos()
         {
-            return (inscriptosStandard.Count < 10);
+            return inscripciones.Max(inscripcion => inscripcion.getPrioridad());
         }
 
-        public int getCantidadDeInscriptos()
+        private void inscribirYordenar(Inscripcion unaInscripcion)
         {
-            return (inscriptosStandard.Count + inscriptosSolidarios.Count
-                    + inscriptosCondicionales.Count);
+            inscripciones.Add(unaInscripcion);
+            inscripciones = inscripciones.OrderBy(i => i.getPrioridad()).ThenBy(i => i.fecha).ToList();
         }
 
-        void anotar(Jugador jugador, List<Jugador> lista)
+        public List<Jugador> getJugadoresInscriptos()
         {
-            lista.Add(jugador);
-            jugador.avisarInscripcion(this);
-            if (getCantidadDeInscriptos() == 10)
-                notificador.notify("Se ha llegado a los 10 jugadores inscriptos", administrador);
-        }
-        void anotar(JugadorCondicional jugadorCondicional, List<JugadorCondicional> lista)
-        {
-            lista.Add(jugadorCondicional);
-            jugadorCondicional.avisarInscripcion(this);
-            if (getCantidadDeInscriptos() == 10)
-                notificador.notify("Se ha llegado a los 10 jugadores inscriptos", administrador);
+            return inscripciones.ConvertAll(inscripcion => inscripcion.jugador);
         }
 
-        public void darDeBaja(Jugador jugador)
+        public void baja(Jugador jugador)
         {
-            Infraccion infraccion = new Infraccion("Baja sin reemplazo");
-            List<Jugador> lista = getListaSegunJugador(jugador);
+            Infraccion infraccion = new Infraccion("Baja sin Reemplazo", this);
 
-            lista.Remove(jugador);
-            jugador.agregarInfraccion(infraccion);
-            if (getCantidadDeInscriptos() == 9)
-                notificador.notify("Ha dejado de haber 10 jugadores inscriptos", administrador);
-        }
-        public void darDeBaja(JugadorCondicional jugadorCondicional)
-        {
-            Infraccion infraccion = new Infraccion("Baja sin reemplazo");
-            List<JugadorCondicional> lista = getListaSegunJugador(jugadorCondicional);
-
-            lista.Remove(jugadorCondicional);
-            jugadorCondicional.agregarInfraccion(infraccion);
-            if (getCantidadDeInscriptos() == 9)
-                notificador.notify("Ha dejado de haber 10 jugadores inscriptos", administrador);
+            jugador.addInfraccion(infraccion);
+            inscripciones.Remove(getInscripcionByJugador(jugador));
+            if (inscripciones.Count == 9)
+                notificador.notify(administrador.mail,"Ya NO somos 10");
         }
 
-        public void reemplazar(Jugador jugador, Jugador reemplazo)
+        public void baja(Jugador jugador, Jugador reemplazo) 
         {
-            List<Jugador> lista = getListaSegunJugador(jugador);
-            lista.Remove(jugador);
-            lista.Add(reemplazo);
-        }
-        public void reemplazar(JugadorCondicional jugadorCondicional, JugadorCondicional reemplazoCondicional)
-        {
-            List<JugadorCondicional> lista = getListaSegunJugador(jugadorCondicional);
-            lista.Remove(jugadorCondicional);
-            lista.Add(reemplazoCondicional);
+            Inscripcion inscripcion = getInscripcionByJugador(jugador);
+            inscripcion.reemplazarJugador(reemplazo);
         }
 
-        public List<Jugador> getListaSegunJugador(Jugador jugador)
+        private Inscripcion getInscripcionByJugador(Jugador jugador)
         {
-            if (inscriptosStandard.Contains(jugador))
-                return inscriptosStandard;
-            else
-                return inscriptosSolidarios;
-        }
-        public List<JugadorCondicional> getListaSegunJugador(JugadorCondicional jugadorCondicional)
-        { return inscriptosCondicionales; }
-
-        public override string ToString()
-        {
-            return this.nombre + " : " + this.fecha;
+            return inscripciones.Find(i => i.jugador.Equals(jugador));
         }
 
-        public String getNombre(){ return nombre; }
-        public Administrador getAdministrador() { return this.administrador; }
-        public DateTime getFecha() { return this.fecha; }
-        public List<Jugador> getInscriptosStandard() { return inscriptosStandard; }
-        public List<Jugador> getInscriptosSolidarios() { return inscriptosSolidarios; }
-        public List<JugadorCondicional> getInscriptosCondicionales() { return inscriptosCondicionales; }
-        public Notificador getNotificador() { return notificador; }
-        public List<Rechazo> getRechazos() { return rechazos; }
+        public void generarEquipos(CriterioOrdenamiento ordenamiento,CriterioDivision division)
+        {
+            List<Jugador> jugadores = this.getJugadoresInscriptos();
+
+            jugadores = jugadores.OrderByDescending(jugador => ordenamiento.getPuntaje(jugador)).ToList();
+            division.dividir(jugadores, equipoA, equipoB);
+        }
+
+        public void aceptarPendiente(Jugador jugadorAceptado, InscripcionTipo inscripcionTipo)
+        {
+            inscribir(new Inscripcion(inscripcionTipo,jugadorAceptado));
+            pendientes.Remove(jugadorAceptado.nombre);
+        }
+
+        public void rechazarPendiente(String nombre, String motivo)
+        {
+            Rechazo rechazo = new Rechazo(motivo);
+
+            rechazos.Add(rechazo);
+            pendientes.Remove(nombre);
+        }
+
+        public void proponerAmigo(String nombre)
+        {
+            pendientes.Add(nombre);
+        }
     }
 }

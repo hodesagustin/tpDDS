@@ -5,21 +5,31 @@ using System.Text;
 
 namespace OrganizadorFutbol5.Clases
 {
-    public class Notificador
+    class Notificador
     {
-        private int cantidadDeNotificacionesEnviadas;
-        private List<String> notificaciones = new List<string>();
+        public List<Notificacion> notificaciones { get; private set; }
 
-        public void notify(string mensaje, Persona jugador)
+        public void notify(String unDestinatario,String unMensaje)
         {
-            notificaciones.Add(jugador.ToString() + ": " + mensaje);
-            cantidadDeNotificacionesEnviadas ++; 
+            notificaciones.Add(new Notificacion(unDestinatario,unMensaje));
         }
 
-        public int getCantidadDeNotificacionesEnviadas()
+        public int getCantidadNotificacionesEnviadas()
         {
-            return cantidadDeNotificacionesEnviadas;
+            return notificaciones.Count;
         }
-        public List<String> getNotificaciones() { return notificaciones; }
+
+        public class Notificacion
+        {
+            public String destinatario {get;private set;}
+            public String mensaje {get; private set;}
+
+            public Notificacion(String unDestinatario, String unMensaje)
+            {
+                destinatario = unDestinatario;
+                mensaje = unMensaje;
+            }
+    }
+
     }
 }
