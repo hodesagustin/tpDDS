@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OrganizadorFutbol5.Clases
+namespace OrganizadorFutbol5
 {
-    class Jugador
+    public partial class Jugador
     {
+        /*
         public String nombre { get; private set; }
         public String mail { get; private set; }
         //public DateTime fechaNacimiento { get; private set; }
@@ -17,8 +18,10 @@ namespace OrganizadorFutbol5.Clases
         public List<Infraccion> infracciones { get; private set; }
         public List<Calificacion> calificaciones { get; private set; }
         public List<CalificacionPendiente> calificacionesPendientes { get; private set; }        
-        
-        public Jugador(String unNombre, String unMail, /*DateTime unaFechaNacimiento,*/ int unaEdad, List<String> unosAmigos, int unHandicap) 
+        */
+
+        /*
+        public Jugador(String unNombre, String unMail, /*DateTime unaFechaNacimiento,* / int unaEdad, List<String> unosAmigos, int unHandicap) 
         {
             nombre = unNombre;
             mail = unMail;
@@ -31,32 +34,40 @@ namespace OrganizadorFutbol5.Clases
             calificaciones = new List<Calificacion>();
             calificacionesPendientes = new List<CalificacionPendiente>();
         }
+        */
 
         public void addInfraccion(Infraccion infraccion)
         {
-            infracciones.Add(infraccion);
-            infracciones = infracciones.OrderByDescending(i => i.fecha).ToList();
+            /*
+            Infraccions.Add(infraccion);
+            Infraccions = Infraccions.OrderByDescending(i => i.Fecha).ToList();
+            */
         }
 
         public void addCalificacion(Calificacion calificacion)
         {
-            calificaciones.Add(calificacion);
-            calificaciones = calificaciones.OrderByDescending(c => c.partido.fecha).ToList();
+            /*
+            Calificacions.Add(calificacion);
+            Calificacions = Calificacions.OrderByDescending(c => c.Partido.Fecha).ToList();
+            */
         }
 
         public void addCalificacionPendiente(Partido unPartido, Jugador unJugador)
         {
-            calificacionesPendientes.Add(new CalificacionPendiente(unPartido, unJugador));
+            /*
+            CalificacionPendiente calificacionPendiente = new CalificacionPendiente() { Partido = unPartido, Jugador = unJugador };
+            CalificacionPendientes.Add(calificacionPendiente);
+            */
         }
 
         public override string ToString()
         {
-            return nombre;
+            return Nombre;
         }
 
         public bool Equals(Jugador otroJugador)
         {
-            return nombre.Equals(otroJugador.nombre);
+            return Nombre.Equals(otroJugador.Nombre);
         }
 
         public double getPromedio(int cantidadPartidos)
@@ -78,8 +89,10 @@ namespace OrganizadorFutbol5.Clases
 
         public void calificarJugador(CalificacionPendiente calificacionPendiente, int puntaje, String descripcion)
         {
+            /*
             calificacionPendiente.jugador.addCalificacion(new Calificacion(descripcion, puntaje, calificacionPendiente.partido));
             calificacionesPendientes.Remove(calificacionPendiente);
+            */
         }
     }
 }

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OrganizadorFutbol5.Clases
+namespace OrganizadorFutbol5
 {
-    class CriterioOrdenamientoPorHandicap:CriterioOrdenamiento
+    public class CriterioOrdenamientoPorHandicap:CriterioOrdenamiento
     {
         #region CriterioOrdenamiento Members
 
         public double getPuntaje(Jugador jugador)
         {
-            return jugador.handicap;
+            return jugador.Handicap;
         }
 
         #endregion

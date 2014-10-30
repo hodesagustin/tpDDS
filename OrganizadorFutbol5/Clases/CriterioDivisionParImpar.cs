@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OrganizadorFutbol5.Clases
+namespace OrganizadorFutbol5
 {
-    class CriterioDivisionParImpar:CriterioDivision
+    public class CriterioDivisionParImpar:CriterioDivision
     {
         public String descripcion {get; private set;}
 

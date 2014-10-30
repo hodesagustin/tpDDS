@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OrganizadorFutbol5.Clases
+namespace OrganizadorFutbol5
 {
-    interface Condicion
+    public interface Condicion
     {
         bool cumple(Partido partido);
     }

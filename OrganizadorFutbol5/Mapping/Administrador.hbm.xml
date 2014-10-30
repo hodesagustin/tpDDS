@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="OrganizadorFutbol5.Clases" assembly="OrganizadorFutbol5">
+  <class name="Administrador" table="Administrador" lazy="false">
+    <id name="ID">
+      <column name="ID"/>
+      <generator class="Guid"/>
+    </id>
+    <property name="Nombre">
+      <column name="Nombre"/>
+    </property>
+    <property name="Mail">
+      <column name="Mail"/>
+    </property>
+  </class>
+</hibernate-mapping>

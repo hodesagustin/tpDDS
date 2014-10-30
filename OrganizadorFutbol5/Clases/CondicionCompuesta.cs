@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OrganizadorFutbol5.Clases
+namespace OrganizadorFutbol5
 {
-    class CondicionCompuesta : Condicion
+    public class CondicionCompuesta : Condicion
     {
         private List<Condicion> condiciones = new List<Condicion>();
 

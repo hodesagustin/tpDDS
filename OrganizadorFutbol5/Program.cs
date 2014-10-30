@@ -15,8 +15,18 @@ namespace OrganizadorFutbol5
         [STAThread]
         static void Main()
         {
-            Administrador administrador = new Administrador("Admin", "admin@gmail.com");
-            Partido partido = new Partido(DateTime.Now,administrador);
+
+            DataBaseDataContext db = new DataBaseDataContext();
+            var administradores = from a in db.Administradors
+                                  select a;
+
+            foreach (Administrador administrador in administradores)
+            {
+                MessageBox.Show(administrador.ToString());
+            }
+
+            //Administrador administrador = new Administrador("Admin", "admin@gmail.com");
+            //Partido partido = new Partido(DateTime.Now,administrador);
 
             /* addCalificacion
             Jugador jugador = new Jugador("Prueba", 5);

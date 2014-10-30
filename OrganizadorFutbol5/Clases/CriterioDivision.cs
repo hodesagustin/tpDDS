@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OrganizadorFutbol5.Clases
+namespace OrganizadorFutbol5
 {
-    interface CriterioDivision
+    public interface CriterioDivision
     {
         void dividir(List<Jugador> jugadores, List<Jugador> equipoA, List<Jugador> equipoB);
     }

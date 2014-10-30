@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OrganizadorFutbol5.Clases
+namespace OrganizadorFutbol5
 {
-    class Notificador
+    public class Notificador
     {
         public List<Notificacion> notificaciones { get; private set; }
 

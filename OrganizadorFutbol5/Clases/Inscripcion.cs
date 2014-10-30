@@ -3,34 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OrganizadorFutbol5.Clases
+namespace OrganizadorFutbol5
 {
-    class Inscripcion
+    public partial class Inscripcion
     {
+        /*
         public InscripcionTipo tipo { get; private set; }
         public Jugador jugador {get; private set;}
         public DateTime fecha  {get; private set;}
-
+        */
+        /*
         public Inscripcion(InscripcionTipo unTipo, Jugador unJugador)
         {
             tipo = unTipo;
             jugador = unJugador;
             fecha =  System.DateTime.Now;
         }
-
+        */
         public void reemplazarJugador(Jugador reemplazo)
         {
-            jugador = reemplazo;
+            Jugador = reemplazo;
         }
 
         public override string ToString()
         {
-            return jugador.ToString() + " - " + tipo + " - " + fecha;
+            //return Jugador.ToString() + " - " + tipo + " - " + fecha;
+            return Jugador.ToString() + " - " + Fecha;
         }
 
         public int getPrioridad()
         {
-            return tipo.prioridad;
+            throw new NotImplementedException();//return tipo.prioridad;
         }
     }
 }
