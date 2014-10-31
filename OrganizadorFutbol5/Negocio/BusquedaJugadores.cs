@@ -48,6 +48,8 @@ namespace OrganizadorFutbol5.Negocio
                 }
             }*/
             dg.DataSource = consulta;
+            dg.Columns["ID"].Visible = false;
+            //Quitar visibilidad a las respuestas!
 
             int i;
             for (i = 0; i == 0 || i < dg.Rows.Count - 1; i++)
