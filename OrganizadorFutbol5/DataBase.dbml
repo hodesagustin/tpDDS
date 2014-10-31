@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="DDS2014" Class="DataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\SQLSERVER2008;Initial Catalog=DDS2014;Persist Security Info=True;User ID=dds" SettingsObjectName="OrganizadorFutbol5.Properties.Settings" SettingsPropertyName="DDS2014ConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="grupo1.Administrador" Member="Administradors">
+  <Table Name="dds_esquema.Administrador" Member="Administradors">
     <Type Name="Administrador">
       <Column Name="ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
@@ -9,7 +9,7 @@
       <Association Name="Administrador_Partido" Member="Partidos" ThisKey="ID" OtherKey="AdministradorID" Type="Partido" />
     </Type>
   </Table>
-  <Table Name="grupo1.Rechazo" Member="Rechazos">
+  <Table Name="dds_esquema.Rechazo" Member="Rechazos">
     <Type Name="Rechazo">
       <Column Name="PartidoID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PersonaNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -18,7 +18,7 @@
       <Association Name="Partido_Rechazo" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="grupo1.Calificacion" Member="Calificacions">
+  <Table Name="dds_esquema.Calificacion" Member="Calificacions">
     <Type Name="Calificacion">
       <Column Name="CalificadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PartidoID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -30,7 +30,7 @@
       <Association Name="Partido_Calificacion" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="grupo1.CalificacionPendiente" Member="CalificacionPendientes">
+  <Table Name="dds_esquema.CalificacionPendiente" Member="CalificacionPendientes">
     <Type Name="CalificacionPendiente">
       <Column Name="CalificadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PartidoID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -40,17 +40,17 @@
       <Association Name="Partido_CalificacionPendiente" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="grupo1.Infraccion" Member="Infraccions">
+  <Table Name="dds_esquema.Infraccion" Member="Infraccions">
     <Type Name="Infraccion">
       <Column Name="PartidoID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="JugadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Fecha" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Motivo" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="Jugador_Infraccion" Member="Jugador" ThisKey="JugadorID" OtherKey="ID" Type="Jugador" IsForeignKey="true" />
       <Association Name="Partido_Infraccion" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="grupo1.Inscripcion" Member="Inscripcions">
+  <Table Name="dds_esquema.Inscripcion" Member="Inscripcions">
     <Type Name="Inscripcion">
       <Column Name="PartidoID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="JugadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -59,18 +59,18 @@
       <Association Name="Partido_Inscripcion" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="grupo1.InscripcionPendiente" Member="InscripcionPendientes">
+  <Table Name="dds_esquema.InscripcionPendiente" Member="InscripcionPendientes">
     <Type Name="InscripcionPendiente">
       <Column Name="PartidoID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PersonaNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Partido_InscripcionPendiente" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="grupo1.Jugador" Member="Jugadors">
+  <Table Name="dds_esquema.Jugador" Member="Jugadors">
     <Type Name="Jugador">
-      <Column Name="ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Edad" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="FechaNacimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Mail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Handicap" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Association Name="Jugador_Calificacion" Member="Calificacions" ThisKey="ID" OtherKey="CalificadorID" Type="Calificacion" />
@@ -83,14 +83,14 @@
       <Association Name="Jugador_PartidoEquipo" Member="PartidoEquipos" ThisKey="ID" OtherKey="JugadorID" Type="PartidoEquipo" />
     </Type>
   </Table>
-  <Table Name="grupo1.JugadorAmigo" Member="JugadorAmigos">
+  <Table Name="dds_esquema.JugadorAmigo" Member="JugadorAmigos">
     <Type Name="JugadorAmigo">
       <Column Name="JugadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="AmigoNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Jugador_JugadorAmigo" Member="Jugador" ThisKey="JugadorID" OtherKey="ID" Type="Jugador" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="grupo1.Partido" Member="Partidos">
+  <Table Name="dds_esquema.Partido" Member="Partidos">
     <Type Name="Partido">
       <Column Name="ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="AdministradorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
@@ -105,7 +105,7 @@
       <Association Name="Administrador_Partido" Member="Administrador" ThisKey="AdministradorID" OtherKey="ID" Type="Administrador" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="grupo1.PartidoEquipo" Member="PartidoEquipos">
+  <Table Name="dds_esquema.PartidoEquipo" Member="PartidoEquipos">
     <Type Name="PartidoEquipo">
       <Column Name="PartidoID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="JugadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
