@@ -48,6 +48,15 @@ namespace OrganizadorFutbol5.Negocio
                 }
             }*/
             dg.DataSource = consulta;
+
+            int i;
+            for (i = 0; i == 0 || i < dg.Rows.Count - 1; i++)
+            {
+                if (int.Parse(dg.Rows[i].Cells[0].Value.ToString()) > 0)
+                {
+                    dg.Rows[i].Cells[1].Style.ForeColor = Color.Blue;
+                }
+            }
         }
 
         public void limpiarGroupbox(GroupBox gb)
