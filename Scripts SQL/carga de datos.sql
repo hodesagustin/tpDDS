@@ -26,18 +26,18 @@ insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,
 
 insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (1,2,2,2,'muy bueno')
 
-insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (1,3,1,7,'bue')
+insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (1,1,1,7,'bue')
 
-insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (2,3,1,2,'cono')
+insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (2,1,1,2,'cono')
 
-insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (2,3,2,9,'la movió')
+insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (2,1,2,9,'la movió')
 
-insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (1,3,2,10,'muy bueno')
+insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (1,1,2,10,'muy bueno')
 
 -- inscripciones
 
 insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Fecha) values (2,1,'2000-01-01')
 insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Fecha) values (2,2,'2000-01-01')
 
-insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Fecha) values (3,1,'2000-01-02')
-insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Fecha) values (3,2,'2000-01-02')
+insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Fecha) values (1,1,'2000-01-02')
+insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Fecha) values (1,2,'2000-01-02')

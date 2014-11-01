@@ -262,7 +262,7 @@ GO
 CREATE VIEW [dds_esquema].[Promedio Ultimo Partido]
 AS
 
-select Calificaciones.JugadorID as Jugador, AVG (Calificaciones.Puntaje) from
+select Calificaciones.JugadorID as Jugador, AVG (Calificaciones.Puntaje) as Promedio from
 
 (select Inscripciones.PartidoID from
 (
@@ -279,7 +279,7 @@ where FechaMaxima.Fecha = Inscripciones.Fecha
 ) as UltimoPartido, dds_esquema.Calificacion as Calificaciones
 where UltimoPartido.PartidoID = Calificaciones.PartidoID
 Group by JugadorID
-
+GO
 -- Vista PROMEDIO TODOS LOS PARTIDOS
 
 CREATE VIEW [dds_esquema].[Promedio todos los partidos]
@@ -291,5 +291,5 @@ FROM         (SELECT     J.ID AS Jugador, I.PartidoID AS Partido
                        GROUP BY J.ID, I.PartidoID) AS JugadoresUltimoPartido INNER JOIN
                       dds_esquema.Calificacion AS C ON JugadoresUltimoPartido.Jugador = C.JugadorID
 GROUP BY JugadoresUltimoPartido.Jugador
-
+GO
 -------------------------------------------------------
