@@ -11,8 +11,8 @@ namespace OrganizadorFutbol5.Negocio
 {
     class BusquedaJugadores
     {
-        DataBaseDataContext db = new DataBaseDataContext();
-
+        DataBaseDataContext db = new DataBaseDataContext(); 
+        
         public void buscar(DataGridView dg, string comienzaNombre, DateTime fechaAnterior, int handicapDesde, int handicapHasta, float promDesde, float promHasta, string infraccion)
         {
             //Comentado hasta tener la View:

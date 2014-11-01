@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="DDS2014" Class="DataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\SQLSERVER2008;Initial Catalog=DDS2014;Persist Security Info=True;User ID=dds" SettingsObjectName="OrganizadorFutbol5.Properties.Settings" SettingsPropertyName="DDS2014ConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLSERVER2008;Initial Catalog=DDS2014;Persist Security Info=True;User ID=dds" SettingsObjectName="OrganizadorFutbol5.Properties.Settings" SettingsPropertyName="DDS2014ConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dds_esquema.Administrador" Member="Administradors">
     <Type Name="Administrador">
       <Column Name="ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -112,6 +112,18 @@
       <Column Name="Equipo" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
       <Association Name="Jugador_PartidoEquipo" Member="Jugador" ThisKey="JugadorID" OtherKey="ID" Type="Jugador" IsForeignKey="true" />
       <Association Name="Partido_PartidoEquipo" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dds_esquema.[Promedio todos los partidos]" Member="Promedio_todos_los_partidos">
+    <Type Name="Promedio_todos_los_partido">
+      <Column Name="Jugador" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Promedio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dds_esquema.[Promedio Ultimo Partido]" Member="Promedio_Ultimo_Partidos">
+    <Type Name="Promedio_Ultimo_Partido">
+      <Column Name="Jugador" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Promedio" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

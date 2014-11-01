@@ -256,3 +256,40 @@ GO
 ALTER TABLE [dds_esquema].[CalificacionPendiente] CHECK CONSTRAINT [fk_CalificacionPendiente_PartidoID]
 GO
 ----------------------------------------------------------
+
+-- Vista PROMEDIO ULTIMO PARTIDO
+
+CREATE VIEW [dds_esquema].[Promedio Ultimo Partido]
+AS
+
+select Calificaciones.JugadorID as Jugador, AVG (Calificaciones.Puntaje) from
+
+(select Inscripciones.PartidoID from
+(
+select MAX(Fecha.Fecha) as Fecha from
+(
+select MAX(Fecha) as Fecha from
+(SELECT     J.ID AS Jugador, I.PartidoID AS Partido, Fecha AS Fecha
+FROM          dds_esquema.Inscripcion AS I INNER JOIN  dds_esquema.Jugador AS J ON I.JugadorID = J.ID
+GROUP BY J.ID, I.PartidoID,Fecha) as TodosLosJugadores
+GROUP BY Fecha
+) as Fecha
+) as FechaMaxima, dds_esquema.Inscripcion as Inscripciones
+where FechaMaxima.Fecha = Inscripciones.Fecha
+) as UltimoPartido, dds_esquema.Calificacion as Calificaciones
+where UltimoPartido.PartidoID = Calificaciones.PartidoID
+Group by JugadorID
+
+-- Vista PROMEDIO TODOS LOS PARTIDOS
+
+CREATE VIEW [dds_esquema].[Promedio todos los partidos]
+AS
+SELECT     JugadoresUltimoPartido.Jugador, AVG(C.Puntaje) AS Promedio
+FROM         (SELECT     J.ID AS Jugador, I.PartidoID AS Partido
+                       FROM          dds_esquema.Inscripcion AS I INNER JOIN
+                                              dds_esquema.Jugador AS J ON I.JugadorID = J.ID
+                       GROUP BY J.ID, I.PartidoID) AS JugadoresUltimoPartido INNER JOIN
+                      dds_esquema.Calificacion AS C ON JugadoresUltimoPartido.Jugador = C.JugadorID
+GROUP BY JugadoresUltimoPartido.Jugador
+
+-------------------------------------------------------

@@ -1,3 +1,5 @@
+DROP VIEW [dds_esquema].[Promedio Ultimo Partido]
+DROP VIEW [dds_esquema].[Promedio todos los partidos]
 drop table [dds_esquema].[CalificacionPendiente]
 drop table [dds_esquema].[Calificacion]
 drop table [dds_esquema].[Infraccion]

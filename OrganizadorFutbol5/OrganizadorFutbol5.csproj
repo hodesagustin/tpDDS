@@ -103,6 +103,9 @@
     <EmbeddedResource Include="Ventanas\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VisualizarJugador.resx">
+      <DependentUpon>VisualizarJugador.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -140,6 +143,12 @@
     </Compile>
     <Compile Include="Ventanas\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VisualizarJugador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VisualizarJugador.Designer.cs">
+      <DependentUpon>VisualizarJugador.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
