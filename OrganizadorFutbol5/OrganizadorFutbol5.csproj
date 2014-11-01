@@ -100,6 +100,9 @@
     <EmbeddedResource Include="Ventanas\BusquedaJugadores.resx">
       <DependentUpon>BusquedaJugadores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -119,6 +122,24 @@
     </Compile>
     <Compile Include="Ventanas\BusquedaJugadores.Designer.cs">
       <DependentUpon>BusquedaJugadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\HomeAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\HomeAdmin.Designer.cs">
+      <DependentUpon>HomeAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\HomeJugador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\HomeJugador.Designer.cs">
+      <DependentUpon>HomeJugador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -66,9 +66,10 @@
             // 
             // buscar_btn
             // 
+            this.buscar_btn.Font = new System.Drawing.Font("Bauhaus 93", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buscar_btn.Location = new System.Drawing.Point(12, 304);
             this.buscar_btn.Name = "buscar_btn";
-            this.buscar_btn.Size = new System.Drawing.Size(155, 23);
+            this.buscar_btn.Size = new System.Drawing.Size(155, 35);
             this.buscar_btn.TabIndex = 2;
             this.buscar_btn.Text = "Buscar Jugadores";
             this.buscar_btn.UseVisualStyleBackColor = true;
@@ -76,9 +77,10 @@
             // 
             // limpiar_btn
             // 
+            this.limpiar_btn.Font = new System.Drawing.Font("Bauhaus 93", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.limpiar_btn.Location = new System.Drawing.Point(489, 304);
             this.limpiar_btn.Name = "limpiar_btn";
-            this.limpiar_btn.Size = new System.Drawing.Size(154, 23);
+            this.limpiar_btn.Size = new System.Drawing.Size(154, 35);
             this.limpiar_btn.TabIndex = 3;
             this.limpiar_btn.Text = "Limpiar Busqueda";
             this.limpiar_btn.UseVisualStyleBackColor = true;
@@ -319,10 +321,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 337);
+            this.ClientSize = new System.Drawing.Size(655, 347);
             this.Controls.Add(this.limpiar_btn);
             this.Controls.Add(this.buscar_btn);
             this.Controls.Add(this.criterios_gbx);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BusquedaJugadores";
             this.Text = "Busqueda de Jugadores";
             this.nombre_gbx.ResumeLayout(false);
