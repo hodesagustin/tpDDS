@@ -15,9 +15,9 @@ namespace OrganizadorFutbol5.Negocio
         
         public void buscar(DataGridView dg, string comienzaNombre, DateTime fechaAnterior, int handicapDesde, int handicapHasta, float promDesde, float promHasta, string infraccion)
         {
-            //Comentado hasta tener la View:
             var consulta = from x in db.Jugadors
-                           select x;
+                           join y in db.Promedio_Ultimo_Partidos on x.ID equals y.Jugador
+                           select new {x.ID, x.Nombre, x.FechaNacimiento,x.Handicap, y.Promedio} ;
 
             if (comienzaNombre != "")
             {
@@ -28,15 +28,6 @@ namespace OrganizadorFutbol5.Negocio
             {
                 consulta = consulta.Where(p => p.Handicap >= handicapDesde);
                 consulta = consulta.Where(p => p.Handicap <= handicapHasta);
-            }
-            
-            if (!(promDesde == 0.00 && promHasta == 0.00))
-            {
-
-            consulta = from x in consulta
-                            join y in db.Promedio_Ultimo_Partidos on x.ID equals y.Jugador
-                            where y.Promedio >= promDesde && y.Promedio <= promHasta
-                            select x;
             }
 
             if (infraccion == "Si")
@@ -56,8 +47,18 @@ namespace OrganizadorFutbol5.Negocio
                 }
             }
 
+            if (!(promDesde == 0.00 && promHasta == 0.00))
+            {
+
+                consulta = from x in consulta
+                           where x.Promedio >= promDesde && x.Promedio <= promHasta
+                           select x;
+            }
+
             dg.DataSource = consulta;
-            dg.Columns["ID"].Visible = true;
+            dg.Columns["ID"].Visible = false;
+            dg.Columns["FechaNacimiento"].Visible = false;
+
             //Quitar visibilidad a las respuestas!
 /*
             int i;
