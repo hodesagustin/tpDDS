@@ -55,21 +55,27 @@ namespace OrganizadorFutbol5.Negocio
                            select x;
             }
 
-            dg.DataSource = consulta;
-            dg.Columns["ID"].Visible = false;
-            dg.Columns["FechaNacimiento"].Visible = false;
-
-            //Quitar visibilidad a las respuestas!
-/*
-            int i;
-            for (i = 0; i == 0 || i < dg.Rows.Count - 1; i++)
+            int cantidad = consulta.Count();
+            if (cantidad != 0)
             {
-                if (int.Parse(dg.Rows[i].Cells[0].Value.ToString()) > 0)
+                dg.DataSource = consulta;
+                dg.Columns["ID"].Visible = false;
+                dg.Columns["FechaNacimiento"].Visible = false;
+
+                int i;
+                for (i = 0; i == 0 || i < dg.Rows.Count; i++)
                 {
-                    dg.Rows[i].Cells[1].Style.ForeColor = Color.Blue;
+                    if (int.Parse(dg.Rows[i].Cells[3].Value.ToString()) > 2)
+                    {
+                        dg.Rows[i].Cells[1].Style.ForeColor = Color.Blue;
+                    }
                 }
             }
- */
+            else
+            {
+                dg.DataSource = null;
+                MessageBox.Show("No se han encontrado Jugadores","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
         }
 
         public void limpiarGroupbox(GroupBox gb)

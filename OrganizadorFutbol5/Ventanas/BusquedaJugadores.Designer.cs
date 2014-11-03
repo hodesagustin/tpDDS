@@ -78,7 +78,7 @@
             // limpiar_btn
             // 
             this.limpiar_btn.Font = new System.Drawing.Font("Bauhaus 93", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.limpiar_btn.Location = new System.Drawing.Point(489, 304);
+            this.limpiar_btn.Location = new System.Drawing.Point(618, 304);
             this.limpiar_btn.Name = "limpiar_btn";
             this.limpiar_btn.Size = new System.Drawing.Size(154, 35);
             this.limpiar_btn.TabIndex = 3;
@@ -310,7 +310,7 @@
             this.criterios_gbx.Controls.Add(this.handicap_gbx);
             this.criterios_gbx.Location = new System.Drawing.Point(13, 13);
             this.criterios_gbx.Name = "criterios_gbx";
-            this.criterios_gbx.Size = new System.Drawing.Size(630, 285);
+            this.criterios_gbx.Size = new System.Drawing.Size(759, 285);
             this.criterios_gbx.TabIndex = 10;
             this.criterios_gbx.TabStop = false;
             // 
@@ -319,14 +319,14 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(326, 20);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(291, 259);
+            this.dataGridView1.Size = new System.Drawing.Size(427, 259);
             this.dataGridView1.TabIndex = 10;
             // 
             // BusquedaJugadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 347);
+            this.ClientSize = new System.Drawing.Size(784, 347);
             this.Controls.Add(this.limpiar_btn);
             this.Controls.Add(this.buscar_btn);
             this.Controls.Add(this.criterios_gbx);
