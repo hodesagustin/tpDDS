@@ -214,6 +214,11 @@
             // promHasta_nud
             // 
             this.promHasta_nud.DecimalPlaces = 2;
+            this.promHasta_nud.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.promHasta_nud.Location = new System.Drawing.Point(222, 20);
             this.promHasta_nud.Maximum = new decimal(new int[] {
             10,

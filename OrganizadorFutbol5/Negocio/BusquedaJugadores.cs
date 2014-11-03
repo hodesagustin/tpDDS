@@ -16,7 +16,7 @@ namespace OrganizadorFutbol5.Negocio
         public void buscar(DataGridView dg, string comienzaNombre, DateTime fechaAnterior, int handicapDesde, int handicapHasta, float promDesde, float promHasta, string infraccion)
         {
             //Comentado hasta tener la View:
-            var consulta = from x in db.Jugadors//O la view en otro caso :P
+            var consulta = from x in db.Jugadors
                            select x;
 
             if (comienzaNombre != "")
@@ -24,33 +24,42 @@ namespace OrganizadorFutbol5.Negocio
                 consulta = consulta.Where(p => p.Nombre.StartsWith(comienzaNombre));
             }
             consulta = consulta.Where(p => p.FechaNacimiento <= fechaAnterior);
-            if (!(handicapDesde == 0 && handicapHasta == 0)) //Chequear el valor mínimo y máximo de Handicap
+            if (!(handicapDesde == 0 && handicapHasta == 0))
             {
                 consulta = consulta.Where(p => p.Handicap >= handicapDesde);
                 consulta = consulta.Where(p => p.Handicap <= handicapHasta);
             }
-          /*  if (!(promDesde == 0.00 && promHasta == 0.00)) //Chequear el valor mínimo y máximo de Promedio
+            
+            if (!(promDesde == 0.00 && promHasta == 0.00))
             {
-                consulta = consulta.Where(p => p.promedio >= promDesde);
-                consulta = consulta.Where(p => p.promedio <= promHasta);
-            } */
-           
-            /*
+
+            consulta = from x in consulta
+                            join y in db.Promedio_Ultimo_Partidos on x.ID equals y.Jugador
+                            where y.Promedio >= promDesde && y.Promedio <= promHasta
+                            select x;
+            }
+
             if (infraccion == "Si")
             {
-                consulta = consulta.Where(p => p.Infraccions == true);
+                consulta = from x in consulta
+                           join y in db.Infraccions on x.ID equals y.JugadorID
+                           select x;
             }
             else
             {
                 if (infraccion == "No")
                 {
-                    consulta = consulta.Where(p => p.Infraccions == false);
+                    consulta = from x in consulta
+                               from y in db.Infraccions
+                               where x.ID != y.JugadorID
+                               select x;
                 }
-            }*/
-            dg.DataSource = consulta;
-            dg.Columns["ID"].Visible = false;
-            //Quitar visibilidad a las respuestas!
+            }
 
+            dg.DataSource = consulta;
+            dg.Columns["ID"].Visible = true;
+            //Quitar visibilidad a las respuestas!
+/*
             int i;
             for (i = 0; i == 0 || i < dg.Rows.Count - 1; i++)
             {
@@ -59,6 +68,7 @@ namespace OrganizadorFutbol5.Negocio
                     dg.Rows[i].Cells[1].Style.ForeColor = Color.Blue;
                 }
             }
+ */
         }
 
         public void limpiarGroupbox(GroupBox gb)
