@@ -35,35 +35,38 @@ namespace OrganizadorFutbol5.Ventanas
 
             if (consulta.Count() != 0) //Encontró al Admin
             {
-                (new HomeAdmin(int.Parse(consulta.First().ID.ToString()))).Show();
+                (new HomeAdmin(int.Parse(consulta.First().ID.ToString()))).ShowDialog();
                 usuario_txt.Text = "";
-                this.Hide();
             }
             else
             {
                 var consulta2 = from y in db.Jugadors
                                 where y.Nombre.Equals(usuario_txt.Text)
                                 select y;
+
                 if (consulta2.Count() != 0) //Encontró al Jugador
                 {
-                    (new HomeJugador(int.Parse(consulta2.First().ID.ToString()))).Show();
+                    (new HomeJugador(int.Parse(consulta2.First().ID.ToString()))).ShowDialog();
                     usuario_txt.Text = "";
-                    this.Hide();
                 }
                 else
                 {
                     MessageBox.Show("El Usuario no existe.","", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     usuario_txt.Text = "";
-
                 }
             }
         }
 
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogo = MessageBox.Show("Desea cerrar la applicación?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (!(dialogo == DialogResult.Yes))
+               e.Cancel = true;
+        }
+
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DialogResult dialogo = MessageBox.Show("Desea salir?", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialogo == DialogResult.Yes)
-                Application.Exit();
+            Application.Exit();
         }
     }
 }

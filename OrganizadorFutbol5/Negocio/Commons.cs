@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing;
 using OrganizadorFutbol5;
+using OrganizadorFutbol5.Ventanas;
 
 namespace OrganizadorFutbol5.Negocio
 {
@@ -27,6 +28,17 @@ namespace OrganizadorFutbol5.Negocio
             {
                 txt.ForeColor = Color.Blue;
             }
+        }
+
+        public bool preguntaCierreSesion()
+        {
+            DialogResult dialogo = MessageBox.Show("Desea cerrar sesión?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogo == DialogResult.Yes)
+            {
+                return false;
+            }
+            else
+                return true;
         }
     }
 }

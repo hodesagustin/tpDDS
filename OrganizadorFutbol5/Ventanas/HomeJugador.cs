@@ -6,11 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using OrganizadorFutbol5.Negocio;
 
 namespace OrganizadorFutbol5.Ventanas
 {
     public partial class HomeJugador : Form
     {
+        Commons commons = new Commons();
+        
         public HomeJugador(int id)
         {
             InitializeComponent();
@@ -18,9 +21,7 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void HomeJugador_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dialogo = MessageBox.Show("Desea cerrar sesión?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogo == DialogResult.Yes)
-                (new Login()).Show();
+            e.Cancel = commons.preguntaCierreSesion();
         }
     }
 }

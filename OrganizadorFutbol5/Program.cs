@@ -162,8 +162,8 @@ namespace OrganizadorFutbol5
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            (new Login()).Show();
-            Application.Run();
+            Application.Run(new Login());
+
             //Application.Run(new BusquedaJugadores());
 
           //  Application.Run(new VisualizarJugador(1));
