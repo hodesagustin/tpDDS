@@ -63,54 +63,60 @@
             // Nombre
             // 
             this.Nombre.AutoSize = true;
+            this.Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nombre.Location = new System.Drawing.Point(168, 19);
             this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(44, 13);
+            this.Nombre.Size = new System.Drawing.Size(50, 13);
             this.Nombre.TabIndex = 0;
             this.Nombre.Text = "Nombre";
             // 
             // Handicap
             // 
             this.Handicap.AutoSize = true;
+            this.Handicap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Handicap.Location = new System.Drawing.Point(168, 41);
             this.Handicap.Name = "Handicap";
-            this.Handicap.Size = new System.Drawing.Size(53, 13);
+            this.Handicap.Size = new System.Drawing.Size(61, 13);
             this.Handicap.TabIndex = 1;
             this.Handicap.Text = "Handicap";
             // 
             // PromedioUltimoPartido
             // 
             this.PromedioUltimoPartido.AutoSize = true;
+            this.PromedioUltimoPartido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PromedioUltimoPartido.Location = new System.Drawing.Point(168, 63);
             this.PromedioUltimoPartido.Name = "PromedioUltimoPartido";
-            this.PromedioUltimoPartido.Size = new System.Drawing.Size(119, 13);
+            this.PromedioUltimoPartido.Size = new System.Drawing.Size(142, 13);
             this.PromedioUltimoPartido.TabIndex = 2;
             this.PromedioUltimoPartido.Text = "Promedio Último Partido";
             // 
             // PromedioTodos
             // 
             this.PromedioTodos.AutoSize = true;
+            this.PromedioTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PromedioTodos.Location = new System.Drawing.Point(168, 85);
             this.PromedioTodos.Name = "PromedioTodos";
-            this.PromedioTodos.Size = new System.Drawing.Size(151, 13);
+            this.PromedioTodos.Size = new System.Drawing.Size(181, 13);
             this.PromedioTodos.TabIndex = 3;
             this.PromedioTodos.Text = "Promedio de todos los partidos";
             // 
             // FechaDeNacimiento
             // 
             this.FechaDeNacimiento.AutoSize = true;
+            this.FechaDeNacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FechaDeNacimiento.Location = new System.Drawing.Point(168, 108);
             this.FechaDeNacimiento.Name = "FechaDeNacimiento";
-            this.FechaDeNacimiento.Size = new System.Drawing.Size(106, 13);
+            this.FechaDeNacimiento.Size = new System.Drawing.Size(125, 13);
             this.FechaDeNacimiento.TabIndex = 4;
             this.FechaDeNacimiento.Text = "Fecha de nacimiento";
             // 
             // CantPartidos
             // 
             this.CantPartidos.AutoSize = true;
+            this.CantPartidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CantPartidos.Location = new System.Drawing.Point(168, 130);
             this.CantPartidos.Name = "CantPartidos";
-            this.CantPartidos.Size = new System.Drawing.Size(144, 13);
+            this.CantPartidos.Size = new System.Drawing.Size(172, 13);
             this.CantPartidos.TabIndex = 6;
             this.CantPartidos.Text = "Cantidad de partidos jugados";
             // 

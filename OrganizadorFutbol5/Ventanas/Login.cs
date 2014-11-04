@@ -61,7 +61,9 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            DialogResult dialogo = MessageBox.Show("Desea salir?", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogo == DialogResult.Yes)
+                Application.Exit();
         }
     }
 }

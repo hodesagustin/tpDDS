@@ -18,7 +18,7 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void HomeAdmin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dialogo = MessageBox.Show("Desea salir?", "", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            DialogResult dialogo = MessageBox.Show("Desea cerrar sesión?", "", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dialogo == DialogResult.Yes)
                 (new Login()).Show();
         }
