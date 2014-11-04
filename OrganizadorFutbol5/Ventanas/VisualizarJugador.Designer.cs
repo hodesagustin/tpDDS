@@ -299,6 +299,7 @@
             this.Name = "VisualizarJugador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Visualizar Jugador";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfracciones)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

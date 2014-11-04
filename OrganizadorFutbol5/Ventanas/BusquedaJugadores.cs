@@ -80,10 +80,9 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == 1)
+            if (e.ColumnIndex == 1 && e.RowIndex!= -1)
             {
-                VisualizarJugador visualizador = new VisualizarJugador(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
-                visualizador.Show();
+                (new VisualizarJugador(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()))).ShowDialog();
             }
         }
 

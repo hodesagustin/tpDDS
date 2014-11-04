@@ -11,9 +11,16 @@ namespace OrganizadorFutbol5.Ventanas
 {
     public partial class HomeJugador : Form
     {
-        public HomeJugador()
+        public HomeJugador(int id)
         {
             InitializeComponent();
+        }
+
+        private void HomeJugador_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogo = MessageBox.Show("Desea salir?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogo == DialogResult.Yes)
+                (new Login()).Show();
         }
     }
 }

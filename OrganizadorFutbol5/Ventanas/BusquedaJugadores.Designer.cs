@@ -78,7 +78,7 @@
             // limpiar_btn
             // 
             this.limpiar_btn.Font = new System.Drawing.Font("Bauhaus 93", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.limpiar_btn.Location = new System.Drawing.Point(618, 304);
+            this.limpiar_btn.Location = new System.Drawing.Point(503, 304);
             this.limpiar_btn.Name = "limpiar_btn";
             this.limpiar_btn.Size = new System.Drawing.Size(154, 35);
             this.limpiar_btn.TabIndex = 3;
@@ -310,16 +310,27 @@
             this.criterios_gbx.Controls.Add(this.handicap_gbx);
             this.criterios_gbx.Location = new System.Drawing.Point(13, 13);
             this.criterios_gbx.Name = "criterios_gbx";
-            this.criterios_gbx.Size = new System.Drawing.Size(759, 285);
+            this.criterios_gbx.Size = new System.Drawing.Size(644, 285);
             this.criterios_gbx.TabIndex = 10;
             this.criterios_gbx.TabStop = false;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(326, 20);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(427, 259);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.ShowCellErrors = false;
+            this.dataGridView1.ShowCellToolTips = false;
+            this.dataGridView1.ShowEditingIcon = false;
+            this.dataGridView1.ShowRowErrors = false;
+            this.dataGridView1.Size = new System.Drawing.Size(311, 259);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
@@ -327,7 +338,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 347);
+            this.ClientSize = new System.Drawing.Size(669, 347);
             this.Controls.Add(this.limpiar_btn);
             this.Controls.Add(this.buscar_btn);
             this.Controls.Add(this.criterios_gbx);
