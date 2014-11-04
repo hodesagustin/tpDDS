@@ -87,6 +87,7 @@
       <DependentUpon>DataBase.dbml</DependentUpon>
     </Compile>
     <Compile Include="Negocio\BusquedaJugadores.cs" />
+    <Compile Include="Negocio\Commons.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="DataBase.dbml.layout">

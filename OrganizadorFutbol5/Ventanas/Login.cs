@@ -15,5 +15,14 @@ namespace OrganizadorFutbol5.Ventanas
         {
             InitializeComponent();
         }
+
+        private void entrar_btn_Click(object sender, EventArgs e)
+        {
+            //CUIDADO: Validar que el nombre del Admin no esté como nombre de un Jugador.
+            //Osea, al crear un Jugador debe validarse eso.
+
+
+
+        }
     }
 }

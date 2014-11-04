@@ -164,7 +164,7 @@ namespace OrganizadorFutbol5
             //Application.Run(new Login());
             Application.Run(new BusquedaJugadores());
 
-            Application.Run(new VisualizarJugador());
+          //  Application.Run(new VisualizarJugador(1));
             
         }
     }

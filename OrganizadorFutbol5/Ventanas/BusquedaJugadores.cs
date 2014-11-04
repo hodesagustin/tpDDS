@@ -20,7 +20,6 @@ namespace OrganizadorFutbol5.Ventanas
         
         private void buscar_btn_Click(object sender, EventArgs e)
         {
-            //Tratamiento de radioButton:
             String infraccion;
             if (infracSi_btn.Checked)
             {
@@ -76,6 +75,15 @@ namespace OrganizadorFutbol5.Ventanas
             {
                 infracSi_btn.Checked = true;
                 estaChequeadoSi = false;
+            }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+            {
+                VisualizarJugador visualizador = new VisualizarJugador(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
+                visualizador.Show();
             }
         }
 

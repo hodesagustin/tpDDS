@@ -11,12 +11,14 @@ namespace OrganizadorFutbol5.Ventanas
 {
     public partial class VisualizarJugador : Form
     {
-        public VisualizarJugador()
+       
+        public VisualizarJugador(int id)
         {
-            int ID = 1;
+            int ID = id;
 
             InitializeComponent();
 
+            Negocio.Commons commons = new Negocio.Commons();
             DataBaseDataContext db = new DataBaseDataContext();
 
             var query = from x in db.Jugadors
@@ -26,6 +28,8 @@ namespace OrganizadorFutbol5.Ventanas
             Nombre.Text = query.First().Nombre;
 
             Handicap.Text = query.First().Handicap.ToString();
+
+            commons.colorear(Nombre, int.Parse(Handicap.Text));
 
             var promedioUltimoPartido = from x in db.Promedio_Ultimo_Partidos
                                         where x.Jugador == ID
@@ -52,23 +56,37 @@ namespace OrganizadorFutbol5.Ventanas
                               where x.JugadorID == ID
                               select new { x.Fecha, x.Motivo };
 
-
-
            dataGridViewInfracciones.DataSource = infracciones;
 
-           
+           int caseSwitch = int.Parse(Handicap.Text);
+           switch (caseSwitch)
+           {
+               case 0:
+               case 1:
+               case 2:
+               case 3: //borrar este y habilitar el de abajo
+                   fotoRogelio.Visible= true;
+                   break;
+               //case 3:
+               case 4:
+               case 5:
+                   fotoRiquelme.Visible = true;
+                   break;
+               case 6:
+               case 7:
+               case 8:
+                   fotoOzil.Visible = true;
+                   break;
+               default:
+                   fotoMessi.Visible = true;
+                   break;
+            }
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            Close();
-        }
-
-
-        
-
-
-        
+            this.Close();
+        }       
     }
 }

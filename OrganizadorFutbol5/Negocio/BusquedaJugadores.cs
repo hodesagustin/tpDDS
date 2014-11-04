@@ -11,8 +11,10 @@ namespace OrganizadorFutbol5.Negocio
 {
     class BusquedaJugadores
     {
-        DataBaseDataContext db = new DataBaseDataContext(); 
-        
+        DataBaseDataContext db = new DataBaseDataContext();
+        Negocio.Commons commons = new Negocio.Commons();
+
+
         public void buscar(DataGridView dg, string comienzaNombre, DateTime fechaAnterior, int handicapDesde, int handicapHasta, float promDesde, float promHasta, string infraccion)
         {
             var consulta = from x in db.Jugadors
@@ -65,10 +67,7 @@ namespace OrganizadorFutbol5.Negocio
                 int i;
                 for (i = 0; i == 0 || i < dg.Rows.Count; i++)
                 {
-                    if (int.Parse(dg.Rows[i].Cells[3].Value.ToString()) > 2)
-                    {
-                        dg.Rows[i].Cells[1].Style.ForeColor = Color.Blue;
-                    }
+                        commons.colorear(dg, i);   
                 }
             }
             else

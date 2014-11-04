@@ -32,11 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.login_gbx = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.usuario_txt = new System.Windows.Forms.TextBox();
-            this.contra_txt = new System.Windows.Forms.TextBox();
             this.entrar_btn = new System.Windows.Forms.Button();
+            this.usuario_txt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.login_gbx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,47 +63,13 @@
             // login_gbx
             // 
             this.login_gbx.Controls.Add(this.entrar_btn);
-            this.login_gbx.Controls.Add(this.contra_txt);
             this.login_gbx.Controls.Add(this.usuario_txt);
-            this.login_gbx.Controls.Add(this.label4);
             this.login_gbx.Controls.Add(this.label3);
             this.login_gbx.Location = new System.Drawing.Point(304, 95);
             this.login_gbx.Name = "login_gbx";
             this.login_gbx.Size = new System.Drawing.Size(270, 204);
             this.login_gbx.TabIndex = 2;
             this.login_gbx.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(53, 55);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Usuario";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Contraseña";
-            // 
-            // usuario_txt
-            // 
-            this.usuario_txt.Location = new System.Drawing.Point(102, 52);
-            this.usuario_txt.Name = "usuario_txt";
-            this.usuario_txt.Size = new System.Drawing.Size(141, 20);
-            this.usuario_txt.TabIndex = 2;
-            // 
-            // contra_txt
-            // 
-            this.contra_txt.Location = new System.Drawing.Point(102, 78);
-            this.contra_txt.Name = "contra_txt";
-            this.contra_txt.Size = new System.Drawing.Size(141, 20);
-            this.contra_txt.TabIndex = 3;
             // 
             // entrar_btn
             // 
@@ -116,6 +80,23 @@
             this.entrar_btn.TabIndex = 4;
             this.entrar_btn.Text = "Ingresar!";
             this.entrar_btn.UseVisualStyleBackColor = true;
+            this.entrar_btn.Click += new System.EventHandler(this.entrar_btn_Click);
+            // 
+            // usuario_txt
+            // 
+            this.usuario_txt.Location = new System.Drawing.Point(80, 64);
+            this.usuario_txt.Name = "usuario_txt";
+            this.usuario_txt.Size = new System.Drawing.Size(141, 20);
+            this.usuario_txt.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(31, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Usuario";
             // 
             // pictureBox1
             // 
@@ -156,9 +137,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox login_gbx;
         private System.Windows.Forms.Button entrar_btn;
-        private System.Windows.Forms.TextBox contra_txt;
         private System.Windows.Forms.TextBox usuario_txt;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
