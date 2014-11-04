@@ -26,10 +26,22 @@ namespace OrganizadorFutbol5.Negocio
                 consulta = consulta.Where(p => p.Nombre.StartsWith(comienzaNombre));
             }
             consulta = consulta.Where(p => p.FechaNacimiento <= fechaAnterior);
+
             if (!(handicapDesde == 0 && handicapHasta == 0))
             {
                 consulta = consulta.Where(p => p.Handicap >= handicapDesde);
                 consulta = consulta.Where(p => p.Handicap <= handicapHasta);
+            }
+            else
+            {
+                if (handicapHasta == 0)
+                {
+                    consulta = consulta.Where(p => p.Handicap >= handicapDesde);
+                }
+                else
+                {
+                    consulta = consulta.Where(p => p.Handicap <= handicapHasta);
+                }
             }
 
             if (infraccion == "Si")
@@ -90,7 +102,7 @@ namespace OrganizadorFutbol5.Negocio
                 foreach (RadioButton rb in gb.Controls.OfType<RadioButton>())
                     rb.Checked = false;
                 foreach (NumericUpDown nud in gb.Controls.OfType<NumericUpDown>())
-                    nud.Text = "0";
+                    nud.Text = "0" ;
                 foreach (DataGridView dg in gb.Controls.OfType<DataGridView>())
                     dg.DataSource = null;
             }

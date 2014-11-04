@@ -130,7 +130,7 @@
             this.fechaNac_dtp.Name = "fechaNac_dtp";
             this.fechaNac_dtp.Size = new System.Drawing.Size(200, 20);
             this.fechaNac_dtp.TabIndex = 1;
-            this.fechaNac_dtp.Value = new System.DateTime(2014, 10, 31, 15, 59, 2, 0);
+            this.fechaNac_dtp.Value = new System.DateTime(2014, 11, 4, 16, 43, 11, 0);
             // 
             // label3
             // 
