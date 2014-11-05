@@ -17,9 +17,8 @@ namespace OrganizadorFutbol5.Negocio
 
         public void buscar(DataGridView dg, string comienzaNombre, DateTime fechaAnterior, int handicapDesde, int handicapHasta, float promDesde, float promHasta, string infraccion)
         {
-            var consulta = from x in db.Jugadors
-                           join y in db.Promedio_Ultimo_Partidos on x.ID equals y.Jugador
-                           select new {x.ID, x.Nombre, x.FechaNacimiento,x.Handicap, y.Promedio} ;
+            var consulta = from x in db.vw_Jugadors
+                           select x;
 
             if (comienzaNombre != "")
             {
@@ -73,13 +72,13 @@ namespace OrganizadorFutbol5.Negocio
             if (cantidad != 0)
             {
                 dg.DataSource = consulta;
-                dg.Columns["ID"].Visible = false;
-                dg.Columns["FechaNacimiento"].Visible = false;
+             //   dg.Columns["ID"].Visible = false;
+              //  dg.Columns["FechaNacimiento"].Visible = false;
 
                 int i;
                 for (i = 0; i == 0 || i < dg.Rows.Count; i++)
                 {
-                        commons.colorear(dg, i);   
+                        //commons.colorear(dg, i);   
                 }
             }
             else

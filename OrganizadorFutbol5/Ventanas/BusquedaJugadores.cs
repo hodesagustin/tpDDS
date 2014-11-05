@@ -36,9 +36,7 @@ namespace OrganizadorFutbol5.Ventanas
                     infraccion = "Todos";
                 }
             }
-
             obj.buscar(dataGridView1, nombre_txt.Text, DateTime.Parse(fechaNac_dtp.Text), int.Parse(handDesde_nud.Text), int.Parse(handHasta_nud.Text), float.Parse(promDesde_nud.Text), float.Parse(promHasta_nud.Text), infraccion);
-
         }
 
         private void limpiar_btn_Click(object sender, EventArgs e)
