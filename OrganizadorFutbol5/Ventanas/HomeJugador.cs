@@ -72,12 +72,6 @@ namespace OrganizadorFutbol5.Ventanas
                                 select x;
 
             dataGridViewBaja.DataSource = inscripciones;
-
-            var inscripciones = from x in db.Inscripcions
-                                where x.JugadorID == jugadorID
-                                select x;
-
-            dataGridViewBaja.DataSource = inscripciones;
         }
 
         private void HomeJugador_FormClosing(object sender, FormClosingEventArgs e)
@@ -103,14 +97,6 @@ namespace OrganizadorFutbol5.Ventanas
                               where p.ID == inscripccion.PartidoID
                               select p).First();
             partido.inscribir(inscripccion);
-
-            MessageBox.Show("La inscripción al partido fue exitosa");
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -183,16 +169,6 @@ namespace OrganizadorFutbol5.Ventanas
                 MessageBox.Show("Baja efectuada con éxito, usted tiene una infracción");
             }
             refrescarDataGridView();
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

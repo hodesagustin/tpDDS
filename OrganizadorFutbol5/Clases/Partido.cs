@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace OrganizadorFutbol5
 {
@@ -20,6 +21,8 @@ namespace OrganizadorFutbol5
 
                 db.Inscripcions.InsertOnSubmit(unaInscripcion);
                 db.SubmitChanges();
+
+                MessageBox.Show("La inscripción al partido fue exitosa");
 
                 if (Inscripcions.Count == 10)
                     notificador.notify(Administrador.ToString(),"Llegamos a 10");
@@ -45,8 +48,11 @@ namespace OrganizadorFutbol5
                     db.Inscripcions.DeleteOnSubmit(aEliminar);
 
                     db.SubmitChanges();
+
+                    MessageBox.Show("La inscripción al partido fue exitosa");
                 }
                 else
+                {
                     if (unaInscripcion.Jugador != null)
                         notificador.notify(unaInscripcion.Jugador.Mail, "Ya hay 10 Jugadores con mayor o igual prioridad");
                     else
@@ -56,6 +62,8 @@ namespace OrganizadorFutbol5
                                            select j).First();
                         notificador.notify(jugador.Mail, "Ya hay 10 Jugadores con mejor o igual prioridad");
                     }
+                    MessageBox.Show("Ya hay 10 Jugadores con mayor o igual prioridad");
+                }
             }
         }
 
