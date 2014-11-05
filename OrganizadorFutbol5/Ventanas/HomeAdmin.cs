@@ -29,7 +29,7 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            (new BusquedaJugadores()).Show();
+            (new BusquedaJugadores()).ShowDialog();
         }
 
         private void HomeAdmin_Activated(object sender, EventArgs e)

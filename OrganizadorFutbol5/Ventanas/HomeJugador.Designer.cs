@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.inscribirse = new System.Windows.Forms.DataGridViewButtonColumn();
             this.standard = new System.Windows.Forms.RadioButton();
@@ -46,6 +46,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.proponer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.listBoxAmigos = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -65,7 +66,6 @@
             this.bajaSinReemplazo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.listBoxAmigosParaReemplazo = new System.Windows.Forms.ListBox();
-            this.proponer = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -91,12 +91,15 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.inscribirse});
             this.dataGridView1.Location = new System.Drawing.Point(15, 19);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(505, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -109,6 +112,7 @@
             this.inscribirse.HeaderText = "Inscribirse";
             this.inscribirse.Name = "inscribirse";
             this.inscribirse.ReadOnly = true;
+            this.inscribirse.Width = 60;
             // 
             // standard
             // 
@@ -241,15 +245,27 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.proponer});
             this.dataGridView2.Location = new System.Drawing.Point(6, 32);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.Size = new System.Drawing.Size(355, 186);
             this.dataGridView2.TabIndex = 1;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // proponer
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "Proponer amigo";
+            this.proponer.DefaultCellStyle = dataGridViewCellStyle2;
+            this.proponer.HeaderText = "Proponer amigo para este partido";
+            this.proponer.Name = "proponer";
+            this.proponer.ReadOnly = true;
+            this.proponer.Width = 103;
             // 
             // listBoxAmigos
             // 
@@ -294,10 +310,12 @@
             // 
             this.dataGridViewCalificaciones.AllowUserToAddRows = false;
             this.dataGridViewCalificaciones.AllowUserToDeleteRows = false;
+            this.dataGridViewCalificaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewCalificaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCalificaciones.Location = new System.Drawing.Point(6, 19);
             this.dataGridViewCalificaciones.Name = "dataGridViewCalificaciones";
             this.dataGridViewCalificaciones.ReadOnly = true;
+            this.dataGridViewCalificaciones.RowHeadersVisible = false;
             this.dataGridViewCalificaciones.Size = new System.Drawing.Size(264, 257);
             this.dataGridViewCalificaciones.TabIndex = 5;
             // 
@@ -319,12 +337,14 @@
             // 
             this.dataGridViewCalificacionesPendientes.AllowUserToAddRows = false;
             this.dataGridViewCalificacionesPendientes.AllowUserToDeleteRows = false;
+            this.dataGridViewCalificacionesPendientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewCalificacionesPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCalificacionesPendientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.calificar});
             this.dataGridViewCalificacionesPendientes.Location = new System.Drawing.Point(6, 101);
             this.dataGridViewCalificacionesPendientes.Name = "dataGridViewCalificacionesPendientes";
             this.dataGridViewCalificacionesPendientes.ReadOnly = true;
+            this.dataGridViewCalificacionesPendientes.RowHeadersVisible = false;
             this.dataGridViewCalificacionesPendientes.Size = new System.Drawing.Size(253, 175);
             this.dataGridViewCalificacionesPendientes.TabIndex = 4;
             this.dataGridViewCalificacionesPendientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCalificacionesPendientes_CellContentClick);
@@ -334,6 +354,7 @@
             this.calificar.HeaderText = "Calificar";
             this.calificar.Name = "calificar";
             this.calificar.ReadOnly = true;
+            this.calificar.Width = 50;
             // 
             // label2
             // 
@@ -409,6 +430,7 @@
             // 
             this.dataGridViewBaja.AllowUserToAddRows = false;
             this.dataGridViewBaja.AllowUserToDeleteRows = false;
+            this.dataGridViewBaja.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewBaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBaja.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.proponerReemplazo,
@@ -416,6 +438,7 @@
             this.dataGridViewBaja.Location = new System.Drawing.Point(6, 19);
             this.dataGridViewBaja.Name = "dataGridViewBaja";
             this.dataGridViewBaja.ReadOnly = true;
+            this.dataGridViewBaja.RowHeadersVisible = false;
             this.dataGridViewBaja.Size = new System.Drawing.Size(328, 150);
             this.dataGridViewBaja.TabIndex = 0;
             this.dataGridViewBaja.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewJugadores_CellContentClick);
@@ -430,6 +453,7 @@
             this.proponerReemplazo.ReadOnly = true;
             this.proponerReemplazo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.proponerReemplazo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.proponerReemplazo.Width = 115;
             // 
             // bajaSinReemplazo
             // 
@@ -439,6 +463,7 @@
             this.bajaSinReemplazo.HeaderText = "Baja sin reemplazo";
             this.bajaSinReemplazo.Name = "bajaSinReemplazo";
             this.bajaSinReemplazo.ReadOnly = true;
+            this.bajaSinReemplazo.Width = 91;
             // 
             // groupBox4
             // 
@@ -457,15 +482,6 @@
             this.listBoxAmigosParaReemplazo.Name = "listBoxAmigosParaReemplazo";
             this.listBoxAmigosParaReemplazo.Size = new System.Drawing.Size(128, 186);
             this.listBoxAmigosParaReemplazo.TabIndex = 1;
-            // 
-            // proponer
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "Proponer amigo";
-            this.proponer.DefaultCellStyle = dataGridViewCellStyle2;
-            this.proponer.HeaderText = "Proponer amigo para este partido";
-            this.proponer.Name = "proponer";
-            this.proponer.ReadOnly = true;
             // 
             // HomeJugador
             // 

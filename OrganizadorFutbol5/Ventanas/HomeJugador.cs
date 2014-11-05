@@ -113,11 +113,14 @@ namespace OrganizadorFutbol5.Ventanas
                                where p.ID == partidoID 
                                select p).First();
 
-            string test = listBoxAmigos.SelectedItem.ToString();
-
-            partido.proponerAmigo(listBoxAmigos.SelectedItem.ToString());
-
-            MessageBox.Show("El amigo ha sido propuesto al partido seleccionado");
+            if (listBoxAmigos.SelectedItem != null)
+            {
+                string test = listBoxAmigos.SelectedItem.ToString();
+                partido.proponerAmigo(listBoxAmigos.SelectedItem.ToString());
+                MessageBox.Show("El amigo ha sido propuesto al partido seleccionado");
+            }
+            else
+                MessageBox.Show("Debe seleccionar un amigo de la lista");
         }
 
         private void dataGridViewCalificacionesPendientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -146,7 +149,8 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void dataGridViewJugadores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex == -1)
+                return;
             Partido unPartido = (from i in db.Partidos
                                          where i.ID == Convert.ToInt32(dataGridViewBaja.Rows[e.RowIndex].Cells["PartidoID"].Value)
                                          select i).First();
@@ -158,8 +162,13 @@ namespace OrganizadorFutbol5.Ventanas
             if (e.ColumnIndex == 0) //Baja con reemplazo
             {
 
-                unPartido.baja(unJugador, listBoxAmigosParaReemplazo.SelectedValue.ToString());
-                MessageBox.Show("Baja efectuada con éxito");
+                if (listBoxAmigosParaReemplazo.SelectedValue != null)
+                {
+                    unPartido.baja(unJugador, listBoxAmigosParaReemplazo.SelectedValue.ToString());
+                    MessageBox.Show("Baja efectuada con éxito");
+                }
+                else
+                    MessageBox.Show("Debe seleccionar un amigo para proponer como reemplazo");
             }
             if (e.ColumnIndex == 1) //Baja sin reemplazo
             {

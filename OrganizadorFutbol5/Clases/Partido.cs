@@ -16,6 +16,14 @@ namespace OrganizadorFutbol5
         {
             decimal mayorPrioridad;
 
+            var ins = from i in db.Inscripcions
+                      where i.PartidoID == this.ID && i.JugadorID == unaInscripcion.JugadorID
+                      select i;
+            if (ins.Count() != 0)
+            {
+                MessageBox.Show("Usted ya esta inscripto en este partido");
+                return;
+            }
             if (Inscripcions.Count < 10)
             {
 
