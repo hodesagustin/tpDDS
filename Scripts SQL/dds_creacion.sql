@@ -25,7 +25,7 @@ GO
 
 -- Tabla JUGADOR
 CREATE TABLE [dds_esquema].[Jugador](
-	[ID] [numeric](18, 0) NOT NULL,
+	[ID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[Nombre] [nvarchar](50) NOT NULL,
 	[FechaNacimiento] [date] NOT NULL,
 	[Mail] [nvarchar](100) NOT NULL,

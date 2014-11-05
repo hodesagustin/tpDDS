@@ -98,6 +98,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\AltaJugador.resx">
+      <DependentUpon>AltaJugador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\AltaPartido.resx">
       <DependentUpon>AltaPartido.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,8 +116,14 @@
     <EmbeddedResource Include="Ventanas\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\RechazarJugador.resx">
+      <DependentUpon>RechazarJugador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VisualizarJugador.resx">
       <DependentUpon>VisualizarJugador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VisualizarPartido.resx">
+      <DependentUpon>VisualizarPartido.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -129,6 +138,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Ventanas\AltaJugador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\AltaJugador.Designer.cs">
+      <DependentUpon>AltaJugador.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\AltaPartido.cs">
       <SubType>Form</SubType>
@@ -160,11 +175,23 @@
     <Compile Include="Ventanas\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\RechazarJugador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\RechazarJugador.Designer.cs">
+      <DependentUpon>RechazarJugador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VisualizarJugador.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventanas\VisualizarJugador.Designer.cs">
       <DependentUpon>VisualizarJugador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VisualizarPartido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VisualizarPartido.Designer.cs">
+      <DependentUpon>VisualizarPartido.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

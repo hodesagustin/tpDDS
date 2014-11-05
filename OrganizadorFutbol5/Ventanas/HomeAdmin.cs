@@ -51,6 +51,22 @@ namespace OrganizadorFutbol5.Ventanas
             (new AltaPartido(ID)).ShowDialog();
         }
 
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0 && e.RowIndex != -1)
+            {
+                textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();        
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "")
+                (new VisualizarPartido(int.Parse(textBox1.Text))).ShowDialog();
+            else
+                MessageBox.Show("No se ha seleccionado ningun partido");
+        }
+
 
 
     }
