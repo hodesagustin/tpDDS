@@ -7,57 +7,20 @@ namespace OrganizadorFutbol5
 {
     public partial class Jugador
     {
-        /*
-        public String nombre { get; private set; }
-        public String mail { get; private set; }
-        //public DateTime fechaNacimiento { get; private set; }
-        public int edad { get; private set; }
-        public List<String> amigos { get; private set; }
-
-        public int handicap { get; private set; }
-        public List<Infraccion> infracciones { get; private set; }
-        public List<Calificacion> calificaciones { get; private set; }
-        public List<CalificacionPendiente> calificacionesPendientes { get; private set; }        
-        */
-
-        /*
-        public Jugador(String unNombre, String unMail, /*DateTime unaFechaNacimiento,* / int unaEdad, List<String> unosAmigos, int unHandicap) 
-        {
-            nombre = unNombre;
-            mail = unMail;
-            //fechaNacimiento = unaFechaNacimiento;
-            edad = unaEdad;
-            amigos = unosAmigos;
-
-            handicap = unHandicap;
-            infracciones = new List<Infraccion>();
-            calificaciones = new List<Calificacion>();
-            calificacionesPendientes = new List<CalificacionPendiente>();
-        }
-        */
+        DataBaseDataContext db = new DataBaseDataContext();
 
         public void addInfraccion(Infraccion infraccion)
         {
-            /*
-            Infraccions.Add(infraccion);
-            Infraccions = Infraccions.OrderByDescending(i => i.Fecha).ToList();
-            */
-        }
-
-        public void addCalificacion(Calificacion calificacion)
-        {
-            /*
-            Calificacions.Add(calificacion);
-            Calificacions = Calificacions.OrderByDescending(c => c.Partido.Fecha).ToList();
-            */
+            db.Infraccions.InsertOnSubmit(infraccion);
+            db.SubmitChanges();
         }
 
         public void addCalificacionPendiente(Partido unPartido, Jugador unJugador)
         {
-            /*
-            CalificacionPendiente calificacionPendiente = new CalificacionPendiente() { Partido = unPartido, Jugador = unJugador };
-            CalificacionPendientes.Add(calificacionPendiente);
-            */
+            CalificacionPendiente calificacionPendiente = new CalificacionPendiente() { Partido = unPartido, CalificadorID = this.ID, JugadorID = unJugador.ID};
+            
+            db.CalificacionPendientes.InsertOnSubmit(calificacionPendiente);
+            db.SubmitChanges();
         }
 
         public override string ToString()
@@ -89,10 +52,18 @@ namespace OrganizadorFutbol5
 
         public void calificarJugador(CalificacionPendiente calificacionPendiente, int puntaje, String descripcion)
         {
-            /*
-            calificacionPendiente.jugador.addCalificacion(new Calificacion(descripcion, puntaje, calificacionPendiente.partido));
-            calificacionesPendientes.Remove(calificacionPendiente);
-            */
+            Calificacion calificacion = new Calificacion()
+                {
+                    CalificadorID = this.ID,
+                    PartidoID = calificacionPendiente.PartidoID,
+                    JugadorID = calificacionPendiente.JugadorID,
+                    Puntaje = (byte)puntaje,
+                    Descripcion = descripcion
+                };
+
+            db.Calificacions.InsertOnSubmit(calificacion);
+            db.CalificacionPendientes.DeleteOnSubmit(calificacionPendiente);
+            db.SubmitChanges();
         }
     }
 }

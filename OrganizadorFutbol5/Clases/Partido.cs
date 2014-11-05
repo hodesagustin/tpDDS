@@ -58,7 +58,7 @@ namespace OrganizadorFutbol5
 
         public void baja(Jugador jugador)
         {
-            Infraccion infraccion = new Infraccion() { Motivo = "Baja sin Reemplazo", Partido = this };
+            Infraccion infraccion = new Infraccion() { Motivo = "Baja sin Reemplazo", Partido = this, Fecha = System.DateTime.Now, Jugador = jugador };
 
             jugador.addInfraccion(infraccion);
             db.Inscripcions.DeleteOnSubmit(getInscripcionByJugador(jugador));
