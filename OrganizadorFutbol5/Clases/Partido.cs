@@ -125,14 +125,14 @@ namespace OrganizadorFutbol5
 
             foreach (Jugador jug in equipoA)
             {
-                PartidoEquipo partidoEquipo = new PartidoEquipo() { Partido = this, Jugador = jug, Equipo = 'A'};
+                PartidoEquipo partidoEquipo = new PartidoEquipo() { PartidoID = this.ID, JugadorID = jug.ID, Equipo = 'A'};
                 db.PartidoEquipos.InsertOnSubmit(partidoEquipo);
                 db.SubmitChanges();
             }
 
             foreach (Jugador jug in equipoB)
             {
-                PartidoEquipo partidoEquipo = new PartidoEquipo() { Partido = this, Jugador = jug, Equipo = 'B'};
+                PartidoEquipo partidoEquipo = new PartidoEquipo() { PartidoID = this.ID, JugadorID = jug.ID, Equipo = 'B'};
                 db.PartidoEquipos.InsertOnSubmit(partidoEquipo);
                 db.SubmitChanges();
             }
