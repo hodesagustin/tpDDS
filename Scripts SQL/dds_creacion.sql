@@ -61,6 +61,7 @@ GO
 CREATE TABLE [dds_esquema].[Inscripcion](
 	[PartidoID] [numeric](18, 0) NOT NULL,
 	[JugadorID] [numeric](18, 0) NOT NULL,
+	[Prioridad] [numeric](18, 0) NOT NULL,
 	[Fecha] [datetime] NOT NULL,
  CONSTRAINT [PK_Inscripcion] PRIMARY KEY CLUSTERED 
 (
@@ -295,5 +296,3 @@ FROM [dds_esquema].Jugador J
 JOIN [dds_esquema].vw_JugadorPromedio JP ON J.ID=JP.JugadorID
 JOIN [dds_esquema].vw_JugadorPromedioUltimoPartido JPUP ON J.ID=JPUP.JugadorID
 GO
-
-SELECT * FROM [dds_esquema].vw_Jugador
