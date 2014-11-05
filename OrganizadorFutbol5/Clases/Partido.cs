@@ -47,7 +47,15 @@ namespace OrganizadorFutbol5
                     db.SubmitChanges();
                 }
                 else
-                    notificador.notify(unaInscripcion.Jugador.Mail,"Ya hay 10 Jugadores con mayor o igual prioridad");
+                    if (unaInscripcion.Jugador != null)
+                        notificador.notify(unaInscripcion.Jugador.Mail, "Ya hay 10 Jugadores con mayor o igual prioridad");
+                    else
+                    {
+                        Jugador jugador = (from j in db.Jugadors
+                                           where j.ID == unaInscripcion.JugadorID
+                                           select j).First();
+                        notificador.notify(jugador.Mail, "Ya hay 10 Jugadores con mejor o igual prioridad");
+                    }
             }
         }
 

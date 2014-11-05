@@ -9,6 +9,8 @@ namespace OrganizadorFutbol5
     {
         public List<Notificacion> notificaciones { get; private set; }
 
+        public Notificador() { notificaciones = new List<Notificacion>(); }
+
         public void notify(String unDestinatario,String unMensaje)
         {
             notificaciones.Add(new Notificacion(unDestinatario,unMensaje));
