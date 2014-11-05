@@ -6,43 +6,21 @@ using System.Text;
 namespace OrganizadorFutbol5
 {
     public partial class Partido{
-        /*
-        public DateTime fecha { get; private set; }
-        public List<Inscripcion> inscripciones { get; private set; }
-        public List<String> pendientes { get; private set; }
-        public List<Rechazo> rechazos { get; private set; }
-        public List<Jugador> equipoA { get; private set; }
-        public List<Jugador> equipoB { get; private set; }
-        public Administrador administrador { get; private set; }
-        public Notificador notificador {get; private set;}
-        public PartidoEstado estado { get; private set; }
-        */
-        /*
-        public Partido(DateTime unaFecha,Administrador unAdministrador)
-        {
-            fecha = unaFecha;
-            inscripciones = new List<Inscripcion>();
-            pendientes = new List<String>();
-            rechazos = new List<Rechazo>();
-            equipoA = new List<Jugador>();
-            equipoB = new List<Jugador>();
-            administrador = unAdministrador;
-            notificador = new Notificador();
-            estado = new PartidoEstadoAbierto();
-        }
-        */
-
         public Notificador notificador = new Notificador();
         public List<Jugador> equipoA = new List<Jugador>();
         public List<Jugador> equipoB = new List<Jugador>();
+        DataBaseDataContext db = new DataBaseDataContext();
 
         public void inscribir(Inscripcion unaInscripcion)
         {
-            int mayorPrioridad;
+            decimal mayorPrioridad;
 
             if (Inscripcions.Count < 10)
             {
-                inscribirYordenar(unaInscripcion);
+
+                db.Inscripcions.InsertOnSubmit(unaInscripcion);
+                db.SubmitChanges();
+
                 if (Inscripcions.Count == 10)
                     notificador.notify(Administrador.ToString(),"Llegamos a 10");
             }
@@ -51,30 +29,31 @@ namespace OrganizadorFutbol5
                 mayorPrioridad = getMayorPrioridadInscriptos();
                 if (unaInscripcion.getPrioridad() < mayorPrioridad)
                 {
-                    Inscripcions.Remove(Inscripcions.Last());
-                    inscribirYordenar(unaInscripcion);
+                    Inscripcion inscripcion = this.Inscripcions.OrderBy(i => i.Fecha).Last();
+                    inscripcion.JugadorID = unaInscripcion.JugadorID;
+                    inscripcion.Fecha = unaInscripcion.Fecha;
+                    db.SubmitChanges();
                 }
                 else
                     notificador.notify(unaInscripcion.Jugador.Mail,"Ya hay 10 Jugadores con mayor o igual prioridad");
             }
         }
 
-        private int getMayorPrioridadInscriptos()
+        private decimal getMayorPrioridadInscriptos()
         {
             return Inscripcions.Max(inscripcion => inscripcion.getPrioridad());
         }
 
-        private void inscribirYordenar(Inscripcion unaInscripcion)
-        {
-            //Inscripcions.Add(unaInscripcion);
-            //Inscripcions = Inscripcions.OrderBy(i => i.getPrioridad()).ThenBy(i => i.Fecha).ToList();
-            throw new NotImplementedException();
-        }
-
         public List<Jugador> getJugadoresInscriptos()
         {
-            //return Inscripcions.ConvertAll(inscripcion => inscripcion.jugador);
-            throw new NotImplementedException();
+            List<Jugador> jugadores = new List<Jugador>();
+
+            foreach (Inscripcion inscripcion in this.Inscripcions)
+            {
+                jugadores.Add( inscripcion.Jugador);
+            };
+
+            return jugadores;
         }
 
         public void baja(Jugador jugador)
@@ -82,7 +61,8 @@ namespace OrganizadorFutbol5
             Infraccion infraccion = new Infraccion() { Motivo = "Baja sin Reemplazo", Partido = this };
 
             jugador.addInfraccion(infraccion);
-            Inscripcions.Remove(getInscripcionByJugador(jugador));
+            db.Inscripcions.DeleteOnSubmit(getInscripcionByJugador(jugador));
+            db.SubmitChanges();
             if (Inscripcions.Count == 9)
                 notificador.notify(Administrador.Mail,"Ya NO somos 10");
         }
@@ -90,50 +70,69 @@ namespace OrganizadorFutbol5
         public void baja(Jugador jugador, Jugador reemplazo) 
         {
             Inscripcion inscripcion = getInscripcionByJugador(jugador);
-            inscripcion.reemplazarJugador(reemplazo);
+            inscripcion.JugadorID = reemplazo.ID;
+            db.SubmitChanges();
         }
 
         private Inscripcion getInscripcionByJugador(Jugador jugador)
         {
-            //return Inscripcions.Find(i => i.jugador.Equals(jugador));
-            throw new NotImplementedException();
+            return this.Inscripcions.Where(i => i.JugadorID == jugador.ID).First();
         }
 
         public void generarEquipos(CriterioOrdenamiento ordenamiento,CriterioDivision division)
         {
+            //Borro los equipos que ya estaban generados
+            var partidoEquipos = from pe in db.PartidoEquipos
+                           where pe.PartidoID == this.ID
+                           select pe;
+            db.PartidoEquipos.DeleteAllOnSubmit(partidoEquipos); 
+            db.SubmitChanges();
 
-            throw new NotImplementedException();
-            
-            //List<Jugador> jugadores = this.getJugadoresInscriptos();
+            List<Jugador> jugadores = this.getJugadoresInscriptos();
 
-            //jugadores = jugadores.OrderByDescending(jugador => ordenamiento.getPuntaje(jugador)).ToList();
-            //division.dividir(jugadores, equipoA, equipoB);
+            jugadores = jugadores.OrderByDescending(jugador => ordenamiento.getPuntaje(jugador)).ToList();
+            division.dividir(jugadores, equipoA, equipoB);
+
+            foreach (Jugador jug in equipoA)
+            {
+                PartidoEquipo partidoEquipo = new PartidoEquipo() { Partido = this, Jugador = jug, Equipo = 'A'};
+                db.PartidoEquipos.InsertOnSubmit(partidoEquipo);
+                db.SubmitChanges();
+            }
+
+            foreach (Jugador jug in equipoB)
+            {
+                PartidoEquipo partidoEquipo = new PartidoEquipo() { Partido = this, Jugador = jug, Equipo = 'B'};
+                db.PartidoEquipos.InsertOnSubmit(partidoEquipo);
+                db.SubmitChanges();
+            }
         }
 
         public void aceptarPendiente(Jugador jugadorAceptado, InscripcionTipo inscripcionTipo)
         {
-            throw new NotImplementedException();
+            Inscripcion inscripcion = new Inscripcion() { Jugador = jugadorAceptado, Prioridad = inscripcionTipo.prioridad, Fecha = System.DateTime.Now };
             
-            //inscribir(new Inscripcion(inscripcionTipo, jugadorAceptado));
-            //InscripcionPendientes.Remove(jugadorAceptado.Nombre);
+            this.inscribir(inscripcion);
         }
 
         public void rechazarPendiente(String nombre, String motivo)
         {
-
-            throw new NotImplementedException();
-
-            //Rechazo rechazo = new Rechazo() { Motivo = motivo };
-
-            //Rechazos.Add(rechazo);
-            //InscripcionPendientes.Remove(nombre);
+            //Creo el Rechazo
+            Rechazo rechazo = new Rechazo() { Partido = this, PersonaNombre = nombre, Fecha = System.DateTime.Now, Motivo = motivo };
+            db.Rechazos.InsertOnSubmit(rechazo);
+            db.SubmitChanges();
+            //Elimino el Pendiente
+            InscripcionPendiente pendienteRechazado = this.InscripcionPendientes.Where(ip => ip.PersonaNombre == nombre).First();
+            db.InscripcionPendientes.DeleteOnSubmit(pendienteRechazado);
+            db.SubmitChanges();
         }
 
         public void proponerAmigo(String nombre)
         {
             InscripcionPendiente pendiente = new InscripcionPendiente() { PersonaNombre = nombre, Partido = this };
-            
-            InscripcionPendientes.Add(pendiente);
+
+            db.InscripcionPendientes.InsertOnSubmit(pendiente);
+            db.SubmitChanges();
         }
     }
 }
