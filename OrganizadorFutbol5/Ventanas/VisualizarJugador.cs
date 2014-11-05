@@ -21,30 +21,23 @@ namespace OrganizadorFutbol5.Ventanas
             Negocio.Commons commons = new Negocio.Commons();
             DataBaseDataContext db = new DataBaseDataContext();
 
-            var query = from x in db.Jugadors
+            var query = from x in db.vw_Jugadors
                         where x.ID == ID
                         select x;
 
-            Nombre.Text = query.First().Nombre;
+            vw_Jugador jugador = query.First();
 
-            Handicap.Text = query.First().Handicap.ToString();
+            Nombre.Text = jugador.Nombre;
+
+            Handicap.Text = jugador.Handicap.ToString();
 
             commons.colorear(Nombre, int.Parse(Handicap.Text));
 
-            var promedioUltimoPartido = from x in db.Promedio_Ultimo_Partidos
-                                        where x.Jugador == ID
-                                        select x;
+            PromedioUltimoPartido.Text = jugador.PromedioUltimoPartido.ToString();
 
-            PromedioUltimoPartido.Text = promedioUltimoPartido.First().Promedio.ToString();
+           PromedioTodos.Text = jugador.Promedio.ToString();
 
-           var promedioTodosLosPartidos = from x in db.Promedio_todos_los_partidos
-                                          where x.Jugador == ID
-                                          select x;
-
-
-           PromedioTodos.Text = promedioTodosLosPartidos.First().Promedio.ToString();
-
-           FechaDeNacimiento.Text = query.First().FechaNacimiento.ToShortDateString();
+           FechaDeNacimiento.Text = jugador.FechaNacimiento.ToShortDateString();
 
            int cantidadPartidosJugados = (from x in db.Inscripcions
                                          where x.JugadorID == ID
