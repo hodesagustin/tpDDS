@@ -75,7 +75,7 @@ namespace OrganizadorFutbol5.Ventanas
             inscripccion.PartidoID = (decimal) dataGridView1.Rows[e.RowIndex].Cells["ID"].Value;
             if (standard.Checked)
                 inscripccion.Prioridad = 1;
-            if (solidaria.Checked)
+            else if (solidaria.Checked)
                 inscripccion.Prioridad = 2;
             else
                 inscripccion.Prioridad = 3;

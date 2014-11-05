@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.inscribirse = new System.Windows.Forms.DataGridViewButtonColumn();
             this.standard = new System.Windows.Forms.RadioButton();
@@ -43,13 +44,16 @@
             this.proponer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.listBoxAmigos = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewCalificaciones = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewCalificacionesPendientes = new System.Windows.Forms.DataGridView();
             this.calificar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewCalificaciones = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -57,9 +61,11 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificacionesPendientes)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificaciones)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificacionesPendientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -78,6 +84,9 @@
             // 
             // inscribirse
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "Inscribirse";
+            this.inscribirse.DefaultCellStyle = dataGridViewCellStyle1;
             this.inscribirse.HeaderText = "Inscribirse";
             this.inscribirse.Name = "inscribirse";
             this.inscribirse.ReadOnly = true;
@@ -122,6 +131,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -216,12 +226,8 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.dataGridViewCalificaciones);
-            this.tabPage4.Controls.Add(this.dataGridViewCalificacionesPendientes);
-            this.tabPage4.Controls.Add(this.label2);
-            this.tabPage4.Controls.Add(this.label1);
-            this.tabPage4.Controls.Add(this.textBox1);
-            this.tabPage4.Controls.Add(this.numericUpDown1);
+            this.tabPage4.Controls.Add(this.groupBox2);
+            this.tabPage4.Controls.Add(this.groupBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -230,9 +236,90 @@
             this.tabPage4.Text = "Calificar";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridViewCalificaciones);
+            this.groupBox2.Location = new System.Drawing.Point(276, 9);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(279, 282);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Calificaciones Realizadas";
+            // 
+            // dataGridViewCalificaciones
+            // 
+            this.dataGridViewCalificaciones.AllowUserToAddRows = false;
+            this.dataGridViewCalificaciones.AllowUserToDeleteRows = false;
+            this.dataGridViewCalificaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCalificaciones.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewCalificaciones.Name = "dataGridViewCalificaciones";
+            this.dataGridViewCalificaciones.ReadOnly = true;
+            this.dataGridViewCalificaciones.Size = new System.Drawing.Size(264, 257);
+            this.dataGridViewCalificaciones.TabIndex = 5;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dataGridViewCalificacionesPendientes);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Location = new System.Drawing.Point(5, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(265, 283);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Calificaciones Pendientes";
+            // 
+            // dataGridViewCalificacionesPendientes
+            // 
+            this.dataGridViewCalificacionesPendientes.AllowUserToAddRows = false;
+            this.dataGridViewCalificacionesPendientes.AllowUserToDeleteRows = false;
+            this.dataGridViewCalificacionesPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCalificacionesPendientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.calificar});
+            this.dataGridViewCalificacionesPendientes.Location = new System.Drawing.Point(6, 101);
+            this.dataGridViewCalificacionesPendientes.Name = "dataGridViewCalificacionesPendientes";
+            this.dataGridViewCalificacionesPendientes.ReadOnly = true;
+            this.dataGridViewCalificacionesPendientes.Size = new System.Drawing.Size(253, 175);
+            this.dataGridViewCalificacionesPendientes.TabIndex = 4;
+            this.dataGridViewCalificacionesPendientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCalificacionesPendientes_CellContentClick);
+            // 
+            // calificar
+            // 
+            this.calificar.HeaderText = "Calificar";
+            this.calificar.Name = "calificar";
+            this.calificar.ReadOnly = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Comentarios:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Calificación:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(78, 75);
+            this.textBox1.MaxLength = 255;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(120, 20);
+            this.textBox1.TabIndex = 1;
+            // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(82, 39);
+            this.numericUpDown1.Location = new System.Drawing.Point(77, 30);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             10,
             0,
@@ -252,62 +339,15 @@
             0,
             0});
             // 
-            // textBox1
+            // tabPage5
             // 
-            this.textBox1.Location = new System.Drawing.Point(83, 84);
-            this.textBox1.MaxLength = 255;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Calificación:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Comentarios:";
-            // 
-            // dataGridViewCalificacionesPendientes
-            // 
-            this.dataGridViewCalificacionesPendientes.AllowUserToAddRows = false;
-            this.dataGridViewCalificacionesPendientes.AllowUserToDeleteRows = false;
-            this.dataGridViewCalificacionesPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCalificacionesPendientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.calificar});
-            this.dataGridViewCalificacionesPendientes.Location = new System.Drawing.Point(15, 130);
-            this.dataGridViewCalificacionesPendientes.Name = "dataGridViewCalificacionesPendientes";
-            this.dataGridViewCalificacionesPendientes.ReadOnly = true;
-            this.dataGridViewCalificacionesPendientes.Size = new System.Drawing.Size(240, 150);
-            this.dataGridViewCalificacionesPendientes.TabIndex = 4;
-            this.dataGridViewCalificacionesPendientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCalificacionesPendientes_CellContentClick);
-            // 
-            // calificar
-            // 
-            this.calificar.HeaderText = "Calificar";
-            this.calificar.Name = "calificar";
-            this.calificar.ReadOnly = true;
-            // 
-            // dataGridViewCalificaciones
-            // 
-            this.dataGridViewCalificaciones.AllowUserToAddRows = false;
-            this.dataGridViewCalificaciones.AllowUserToDeleteRows = false;
-            this.dataGridViewCalificaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCalificaciones.Location = new System.Drawing.Point(313, 6);
-            this.dataGridViewCalificaciones.Name = "dataGridViewCalificaciones";
-            this.dataGridViewCalificaciones.ReadOnly = true;
-            this.dataGridViewCalificaciones.Size = new System.Drawing.Size(240, 150);
-            this.dataGridViewCalificaciones.TabIndex = 5;
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(556, 302);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // HomeJugador
             // 
@@ -331,10 +371,12 @@
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificacionesPendientes)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificaciones)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificacionesPendientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,7 +387,6 @@
         private System.Windows.Forms.RadioButton standard;
         private System.Windows.Forms.RadioButton solidaria;
         private System.Windows.Forms.RadioButton condicional;
-        private System.Windows.Forms.DataGridViewButtonColumn inscribirse;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button1;
@@ -363,5 +404,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.DataGridViewButtonColumn inscribirse;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TabPage tabPage5;
     }
 }

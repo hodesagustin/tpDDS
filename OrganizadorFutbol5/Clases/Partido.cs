@@ -29,9 +29,21 @@ namespace OrganizadorFutbol5
                 mayorPrioridad = getMayorPrioridadInscriptos();
                 if (unaInscripcion.getPrioridad() < mayorPrioridad)
                 {
-                    Inscripcion inscripcion = this.Inscripcions.Where(i => i.Prioridad == mayorPrioridad).OrderBy(i => i.Fecha).Last();
-                    inscripcion.JugadorID = unaInscripcion.JugadorID;
-                    inscripcion.Fecha = unaInscripcion.Fecha;
+                    Inscripcion aEliminar = (from i in db.Inscripcions
+                                                where i.PartidoID == this.ID && i.Prioridad == mayorPrioridad
+                                                orderby i.Fecha descending
+                                                select i).First();
+                    Inscripcion aAgregar = new Inscripcion()
+                    {
+                        PartidoID = this.ID,
+                        JugadorID = unaInscripcion.JugadorID,
+                        Prioridad = unaInscripcion.Prioridad,
+                        Fecha = System.DateTime.Now
+                    };
+                    db.Inscripcions.InsertOnSubmit(aAgregar);
+
+                    db.Inscripcions.DeleteOnSubmit(aEliminar);
+
                     db.SubmitChanges();
                 }
                 else
