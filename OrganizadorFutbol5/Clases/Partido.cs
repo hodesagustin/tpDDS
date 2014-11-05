@@ -73,22 +73,32 @@ namespace OrganizadorFutbol5
             Infraccion infraccion = new Infraccion() { Motivo = "Baja sin Reemplazo", Partido = this, Fecha = System.DateTime.Now, Jugador = jugador };
 
             jugador.addInfraccion(infraccion);
-            db.Inscripcions.DeleteOnSubmit(getInscripcionByJugador(jugador));
+
+            Inscripcion inscripcion = (from i in db.Inscripcions
+                                       where i.JugadorID == jugador.ID && i.PartidoID == this.ID
+                                       select i).First();
+            db.Inscripcions.DeleteOnSubmit(inscripcion);
             db.SubmitChanges();
+
             if (Inscripcions.Count == 9)
                 notificador.notify(Administrador.Mail,"Ya NO somos 10");
         }
 
-        public void baja(Jugador jugador, Jugador reemplazo) 
+        public void baja(Jugador jugador, String reemplazo) 
         {
-            Inscripcion inscripcion = getInscripcionByJugador(jugador);
-            inscripcion.JugadorID = reemplazo.ID;
-            db.SubmitChanges();
-        }
+            Inscripcion inscripcion = (from i in db.Inscripcions
+                                       where i.JugadorID == jugador.ID && i.PartidoID == this.ID
+                                       select i).First();
 
-        private Inscripcion getInscripcionByJugador(Jugador jugador)
-        {
-            return this.Inscripcions.Where(i => i.JugadorID == jugador.ID).First();
+            InscripcionPendiente inscripcionPendiente = new InscripcionPendiente()
+            {
+                PartidoID = this.ID,
+                PersonaNombre = reemplazo
+            };
+
+            db.Inscripcions.DeleteOnSubmit(inscripcion);
+            db.InscripcionPendientes.InsertOnSubmit(inscripcionPendiente);
+            db.SubmitChanges();
         }
 
         public void generarEquipos(CriterioOrdenamiento ordenamiento,CriterioDivision division)

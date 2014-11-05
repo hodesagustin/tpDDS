@@ -36,11 +36,17 @@ namespace OrganizadorFutbol5.Ventanas
 
             listBoxAmigos.DataSource = amigos;
 
+            listBoxAmigosParaReemplazo.DataSource = amigos;
+
             dataGridView2.DataSource = partidos;
 
             refrescarDataGridView();
 
+            var inscripciones = from x in db.Inscripcions
+                                where x.JugadorID == jugadorID
+                                select x;
 
+            dataGridViewBaja.DataSource = inscripciones;
 
 
 
@@ -60,6 +66,12 @@ namespace OrganizadorFutbol5.Ventanas
                                  select x;
 
             dataGridViewCalificaciones.DataSource = calificaciones;
+
+            var inscripciones = from x in db.Inscripcions
+                                where x.JugadorID == jugadorID
+                                select x;
+
+            dataGridViewBaja.DataSource = inscripciones;
         }
 
         private void HomeJugador_FormClosing(object sender, FormClosingEventArgs e)
@@ -137,6 +149,38 @@ namespace OrganizadorFutbol5.Ventanas
             MessageBox.Show("La calificación fue ejecutada correctamente");
 
             refrescarDataGridView();
+
+        }
+
+        private void dataGridViewJugadores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            Partido unPartido = (from i in db.Partidos
+                                         where i.ID == Convert.ToInt32(dataGridViewBaja.Rows[e.RowIndex].Cells["PartidoID"].Value)
+                                         select i).First();
+            Jugador unJugador = (from i in db.Jugadors
+                                 where i.ID == jugadorID
+                                 select i).First();
+
+
+            if (e.ColumnIndex == 0) //Baja con reemplazo
+            {
+
+                unPartido.baja(unJugador, listBoxAmigosParaReemplazo.SelectedValue.ToString());
+                MessageBox.Show("Baja efectuada con éxito");
+            }
+            if (e.ColumnIndex == 1) //Baja sin reemplazo
+            {
+
+                unPartido.baja(unJugador);
+
+                MessageBox.Show("Baja efectuada con éxito, usted tiene una infracción");
+            }
+            refrescarDataGridView();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

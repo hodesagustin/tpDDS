@@ -21,10 +21,6 @@ namespace OrganizadorFutbol5
             var administradores = from a in db.Administradors
                                   select a;
 
-            foreach (Administrador administrador in administradores)
-            {
-                MessageBox.Show(administrador.ToString());
-            }
 
             //Administrador administrador = new Administrador("Admin", "admin@gmail.com");
             //Partido partido = new Partido(DateTime.Now,administrador);

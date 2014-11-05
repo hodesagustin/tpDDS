@@ -11,7 +11,8 @@ namespace OrganizadorFutbol5
 
         public void addInfraccion(Infraccion infraccion)
         {
-            db.Infraccions.InsertOnSubmit(infraccion);
+            Infraccion unaInfraccion = new Infraccion() { Fecha = infraccion.Fecha, JugadorID = infraccion.JugadorID, Motivo = infraccion.Motivo, PartidoID = infraccion.PartidoID };
+            db.Infraccions.InsertOnSubmit(unaInfraccion);
             db.SubmitChanges();
         }
 

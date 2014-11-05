@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.inscribirse = new System.Windows.Forms.DataGridViewButtonColumn();
             this.standard = new System.Windows.Forms.RadioButton();
@@ -39,7 +41,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.proponer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.listBoxAmigos = new System.Windows.Forms.ListBox();
@@ -54,6 +55,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dataGridViewBaja = new System.Windows.Forms.DataGridView();
+            this.proponerReemplazo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.bajaSinReemplazo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.listBoxAmigosParaReemplazo = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -66,6 +71,8 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificacionesPendientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBaja)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -137,6 +144,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(564, 328);
             this.tabControl1.TabIndex = 4;
+            this.tabControl1.Tag = "";
             // 
             // tabPage2
             // 
@@ -175,7 +183,6 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.checkBox1);
             this.tabPage3.Controls.Add(this.dataGridView2);
             this.tabPage3.Controls.Add(this.listBoxAmigos);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -185,16 +192,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Proponer amigo";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(21, 21);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
@@ -341,13 +338,58 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.listBoxAmigosParaReemplazo);
+            this.tabPage5.Controls.Add(this.dataGridViewBaja);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(556, 302);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.Text = "Darse de baja";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewBaja
+            // 
+            this.dataGridViewBaja.AllowUserToAddRows = false;
+            this.dataGridViewBaja.AllowUserToDeleteRows = false;
+            this.dataGridViewBaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBaja.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.proponerReemplazo,
+            this.bajaSinReemplazo});
+            this.dataGridViewBaja.Location = new System.Drawing.Point(18, 23);
+            this.dataGridViewBaja.Name = "dataGridViewBaja";
+            this.dataGridViewBaja.ReadOnly = true;
+            this.dataGridViewBaja.Size = new System.Drawing.Size(328, 150);
+            this.dataGridViewBaja.TabIndex = 0;
+            this.dataGridViewBaja.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewJugadores_CellContentClick);
+            // 
+            // proponerReemplazo
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "Proponer reemplazo";
+            this.proponerReemplazo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.proponerReemplazo.HeaderText = "Proponer reemplazo";
+            this.proponerReemplazo.Name = "proponerReemplazo";
+            this.proponerReemplazo.ReadOnly = true;
+            this.proponerReemplazo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.proponerReemplazo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // bajaSinReemplazo
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "Baja sin reemplazo";
+            this.bajaSinReemplazo.DefaultCellStyle = dataGridViewCellStyle3;
+            this.bajaSinReemplazo.HeaderText = "Baja sin reemplazo";
+            this.bajaSinReemplazo.Name = "bajaSinReemplazo";
+            this.bajaSinReemplazo.ReadOnly = true;
+            // 
+            // listBoxAmigosParaReemplazo
+            // 
+            this.listBoxAmigosParaReemplazo.FormattingEnabled = true;
+            this.listBoxAmigosParaReemplazo.Location = new System.Drawing.Point(404, 23);
+            this.listBoxAmigosParaReemplazo.Name = "listBoxAmigosParaReemplazo";
+            this.listBoxAmigosParaReemplazo.Size = new System.Drawing.Size(128, 186);
+            this.listBoxAmigosParaReemplazo.TabIndex = 1;
             // 
             // HomeJugador
             // 
@@ -368,7 +410,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -377,6 +418,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificacionesPendientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBaja)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,7 +438,6 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewButtonColumn proponer;
         private System.Windows.Forms.ListBox listBoxAmigos;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dataGridViewCalificaciones;
         private System.Windows.Forms.DataGridView dataGridViewCalificacionesPendientes;
@@ -408,5 +450,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.DataGridView dataGridViewBaja;
+        private System.Windows.Forms.DataGridViewButtonColumn proponerReemplazo;
+        private System.Windows.Forms.DataGridViewButtonColumn bajaSinReemplazo;
+        private System.Windows.Forms.ListBox listBoxAmigosParaReemplazo;
     }
 }
