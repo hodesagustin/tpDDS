@@ -4,8 +4,8 @@ insert into dds_esquema.Administrador (Nombre,Mail) values ('a','admin@gmail.com
 
 --partidos
 
-insert into dds_esquema.Partido (AdministradorID,Fecha) values (1,01-01-2000)
-insert into dds_esquema.Partido (AdministradorID,Fecha) values (1,01-02-2000)
+insert into dds_esquema.Partido (AdministradorID,Fecha) values (1,'2000-01-01')
+insert into dds_esquema.Partido (AdministradorID,Fecha) values (1,'2000-02-01')
 
 --jugadores
 
@@ -30,14 +30,14 @@ insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,
 
 insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (2,1,1,2,'cono')
 
-insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (2,1,2,9,'la movió')
+insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (2,1,2,9,'la moviÃ³')
 
 insert into dds_esquema.Calificacion (CalificadorID,PartidoID,JugadorID,Puntaje,Descripcion) values (1,1,2,10,'muy bueno')
 
 -- inscripciones
 
-insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Fecha) values (2,1,'2000-01-01')
-insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Fecha) values (2,2,'2000-01-01')
+insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Prioridad,Fecha) values (2,1,1,'2000-01-01')
+insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Prioridad,Fecha) values (2,2,1,'2000-01-01')
 
-insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Fecha) values (1,1,'2000-01-02')
-insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Fecha) values (1,2,'2000-01-02')
+insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Prioridad,Fecha) values (1,1,1,'2000-01-02')
+insert into dds_esquema.Inscripcion (PartidoID,JugadorID,Prioridad,Fecha) values (1,2,2,'2000-01-02')
