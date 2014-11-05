@@ -25,37 +25,40 @@ namespace OrganizadorFutbol5.Negocio
             }
             consulta = consulta.Where(p => p.FechaNacimiento <= fechaAnterior);
 
-            if (!(handicapDesde == 0 && handicapHasta == 0))
+            if (handicapDesde == 0 && handicapHasta == 0) 
             {
-                consulta = consulta.Where(p => p.Handicap >= handicapDesde);
-                consulta = consulta.Where(p => p.Handicap <= handicapHasta);
             }
             else
             {
-                if (handicapHasta == 0)
+                if (handicapDesde == 0 && handicapHasta != 0)
+                {
+                    consulta = consulta.Where(p => p.Handicap <= handicapHasta);
+                }
+                else if (handicapHasta == 0 && handicapDesde != 0)
                 {
                     consulta = consulta.Where(p => p.Handicap >= handicapDesde);
                 }
                 else
                 {
+                    consulta = consulta.Where(p => p.Handicap >= handicapDesde);
                     consulta = consulta.Where(p => p.Handicap <= handicapHasta);
                 }
             }
 
             if (infraccion == "Si")
             {
-                consulta = from x in consulta
+                consulta = (from x in consulta
                            join y in db.Infraccions on x.ID equals y.JugadorID
-                           select x;
+                           select x).Distinct();
             }
             else
             {
                 if (infraccion == "No")
                 {
-                    consulta = from x in consulta
+                    consulta = (from x in consulta
                                from y in db.Infraccions
                                where x.ID != y.JugadorID
-                               select x;
+                                select x).Distinct() ;
                 }
             }
 
