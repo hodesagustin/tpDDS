@@ -90,7 +90,7 @@ namespace OrganizadorFutbol5.Ventanas
             }
             else
             {
-                MessageBox.Show("Debe haber al menos 10 jugadores inscriptos.");
+                MessageBox.Show("Debe haber 10 jugadores inscriptos.");
             }
         }
 
@@ -102,6 +102,22 @@ namespace OrganizadorFutbol5.Ventanas
                            select x;
 
             dataGridView3.DataSource = consulta;
+        }
+
+        private void btnFinalizarPartido_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.RowCount == 10)
+            {
+                var partido = (from p in db.Partidos
+                               where p.ID == partidoID
+                               select p).First();
+
+                partido.generarCalificacionesPendientes();
+                MessageBox.Show("Partido Finalizado. Se crearon las Calificaciones Pendientes");
+                this.Close();
+            }
+            else
+                MessageBox.Show("Deben estar generados los equipos para poder Finalizar el Partido.");
         }
     }
 }

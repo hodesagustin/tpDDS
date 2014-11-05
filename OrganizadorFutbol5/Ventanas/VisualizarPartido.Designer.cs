@@ -42,6 +42,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.v = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -198,11 +199,22 @@
             this.dataGridView3.Size = new System.Drawing.Size(251, 207);
             this.dataGridView3.TabIndex = 0;
             // 
+            // v
+            // 
+            this.v.Location = new System.Drawing.Point(12, 316);
+            this.v.Name = "v";
+            this.v.Size = new System.Drawing.Size(120, 23);
+            this.v.TabIndex = 3;
+            this.v.Text = "Finalizar Partido";
+            this.v.UseVisualStyleBackColor = true;
+            this.v.Click += new System.EventHandler(this.btnFinalizarPartido_Click);
+            // 
             // VisualizarPartido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 323);
+            this.ClientSize = new System.Drawing.Size(823, 349);
+            this.Controls.Add(this.v);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -243,5 +255,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button v;
     }
 }

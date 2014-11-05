@@ -180,5 +180,31 @@ namespace OrganizadorFutbol5
             db.InscripcionPendientes.InsertOnSubmit(pendiente);
             db.SubmitChanges();
         }
+
+        public void generarCalificacionesPendientes()
+        {
+            var jugadores = from j in db.PartidoEquipos
+                            where j.PartidoID == this.ID
+                            select j;
+            foreach (PartidoEquipo jugador in jugadores)
+            {
+                var restoEquipo = from re in db.PartidoEquipos
+                                  where re.PartidoID == this.ID && re.Equipo == jugador.Equipo && re.JugadorID != jugador.JugadorID
+                                  select re;
+                foreach (PartidoEquipo compaEquipo in restoEquipo)
+                {
+                    CalificacionPendiente calificacionPendiente = new CalificacionPendiente()
+                    {
+                        CalificadorID = jugador.JugadorID,
+                        PartidoID = this.ID,
+                        JugadorID = compaEquipo.JugadorID
+                    };
+
+                    db.CalificacionPendientes.InsertOnSubmit(calificacionPendiente);
+                    db.SubmitChanges();
+                }
+
+            }
+        }
     }
 }
