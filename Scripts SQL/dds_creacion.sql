@@ -257,39 +257,43 @@ ALTER TABLE [dds_esquema].[CalificacionPendiente] CHECK CONSTRAINT [fk_Calificac
 GO
 ----------------------------------------------------------
 
--- Vista PROMEDIO ULTIMO PARTIDO
-
-CREATE VIEW [dds_esquema].[Promedio Ultimo Partido]
-AS
-
-select Calificaciones.JugadorID as Jugador, AVG (Calificaciones.Puntaje) as Promedio from
-
-(select Inscripciones.PartidoID from
-(
-select MAX(Fecha.Fecha) as Fecha from
-(
-select MAX(Fecha) as Fecha from
-(SELECT     J.ID AS Jugador, I.PartidoID AS Partido, Fecha AS Fecha
-FROM          dds_esquema.Inscripcion AS I INNER JOIN  dds_esquema.Jugador AS J ON I.JugadorID = J.ID
-GROUP BY J.ID, I.PartidoID,Fecha) as TodosLosJugadores
-GROUP BY Fecha
-) as Fecha
-) as FechaMaxima, dds_esquema.Inscripcion as Inscripciones
-where FechaMaxima.Fecha = Inscripciones.Fecha
-) as UltimoPartido, dds_esquema.Calificacion as Calificaciones
-where UltimoPartido.PartidoID = Calificaciones.PartidoID
-Group by JugadorID
+CREATE FUNCTION [dds_esquema].fx_UltimoPartidoJugador (@Id_Jugador int)
+RETURNS datetime
+AS 
+BEGIN
+	Declare @Max datetime = (SELECT MAX(P.Fecha) 
+						from [dds_esquema].Partido P
+						JOIN [dds_esquema].Calificacion C ON C.PartidoID = P.ID
+						where @Id_Jugador = C.JugadorID)
+	RETURN @Max
+END
 GO
+
 -- Vista PROMEDIO TODOS LOS PARTIDOS
 
-CREATE VIEW [dds_esquema].[Promedio todos los partidos]
+CREATE VIEW [dds_esquema].[vw_JugadorPromedio]
 AS
-SELECT     JugadoresUltimoPartido.Jugador, AVG(C.Puntaje) AS Promedio
-FROM         (SELECT     J.ID AS Jugador, I.PartidoID AS Partido
-                       FROM          dds_esquema.Inscripcion AS I INNER JOIN
-                                              dds_esquema.Jugador AS J ON I.JugadorID = J.ID
-                       GROUP BY J.ID, I.PartidoID) AS JugadoresUltimoPartido INNER JOIN
-                      dds_esquema.Calificacion AS C ON JugadoresUltimoPartido.Jugador = C.JugadorID
-GROUP BY JugadoresUltimoPartido.Jugador
+SELECT C.JugadorID as JugadorID, AVG(CAST(C.Puntaje as float)) as Promedio
+FROM [dds_esquema].Calificacion C
+GROUP BY C.JugadorID
 GO
 -------------------------------------------------------
+
+CREATE VIEW [dds_esquema].[vw_JugadorPromedioUltimoPartido]
+AS
+SELECT C.JugadorID as JugadorID, AVG(CAST(C.Puntaje as float)) as PromedioUltimoPartido
+FROM [dds_esquema].Calificacion C
+JOIN [dds_esquema].Partido P ON P.ID = C.PartidoID
+WHERE P.Fecha = (SELECT [dds_esquema].fx_UltimoPartidoJugador(C.JugadorID))
+GROUP BY C.JugadorID
+go
+
+CREATE VIEW [dds_esquema].vw_Jugador
+AS
+SELECT J.*, JP.Promedio, JPUP.PromedioUltimoPartido
+FROM [dds_esquema].Jugador J
+JOIN [dds_esquema].vw_JugadorPromedio JP ON J.ID=JP.JugadorID
+JOIN [dds_esquema].vw_JugadorPromedioUltimoPartido JPUP ON J.ID=JPUP.JugadorID
+GO
+
+SELECT * FROM [dds_esquema].vw_Jugador

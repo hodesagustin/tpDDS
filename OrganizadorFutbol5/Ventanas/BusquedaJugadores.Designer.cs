@@ -346,6 +346,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BusquedaJugadores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Busqueda de Jugadores";
             this.nombre_gbx.ResumeLayout(false);
             this.nombre_gbx.PerformLayout();
