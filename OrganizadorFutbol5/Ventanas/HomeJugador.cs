@@ -38,8 +38,28 @@ namespace OrganizadorFutbol5.Ventanas
 
             dataGridView2.DataSource = partidos;
 
+            refrescarDataGridView();
 
 
+
+
+
+
+        }
+
+        private void refrescarDataGridView()
+        {
+            var calificacionesPendientes = from x in db.CalificacionPendientes
+                                           where x.CalificadorID == jugadorID
+                                           select x;
+
+            dataGridViewCalificacionesPendientes.DataSource = calificacionesPendientes;
+
+            var calificaciones = from x in db.Calificacions
+                                 where x.CalificadorID == jugadorID
+                                 select x;
+
+            dataGridViewCalificaciones.DataSource = calificaciones;
         }
 
         private void HomeJugador_FormClosing(object sender, FormClosingEventArgs e)
@@ -94,6 +114,30 @@ namespace OrganizadorFutbol5.Ventanas
             partido.proponerAmigo(listBoxAmigos.SelectedItem.ToString());
 
             MessageBox.Show("El amigo ha sido propuesto al partido seleccionado");
+        }
+
+        private void dataGridViewCalificacionesPendientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int partidoID = Convert.ToInt32(dataGridViewCalificacionesPendientes.Rows[e.RowIndex].Cells["PartidoID"].Value);
+
+            int calificadoID = Convert.ToInt32(dataGridViewCalificacionesPendientes.Rows[e.RowIndex].Cells["JugadorID"].Value);
+
+            Calificacion unaCalificacion = new Calificacion() { CalificadorID = jugadorID, Descripcion = textBox1.Text, JugadorID = calificadoID, PartidoID = partidoID, Puntaje = Convert.ToByte(numericUpDown1.Value) };
+
+            db.Calificacions.InsertOnSubmit(unaCalificacion);
+            db.SubmitChanges();
+
+            var calificacionPendiente = (from x in db.CalificacionPendientes
+                                        where x.CalificadorID == jugadorID && x.PartidoID == partidoID && x.JugadorID == calificadoID
+                                        select x).First();
+
+            db.CalificacionPendientes.DeleteOnSubmit(calificacionPendiente);
+            db.SubmitChanges();
+
+            MessageBox.Show("La calificación fue ejecutada correctamente");
+
+            refrescarDataGridView();
+
         }
     }
 }

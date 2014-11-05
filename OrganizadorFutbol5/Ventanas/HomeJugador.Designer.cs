@@ -34,20 +34,32 @@
             this.solidaria = new System.Windows.Forms.RadioButton();
             this.condicional = new System.Windows.Forms.RadioButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.listBoxAmigos = new System.Windows.Forms.ListBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.proponer = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.listBoxAmigos = new System.Windows.Forms.ListBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridViewCalificacionesPendientes = new System.Windows.Forms.DataGridView();
+            this.calificar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewCalificaciones = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificacionesPendientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -109,25 +121,12 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(564, 328);
             this.tabControl1.TabIndex = 4;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.condicional);
-            this.tabPage1.Controls.Add(this.solidaria);
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.standard);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(556, 302);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Inscripcción";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -150,6 +149,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.condicional);
+            this.tabPage1.Controls.Add(this.solidaria);
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.standard);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(556, 302);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Inscripcción";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.checkBox1);
@@ -163,13 +176,15 @@
             this.tabPage3.Text = "Proponer amigo";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // listBoxAmigos
+            // checkBox1
             // 
-            this.listBoxAmigos.FormattingEnabled = true;
-            this.listBoxAmigos.Location = new System.Drawing.Point(20, 42);
-            this.listBoxAmigos.Name = "listBoxAmigos";
-            this.listBoxAmigos.Size = new System.Drawing.Size(128, 186);
-            this.listBoxAmigos.TabIndex = 0;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(21, 21);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
@@ -191,15 +206,108 @@
             this.proponer.Name = "proponer";
             this.proponer.ReadOnly = true;
             // 
-            // checkBox1
+            // listBoxAmigos
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(21, 21);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.listBoxAmigos.FormattingEnabled = true;
+            this.listBoxAmigos.Location = new System.Drawing.Point(20, 42);
+            this.listBoxAmigos.Name = "listBoxAmigos";
+            this.listBoxAmigos.Size = new System.Drawing.Size(128, 186);
+            this.listBoxAmigos.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dataGridViewCalificaciones);
+            this.tabPage4.Controls.Add(this.dataGridViewCalificacionesPendientes);
+            this.tabPage4.Controls.Add(this.label2);
+            this.tabPage4.Controls.Add(this.label1);
+            this.tabPage4.Controls.Add(this.textBox1);
+            this.tabPage4.Controls.Add(this.numericUpDown1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(556, 302);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Calificar";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(82, 39);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 0;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(83, 84);
+            this.textBox1.MaxLength = 255;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(120, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Calificación:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Comentarios:";
+            // 
+            // dataGridViewCalificacionesPendientes
+            // 
+            this.dataGridViewCalificacionesPendientes.AllowUserToAddRows = false;
+            this.dataGridViewCalificacionesPendientes.AllowUserToDeleteRows = false;
+            this.dataGridViewCalificacionesPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCalificacionesPendientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.calificar});
+            this.dataGridViewCalificacionesPendientes.Location = new System.Drawing.Point(15, 130);
+            this.dataGridViewCalificacionesPendientes.Name = "dataGridViewCalificacionesPendientes";
+            this.dataGridViewCalificacionesPendientes.ReadOnly = true;
+            this.dataGridViewCalificacionesPendientes.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewCalificacionesPendientes.TabIndex = 4;
+            this.dataGridViewCalificacionesPendientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCalificacionesPendientes_CellContentClick);
+            // 
+            // calificar
+            // 
+            this.calificar.HeaderText = "Calificar";
+            this.calificar.Name = "calificar";
+            this.calificar.ReadOnly = true;
+            // 
+            // dataGridViewCalificaciones
+            // 
+            this.dataGridViewCalificaciones.AllowUserToAddRows = false;
+            this.dataGridViewCalificaciones.AllowUserToDeleteRows = false;
+            this.dataGridViewCalificaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCalificaciones.Location = new System.Drawing.Point(313, 6);
+            this.dataGridViewCalificaciones.Name = "dataGridViewCalificaciones";
+            this.dataGridViewCalificaciones.ReadOnly = true;
+            this.dataGridViewCalificaciones.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewCalificaciones.TabIndex = 5;
             // 
             // HomeJugador
             // 
@@ -216,12 +324,17 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HomeJugador_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificacionesPendientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalificaciones)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -242,5 +355,13 @@
         private System.Windows.Forms.DataGridViewButtonColumn proponer;
         private System.Windows.Forms.ListBox listBoxAmigos;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dataGridViewCalificaciones;
+        private System.Windows.Forms.DataGridView dataGridViewCalificacionesPendientes;
+        private System.Windows.Forms.DataGridViewButtonColumn calificar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
