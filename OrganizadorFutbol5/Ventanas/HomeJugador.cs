@@ -17,6 +17,10 @@ namespace OrganizadorFutbol5.Ventanas
         public HomeJugador(int id)
         {
             InitializeComponent();
+
+            DataBaseDataContext db = new DataBaseDataContext();
+
+            
         }
 
         private void HomeJugador_FormClosing(object sender, FormClosingEventArgs e)
