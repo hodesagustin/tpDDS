@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.inscribirse = new System.Windows.Forms.DataGridViewButtonColumn();
             this.standard = new System.Windows.Forms.RadioButton();
@@ -55,10 +55,16 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.listBoxAmigosParaReemplazo = new System.Windows.Forms.ListBox();
             this.dataGridViewBaja = new System.Windows.Forms.DataGridView();
             this.proponerReemplazo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.bajaSinReemplazo = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.listBoxAmigosParaReemplazo = new System.Windows.Forms.ListBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -73,6 +79,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBaja)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -82,18 +93,18 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.inscribirse});
-            this.dataGridView1.Location = new System.Drawing.Point(129, 136);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(412, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(505, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // inscribirse
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "Inscribirse";
-            this.inscribirse.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.NullValue = "Inscribirse";
+            this.inscribirse.DefaultCellStyle = dataGridViewCellStyle10;
             this.inscribirse.HeaderText = "Inscribirse";
             this.inscribirse.Name = "inscribirse";
             this.inscribirse.ReadOnly = true;
@@ -102,7 +113,7 @@
             // 
             this.standard.AutoSize = true;
             this.standard.Checked = true;
-            this.standard.Location = new System.Drawing.Point(301, 28);
+            this.standard.Location = new System.Drawing.Point(19, 15);
             this.standard.Name = "standard";
             this.standard.Size = new System.Drawing.Size(120, 17);
             this.standard.TabIndex = 1;
@@ -113,7 +124,7 @@
             // solidaria
             // 
             this.solidaria.AutoSize = true;
-            this.solidaria.Location = new System.Drawing.Point(301, 51);
+            this.solidaria.Location = new System.Drawing.Point(19, 38);
             this.solidaria.Name = "solidaria";
             this.solidaria.Size = new System.Drawing.Size(117, 17);
             this.solidaria.TabIndex = 2;
@@ -124,7 +135,7 @@
             // condicional
             // 
             this.condicional.AutoSize = true;
-            this.condicional.Location = new System.Drawing.Point(301, 74);
+            this.condicional.Location = new System.Drawing.Point(19, 61);
             this.condicional.Name = "condicional";
             this.condicional.Size = new System.Drawing.Size(133, 17);
             this.condicional.TabIndex = 3;
@@ -159,7 +170,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(127, 86);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(114, 75);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(305, 140);
             this.button1.TabIndex = 0;
@@ -169,10 +181,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.condicional);
-            this.tabPage1.Controls.Add(this.solidaria);
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.standard);
+            this.tabPage1.Controls.Add(this.groupBox7);
+            this.tabPage1.Controls.Add(this.groupBox8);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -183,8 +193,9 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.dataGridView2);
+            this.tabPage3.Controls.Add(this.groupBox6);
             this.tabPage3.Controls.Add(this.listBoxAmigos);
+            this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -200,10 +211,10 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.proponer});
-            this.dataGridView2.Location = new System.Drawing.Point(271, 78);
+            this.dataGridView2.Location = new System.Drawing.Point(6, 32);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView2.Size = new System.Drawing.Size(355, 186);
             this.dataGridView2.TabIndex = 1;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -338,8 +349,8 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.listBoxAmigosParaReemplazo);
-            this.tabPage5.Controls.Add(this.dataGridViewBaja);
+            this.tabPage5.Controls.Add(this.groupBox3);
+            this.tabPage5.Controls.Add(this.groupBox4);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -347,6 +358,14 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Darse de baja";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // listBoxAmigosParaReemplazo
+            // 
+            this.listBoxAmigosParaReemplazo.FormattingEnabled = true;
+            this.listBoxAmigosParaReemplazo.Location = new System.Drawing.Point(49, 19);
+            this.listBoxAmigosParaReemplazo.Name = "listBoxAmigosParaReemplazo";
+            this.listBoxAmigosParaReemplazo.Size = new System.Drawing.Size(128, 186);
+            this.listBoxAmigosParaReemplazo.TabIndex = 1;
             // 
             // dataGridViewBaja
             // 
@@ -356,7 +375,7 @@
             this.dataGridViewBaja.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.proponerReemplazo,
             this.bajaSinReemplazo});
-            this.dataGridViewBaja.Location = new System.Drawing.Point(18, 23);
+            this.dataGridViewBaja.Location = new System.Drawing.Point(6, 19);
             this.dataGridViewBaja.Name = "dataGridViewBaja";
             this.dataGridViewBaja.ReadOnly = true;
             this.dataGridViewBaja.Size = new System.Drawing.Size(328, 150);
@@ -365,9 +384,9 @@
             // 
             // proponerReemplazo
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "Proponer reemplazo";
-            this.proponerReemplazo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.NullValue = "Proponer reemplazo";
+            this.proponerReemplazo.DefaultCellStyle = dataGridViewCellStyle11;
             this.proponerReemplazo.HeaderText = "Proponer reemplazo";
             this.proponerReemplazo.Name = "proponerReemplazo";
             this.proponerReemplazo.ReadOnly = true;
@@ -376,20 +395,74 @@
             // 
             // bajaSinReemplazo
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "Baja sin reemplazo";
-            this.bajaSinReemplazo.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.NullValue = "Baja sin reemplazo";
+            this.bajaSinReemplazo.DefaultCellStyle = dataGridViewCellStyle12;
             this.bajaSinReemplazo.HeaderText = "Baja sin reemplazo";
             this.bajaSinReemplazo.Name = "bajaSinReemplazo";
             this.bajaSinReemplazo.ReadOnly = true;
             // 
-            // listBoxAmigosParaReemplazo
+            // groupBox3
             // 
-            this.listBoxAmigosParaReemplazo.FormattingEnabled = true;
-            this.listBoxAmigosParaReemplazo.Location = new System.Drawing.Point(404, 23);
-            this.listBoxAmigosParaReemplazo.Name = "listBoxAmigosParaReemplazo";
-            this.listBoxAmigosParaReemplazo.Size = new System.Drawing.Size(128, 186);
-            this.listBoxAmigosParaReemplazo.TabIndex = 1;
+            this.groupBox3.Controls.Add(this.dataGridViewBaja);
+            this.groupBox3.Location = new System.Drawing.Point(11, 11);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(346, 267);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Partidos a los que se está inscripto";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.listBoxAmigosParaReemplazo);
+            this.groupBox4.Location = new System.Drawing.Point(363, 11);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(183, 267);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Lista de amigos";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Location = new System.Drawing.Point(8, 10);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(154, 235);
+            this.groupBox5.TabIndex = 2;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Lista de amigos";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.dataGridView2);
+            this.groupBox6.Location = new System.Drawing.Point(168, 10);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(367, 235);
+            this.groupBox6.TabIndex = 3;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Lista de partidos";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.condicional);
+            this.groupBox7.Controls.Add(this.solidaria);
+            this.groupBox7.Controls.Add(this.standard);
+            this.groupBox7.Location = new System.Drawing.Point(13, 21);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(162, 90);
+            this.groupBox7.TabIndex = 4;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Tipo de inscripcción:";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.dataGridView1);
+            this.groupBox8.Location = new System.Drawing.Point(17, 119);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(533, 177);
+            this.groupBox8.TabIndex = 5;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Partidos para inscribirse";
             // 
             // HomeJugador
             // 
@@ -408,7 +481,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage4.ResumeLayout(false);
@@ -420,6 +492,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBaja)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -454,5 +532,11 @@
         private System.Windows.Forms.DataGridViewButtonColumn proponerReemplazo;
         private System.Windows.Forms.DataGridViewButtonColumn bajaSinReemplazo;
         private System.Windows.Forms.ListBox listBoxAmigosParaReemplazo;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox groupBox8;
     }
 }

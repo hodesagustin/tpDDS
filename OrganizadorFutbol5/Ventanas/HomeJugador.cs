@@ -72,6 +72,12 @@ namespace OrganizadorFutbol5.Ventanas
                                 select x;
 
             dataGridViewBaja.DataSource = inscripciones;
+
+            var inscripciones = from x in db.Inscripcions
+                                where x.JugadorID == jugadorID
+                                select x;
+
+            dataGridViewBaja.DataSource = inscripciones;
         }
 
         private void HomeJugador_FormClosing(object sender, FormClosingEventArgs e)
@@ -180,6 +186,11 @@ namespace OrganizadorFutbol5.Ventanas
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }
