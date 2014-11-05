@@ -257,7 +257,7 @@ ALTER TABLE [dds_esquema].[CalificacionPendiente] CHECK CONSTRAINT [fk_Calificac
 GO
 ----------------------------------------------------------
 
-CREATE FUNCTION [dds_esquema].fx_UltimoPartidoJugador (@Id_Jugador int)
+CREATE FUNCTION [dds_esquema].[fx_UltimoPartidoJugador] (@Id_Jugador int)
 RETURNS datetime
 AS 
 BEGIN
@@ -284,7 +284,7 @@ AS
 SELECT C.JugadorID as JugadorID, AVG(CAST(C.Puntaje as float)) as PromedioUltimoPartido
 FROM [dds_esquema].Calificacion C
 JOIN [dds_esquema].Partido P ON P.ID = C.PartidoID
-WHERE P.Fecha = (SELECT [dds_esquema].fx_UltimoPartidoJugador(C.JugadorID))
+WHERE P.Fecha = (SELECT [dds_esquema].[fx_UltimoPartidoJugador](C.JugadorID))
 GROUP BY C.JugadorID
 go
 
