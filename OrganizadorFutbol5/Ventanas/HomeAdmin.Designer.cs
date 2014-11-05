@@ -47,9 +47,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(318, 81);
+            this.button1.Location = new System.Drawing.Point(246, 146);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 39);
+            this.button1.Size = new System.Drawing.Size(159, 66);
             this.button1.TabIndex = 0;
             this.button1.Text = "Buscar Jugadores";
             this.button1.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(674, 341);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Buscar Jugadores";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // HomeAdmin

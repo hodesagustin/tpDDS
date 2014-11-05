@@ -43,6 +43,8 @@ namespace OrganizadorFutbol5.Ventanas
             dataGridView2.Columns["PartidoID"].Visible = false;
             dataGridView2.Columns["Partido"].Visible = false;
             textBox2.Text = "";
+
+            cargarEquipos();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -72,6 +74,34 @@ namespace OrganizadorFutbol5.Ventanas
                 (new AltaJugador(textBox2.Text, partidoID)).ShowDialog();
             else
                 MessageBox.Show("Seleccione una inscripción pendiente.");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.RowCount == 10)
+            {
+                Partido partido = (from x in db.Partidos
+                                   where x.ID == partidoID
+                                   select x).First();
+
+                partido.generarEquipos(new CriterioOrdenamientoPorHandicap(), new CriterioDivisionParImpar());
+
+                cargarEquipos();
+            }
+            else
+            {
+                MessageBox.Show("Debe haber al menos 10 jugadores inscriptos.");
+            }
+        }
+
+        private void cargarEquipos()
+        {
+            var consulta = from x in db.PartidoEquipos
+                           where x.PartidoID == partidoID
+                           orderby x.Equipo
+                           select x;
+
+            dataGridView3.DataSource = consulta;
         }
     }
 }
