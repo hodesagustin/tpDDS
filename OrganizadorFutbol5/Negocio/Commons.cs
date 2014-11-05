@@ -16,7 +16,7 @@ namespace OrganizadorFutbol5.Negocio
 
         public void colorear(DataGridView dg, int i)
         {
-            if (int.Parse(dg.Rows[i].Cells[3].Value.ToString()) > handicap)
+            if (int.Parse(dg.Rows[i].Cells[4].Value.ToString()) > handicap)
             {
                 dg.Rows[i].Cells[1].Style.ForeColor = Color.Blue;
             }

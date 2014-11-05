@@ -72,13 +72,15 @@ namespace OrganizadorFutbol5.Negocio
             if (cantidad != 0)
             {
                 dg.DataSource = consulta;
-             //   dg.Columns["ID"].Visible = false;
-              //  dg.Columns["FechaNacimiento"].Visible = false;
+                dg.Columns["ID"].Visible = false;
+                dg.Columns["FechaNacimiento"].Visible = false;
+                dg.Columns["Promedio"].Visible = false;
+                dg.Columns["Mail"].Visible = false;
 
                 int i;
                 for (i = 0; i == 0 || i < dg.Rows.Count; i++)
                 {
-                        //commons.colorear(dg, i);   
+                        commons.colorear(dg, i);   
                 }
             }
             else
