@@ -32,7 +32,7 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text != null && textBox3.Text != null)
+            if (textBox2.Text != "" && textBox3.Text == "")
             {
                 Jugador j = new Jugador();
                 j.Nombre = personaNombre;
@@ -42,7 +42,7 @@ namespace OrganizadorFutbol5.Ventanas
                 db.Jugadors.InsertOnSubmit(j);
                 db.SubmitChanges();
 
-                Partido consulta = (from x in db.Partidos
+                Partido partido = (from x in db.Partidos
                                     where x.ID == partidoID
                                     select x).First();
 
@@ -54,8 +54,9 @@ namespace OrganizadorFutbol5.Ventanas
                     Prioridad = comboBox2.SelectedIndex +1
                 };
 
-                db.Inscripcions.InsertOnSubmit(ins);
-                db.SubmitChanges();
+                //db.Inscripcions.InsertOnSubmit(ins);
+                //db.SubmitChanges();
+                partido.inscribir(ins);
 
                 InscripcionPendiente ip = (from x in db.InscripcionPendientes
                                            where x.PersonaNombre == personaNombre && x.PartidoID == partidoID
