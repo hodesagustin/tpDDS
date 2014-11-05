@@ -129,7 +129,7 @@ namespace OrganizadorFutbol5
 
         public void proponerAmigo(String nombre)
         {
-            InscripcionPendiente pendiente = new InscripcionPendiente() { PersonaNombre = nombre, Partido = this };
+            InscripcionPendiente pendiente = new InscripcionPendiente() { PersonaNombre = nombre, PartidoID=this.ID };
 
             db.InscripcionPendientes.InsertOnSubmit(pendiente);
             db.SubmitChanges();
