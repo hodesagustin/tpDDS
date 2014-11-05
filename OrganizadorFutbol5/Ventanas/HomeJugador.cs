@@ -117,7 +117,6 @@ namespace OrganizadorFutbol5.Ventanas
             {
                 string test = listBoxAmigos.SelectedItem.ToString();
                 partido.proponerAmigo(listBoxAmigos.SelectedItem.ToString());
-                MessageBox.Show("El amigo ha sido propuesto al partido seleccionado");
             }
             else
                 MessageBox.Show("Debe seleccionar un amigo de la lista");
@@ -165,7 +164,7 @@ namespace OrganizadorFutbol5.Ventanas
                 if (listBoxAmigosParaReemplazo.SelectedValue != null)
                 {
                     unPartido.baja(unJugador, listBoxAmigosParaReemplazo.SelectedValue.ToString());
-                    MessageBox.Show("Baja efectuada con éxito");
+                    
                 }
                 else
                     MessageBox.Show("Debe seleccionar un amigo para proponer como reemplazo");
@@ -175,7 +174,7 @@ namespace OrganizadorFutbol5.Ventanas
 
                 unPartido.baja(unJugador);
 
-                MessageBox.Show("Baja efectuada con éxito, usted tiene una infracción");
+                
             }
             refrescarDataGridView();
         }

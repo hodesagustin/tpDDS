@@ -16,6 +16,15 @@ namespace OrganizadorFutbol5
         {
             decimal mayorPrioridad;
 
+            var partido = (from p in db.Partidos
+                           where p.ID == this.ID
+                           select p).First();
+            if (partido.Estado != 0)
+            {
+                MessageBox.Show("El Estado del Partido no admite Inscripciones.");
+                return;
+            }
+
             var ins = from i in db.Inscripcions
                       where i.PartidoID == this.ID && i.JugadorID == unaInscripcion.JugadorID
                       select i;
@@ -24,6 +33,7 @@ namespace OrganizadorFutbol5
                 MessageBox.Show("Usted ya esta inscripto en este partido");
                 return;
             }
+
             if (Inscripcions.Count < 10)
             {
 
@@ -94,6 +104,15 @@ namespace OrganizadorFutbol5
 
         public void baja(Jugador jugador)
         {
+            var partido = (from p in db.Partidos
+                           where p.ID == this.ID
+                           select p).First();
+            if (partido.Estado != 0)
+            {
+                MessageBox.Show("El Estado del Partido no Darse de Baja.");
+                return;
+            }
+
             Infraccion infraccion = new Infraccion() { Motivo = "Baja sin Reemplazo", Partido = this, Fecha = System.DateTime.Now, Jugador = jugador };
 
             jugador.addInfraccion(infraccion);
@@ -103,13 +122,23 @@ namespace OrganizadorFutbol5
                                        select i).First();
             db.Inscripcions.DeleteOnSubmit(inscripcion);
             db.SubmitChanges();
-
+            MessageBox.Show("Baja efectuada con éxito, usted tiene una infracción");
             if (Inscripcions.Count == 9)
                 notificador.notify(Administrador.Mail,"Ya NO somos 10");
         }
 
         public void baja(Jugador jugador, String reemplazo) 
         {
+
+            var partido = (from p in db.Partidos
+                           where p.ID == this.ID
+                           select p).First();
+            if (partido.Estado != 0)
+            {
+                MessageBox.Show("El Estado del Partido no admite Darse de Baja.");
+                return;
+            }
+
             Inscripcion inscripcion = (from i in db.Inscripcions
                                        where i.JugadorID == jugador.ID && i.PartidoID == this.ID
                                        select i).First();
@@ -123,6 +152,8 @@ namespace OrganizadorFutbol5
             db.Inscripcions.DeleteOnSubmit(inscripcion);
             db.InscripcionPendientes.InsertOnSubmit(inscripcionPendiente);
             db.SubmitChanges();
+
+            MessageBox.Show("Baja efectuada con éxito");
         }
 
         public void generarEquipos(CriterioOrdenamiento ordenamiento,CriterioDivision division)
@@ -175,10 +206,22 @@ namespace OrganizadorFutbol5
 
         public void proponerAmigo(String nombre)
         {
+
+            var partido = (from p in db.Partidos
+                           where p.ID == this.ID
+                           select p).First();
+            if (partido.Estado != 0)
+            {
+                MessageBox.Show("El Estado del Partido no admite Proponer Amigos.");
+                return;
+            }
+
             InscripcionPendiente pendiente = new InscripcionPendiente() { PersonaNombre = nombre, PartidoID=this.ID };
 
             db.InscripcionPendientes.InsertOnSubmit(pendiente);
             db.SubmitChanges();
+
+            MessageBox.Show("El amigo ha sido propuesto al partido seleccionado");
         }
 
         public void generarCalificacionesPendientes()

@@ -30,8 +30,9 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.inscribirse = new System.Windows.Forms.DataGridViewButtonColumn();
             this.standard = new System.Windows.Forms.RadioButton();
@@ -54,7 +55,6 @@
             this.dataGridViewCalificaciones = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewCalificacionesPendientes = new System.Windows.Forms.DataGridView();
-            this.calificar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -66,6 +66,7 @@
             this.bajaSinReemplazo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.listBoxAmigosParaReemplazo = new System.Windows.Forms.ListBox();
+            this.calificar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -158,7 +159,7 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(564, 328);
+            this.tabControl1.Size = new System.Drawing.Size(571, 325);
             this.tabControl1.TabIndex = 4;
             this.tabControl1.Tag = "";
             // 
@@ -168,7 +169,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(556, 302);
+            this.tabPage2.Size = new System.Drawing.Size(563, 299);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Datos";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -191,7 +192,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(556, 302);
+            this.tabPage1.Size = new System.Drawing.Size(563, 299);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Inscripcción";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -226,7 +227,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(556, 302);
+            this.tabPage3.Size = new System.Drawing.Size(563, 299);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Proponer amigo";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -291,7 +292,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(556, 302);
+            this.tabPage4.Size = new System.Drawing.Size(563, 299);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Calificar";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -349,13 +350,6 @@
             this.dataGridViewCalificacionesPendientes.TabIndex = 4;
             this.dataGridViewCalificacionesPendientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCalificacionesPendientes_CellContentClick);
             // 
-            // calificar
-            // 
-            this.calificar.HeaderText = "Calificar";
-            this.calificar.Name = "calificar";
-            this.calificar.ReadOnly = true;
-            this.calificar.Width = 50;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -411,7 +405,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(556, 302);
+            this.tabPage5.Size = new System.Drawing.Size(563, 299);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Darse de baja";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -445,9 +439,9 @@
             // 
             // proponerReemplazo
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "Proponer reemplazo";
-            this.proponerReemplazo.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = "Proponer reemplazo";
+            this.proponerReemplazo.DefaultCellStyle = dataGridViewCellStyle4;
             this.proponerReemplazo.HeaderText = "Proponer reemplazo";
             this.proponerReemplazo.Name = "proponerReemplazo";
             this.proponerReemplazo.ReadOnly = true;
@@ -457,9 +451,9 @@
             // 
             // bajaSinReemplazo
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = "Baja sin reemplazo";
-            this.bajaSinReemplazo.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.NullValue = "Baja sin reemplazo";
+            this.bajaSinReemplazo.DefaultCellStyle = dataGridViewCellStyle5;
             this.bajaSinReemplazo.HeaderText = "Baja sin reemplazo";
             this.bajaSinReemplazo.Name = "bajaSinReemplazo";
             this.bajaSinReemplazo.ReadOnly = true;
@@ -483,11 +477,21 @@
             this.listBoxAmigosParaReemplazo.Size = new System.Drawing.Size(128, 186);
             this.listBoxAmigosParaReemplazo.TabIndex = 1;
             // 
+            // calificar
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "Calificar";
+            this.calificar.DefaultCellStyle = dataGridViewCellStyle3;
+            this.calificar.HeaderText = "Calificar";
+            this.calificar.Name = "calificar";
+            this.calificar.ReadOnly = true;
+            this.calificar.Width = 50;
+            // 
             // HomeJugador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 339);
+            this.ClientSize = new System.Drawing.Size(596, 350);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -537,7 +541,6 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dataGridViewCalificaciones;
         private System.Windows.Forms.DataGridView dataGridViewCalificacionesPendientes;
-        private System.Windows.Forms.DataGridViewButtonColumn calificar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
@@ -557,5 +560,6 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.DataGridViewButtonColumn proponer;
+        private System.Windows.Forms.DataGridViewButtonColumn calificar;
     }
 }

@@ -25,9 +25,9 @@
       <Column Name="JugadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Puntaje" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="Descripcion" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="Partido_Calificacion" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
       <Association Name="Jugador_Calificacion" Member="Jugador" ThisKey="CalificadorID" OtherKey="ID" Type="Jugador" IsForeignKey="true" />
       <Association Name="Jugador_Calificacion1" Member="Jugador1" ThisKey="JugadorID" OtherKey="ID" Type="Jugador" IsForeignKey="true" />
+      <Association Name="Partido_Calificacion" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dds_esquema.CalificacionPendiente" Member="CalificacionPendientes">
@@ -35,9 +35,9 @@
       <Column Name="CalificadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PartidoID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="JugadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Partido_CalificacionPendiente" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
       <Association Name="Jugador_CalificacionPendiente" Member="Jugador" ThisKey="CalificadorID" OtherKey="ID" Type="Jugador" IsForeignKey="true" />
       <Association Name="Jugador_CalificacionPendiente1" Member="Jugador1" ThisKey="JugadorID" OtherKey="ID" Type="Jugador" IsForeignKey="true" />
+      <Association Name="Partido_CalificacionPendiente" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dds_esquema.Infraccion" Member="Infraccions">
@@ -46,8 +46,8 @@
       <Column Name="JugadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Motivo" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="Partido_Infraccion" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
       <Association Name="Jugador_Infraccion" Member="Jugador" ThisKey="JugadorID" OtherKey="ID" Type="Jugador" IsForeignKey="true" />
+      <Association Name="Partido_Infraccion" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dds_esquema.InscripcionPendiente" Member="InscripcionPendientes">
@@ -64,28 +64,13 @@
       <Association Name="Jugador_JugadorAmigo" Member="Jugador" ThisKey="JugadorID" OtherKey="ID" Type="Jugador" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dds_esquema.Partido" Member="Partidos">
-    <Type Name="Partido">
-      <Column Name="ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="AdministradorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="Partido_Rechazo" Member="Rechazos" ThisKey="ID" OtherKey="PartidoID" Type="Rechazo" />
-      <Association Name="Partido_Calificacion" Member="Calificacions" ThisKey="ID" OtherKey="PartidoID" Type="Calificacion" />
-      <Association Name="Partido_CalificacionPendiente" Member="CalificacionPendientes" ThisKey="ID" OtherKey="PartidoID" Type="CalificacionPendiente" />
-      <Association Name="Partido_Infraccion" Member="Infraccions" ThisKey="ID" OtherKey="PartidoID" Type="Infraccion" />
-      <Association Name="Partido_InscripcionPendiente" Member="InscripcionPendientes" ThisKey="ID" OtherKey="PartidoID" Type="InscripcionPendiente" />
-      <Association Name="Partido_PartidoEquipo" Member="PartidoEquipos" ThisKey="ID" OtherKey="PartidoID" Type="PartidoEquipo" />
-      <Association Name="Partido_Inscripcion" Member="Inscripcions" ThisKey="ID" OtherKey="PartidoID" Type="Inscripcion" />
-      <Association Name="Administrador_Partido" Member="Administrador" ThisKey="AdministradorID" OtherKey="ID" Type="Administrador" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dds_esquema.PartidoEquipo" Member="PartidoEquipos">
     <Type Name="PartidoEquipo">
       <Column Name="PartidoID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="JugadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Equipo" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
-      <Association Name="Partido_PartidoEquipo" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
       <Association Name="Jugador_PartidoEquipo" Member="Jugador" ThisKey="JugadorID" OtherKey="ID" Type="Jugador" IsForeignKey="true" />
+      <Association Name="Partido_PartidoEquipo" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dds_esquema.vw_Jugador" Member="vw_Jugadors">
@@ -117,8 +102,8 @@
       <Column Name="JugadorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Prioridad" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="Partido_Inscripcion" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
       <Association Name="Jugador_Inscripcion" Member="Jugador" ThisKey="JugadorID" OtherKey="ID" Type="Jugador" IsForeignKey="true" />
+      <Association Name="Partido_Inscripcion" Member="Partido" ThisKey="PartidoID" OtherKey="ID" Type="Partido" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dds_esquema.Jugador" Member="Jugadors">
@@ -136,6 +121,22 @@
       <Association Name="Jugador_JugadorAmigo" Member="JugadorAmigos" ThisKey="ID" OtherKey="JugadorID" Type="JugadorAmigo" />
       <Association Name="Jugador_PartidoEquipo" Member="PartidoEquipos" ThisKey="ID" OtherKey="JugadorID" Type="PartidoEquipo" />
       <Association Name="Jugador_Inscripcion" Member="Inscripcions" ThisKey="ID" OtherKey="JugadorID" Type="Inscripcion" />
+    </Type>
+  </Table>
+  <Table Name="dds_esquema.Partido" Member="Partidos">
+    <Type Name="Partido">
+      <Column Name="ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AdministradorID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Estado" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="Partido_Rechazo" Member="Rechazos" ThisKey="ID" OtherKey="PartidoID" Type="Rechazo" />
+      <Association Name="Partido_Calificacion" Member="Calificacions" ThisKey="ID" OtherKey="PartidoID" Type="Calificacion" />
+      <Association Name="Partido_CalificacionPendiente" Member="CalificacionPendientes" ThisKey="ID" OtherKey="PartidoID" Type="CalificacionPendiente" />
+      <Association Name="Partido_Infraccion" Member="Infraccions" ThisKey="ID" OtherKey="PartidoID" Type="Infraccion" />
+      <Association Name="Partido_InscripcionPendiente" Member="InscripcionPendientes" ThisKey="ID" OtherKey="PartidoID" Type="InscripcionPendiente" />
+      <Association Name="Partido_PartidoEquipo" Member="PartidoEquipos" ThisKey="ID" OtherKey="PartidoID" Type="PartidoEquipo" />
+      <Association Name="Partido_Inscripcion" Member="Inscripcions" ThisKey="ID" OtherKey="PartidoID" Type="Inscripcion" />
+      <Association Name="Administrador_Partido" Member="Administrador" ThisKey="AdministradorID" OtherKey="ID" Type="Administrador" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -213,12 +213,12 @@
             // 
             // promHasta_nud
             // 
-            this.promHasta_nud.DecimalPlaces = 2;
+            this.promHasta_nud.DecimalPlaces = 1;
             this.promHasta_nud.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            131072});
+            65536});
             this.promHasta_nud.Location = new System.Drawing.Point(222, 20);
             this.promHasta_nud.Maximum = new decimal(new int[] {
             10,
@@ -231,12 +231,12 @@
             // 
             // promDesde_nud
             // 
-            this.promDesde_nud.DecimalPlaces = 2;
+            this.promDesde_nud.DecimalPlaces = 1;
             this.promDesde_nud.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            131072});
+            65536});
             this.promDesde_nud.Location = new System.Drawing.Point(88, 20);
             this.promDesde_nud.Maximum = new decimal(new int[] {
             10,

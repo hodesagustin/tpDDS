@@ -20,11 +20,30 @@ namespace OrganizadorFutbol5.Ventanas
             partidoID = id;
             InitializeComponent();
 
-            var consultaFecha = from x in db.Partidos
+            var p = (from x in db.Partidos
                                 where x.ID == partidoID
-                                select x.Fecha;
-            textBox1.Text = consultaFecha.First().ToString();
+                                select x).First();
+            textBox1.Text = p.Fecha.ToString();
+            setEstadoPartido((int) p.Estado);
 
+            cmbCriterioOrdenamiento.SelectedIndex = 0;
+            cmbCriterioDivision.SelectedIndex = 0;
+        }
+
+        private void setEstadoPartido(int estado)
+        {
+            switch (estado)
+            {
+                case 0:
+                    textBox3.Text = "Nuevo";
+                    break;
+                case 1:
+                    textBox3.Text = "Confirmado";
+                    break;
+                default:
+                    textBox3.Text = "Finalizado";
+                    break;
+            }
         }
 
         private void VisualizarPartido_Load(object sender, EventArgs e)
@@ -49,10 +68,13 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text != "")
-                (new RechazarJugador(textBox2.Text, partidoID)).ShowDialog();
+            if (textBox3.Text == "Nuevo")
+                if (textBox2.Text != "")
+                    (new RechazarJugador(textBox2.Text, partidoID)).ShowDialog();
+                else
+                    MessageBox.Show("Seleccione una inscripción pendiente.");
             else
-                MessageBox.Show("Seleccione una inscripción pendiente.");
+                MessageBox.Show("El Estado del Partido no permite rechazar Pendientes.");
         }
 
         private void dataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -70,28 +92,46 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text != "")
-                (new AltaJugador(textBox2.Text, partidoID)).ShowDialog();
-            else
-                MessageBox.Show("Seleccione una inscripción pendiente.");
+            if (textBox3.Text == "Nuevo")
+            {
+                if (textBox2.Text != "")
+                    (new AltaJugador(textBox2.Text, partidoID)).ShowDialog();
+                else
+                    MessageBox.Show("Seleccione una inscripción pendiente.");
+            }
+            else 
+            {
+                MessageBox.Show("El Estado del Partido no permite aceptar Pendientes.");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.RowCount == 10)
-            {
-                Partido partido = (from x in db.Partidos
-                                   where x.ID == partidoID
-                                   select x).First();
+            if(textBox3.Text == "Nuevo")
+                if (dataGridView1.RowCount == 10)
+                {
+                    Partido partido = (from x in db.Partidos
+                                       where x.ID == partidoID
+                                       select x).First();
 
-                partido.generarEquipos(new CriterioOrdenamientoPorHandicap(), new CriterioDivisionParImpar());
+                    CriterioDivision criterioDivision;
+                    if (cmbCriterioDivision.Text == "Par Impar")
+                        criterioDivision = new CriterioDivisionParImpar();
+                    else
+                        criterioDivision = new CriterioDivisionPredeterminado();
+                    
+                    partido.equipoA.Clear();
+                    partido.equipoB.Clear();
+                    partido.generarEquipos(new CriterioOrdenamientoPorHandicap(), criterioDivision);
 
-                cargarEquipos();
-            }
+                    cargarEquipos();
+                }
+                else
+                {
+                    MessageBox.Show("Debe haber 10 jugadores inscriptos.");
+                }
             else
-            {
-                MessageBox.Show("Debe haber 10 jugadores inscriptos.");
-            }
+                MessageBox.Show("El Estado del Partido no permite Generar Equipos.");
         }
 
         private void cargarEquipos()
@@ -106,18 +146,49 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void btnFinalizarPartido_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.RowCount == 10)
+            if (textBox3.Text == "Confirmado")
             {
                 var partido = (from p in db.Partidos
                                where p.ID == partidoID
                                select p).First();
+                partido.Estado = 2;
+                db.SubmitChanges();
 
                 partido.generarCalificacionesPendientes();
+
+                setEstadoPartido(2);
+
                 MessageBox.Show("Partido Finalizado. Se crearon las Calificaciones Pendientes");
                 this.Close();
             }
             else
-                MessageBox.Show("Deben estar generados los equipos para poder Finalizar el Partido.");
+                if (textBox3.Text == "Finalizado")
+                    MessageBox.Show("El Partido ya ha Finalizado.");
+                else
+                    MessageBox.Show("Deben estar Confirmados los equipos para poder Finalizar el Partido.");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (textBox3.Text=="Nuevo" && dataGridView3.RowCount == 10)
+            {
+                var p = (from x in db.Partidos
+                         where x.ID == partidoID
+                         select x).First();
+                p.Estado = 1;
+                db.SubmitChanges();
+                setEstadoPartido(1);
+                MessageBox.Show("Se han confirmado los equipos.");
+            }
+            else
+            {
+                if (textBox3.Text == "Finalizado")
+                    MessageBox.Show("El Partido ya ha Finalizado.");
+                else if (textBox3.Text == "Confirmado")
+                    MessageBox.Show("Los equipos ya han sido confirmados.");
+                else
+                    MessageBox.Show("Debe generar los equipos para poder confirmarlo.");
+            }
         }
     }
 }

@@ -133,10 +133,12 @@
             // 
             this.dataGridViewInfracciones.AllowUserToAddRows = false;
             this.dataGridViewInfracciones.AllowUserToDeleteRows = false;
+            this.dataGridViewInfracciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewInfracciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewInfracciones.Location = new System.Drawing.Point(11, 169);
             this.dataGridViewInfracciones.Name = "dataGridViewInfracciones";
             this.dataGridViewInfracciones.ReadOnly = true;
+            this.dataGridViewInfracciones.RowHeadersVisible = false;
             this.dataGridViewInfracciones.Size = new System.Drawing.Size(333, 155);
             this.dataGridViewInfracciones.TabIndex = 8;
             // 

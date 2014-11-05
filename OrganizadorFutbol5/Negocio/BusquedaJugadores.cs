@@ -62,14 +62,15 @@ namespace OrganizadorFutbol5.Negocio
                 }
             }
 
-            if (!(promDesde == 0.00 && promHasta == 0.00))
+            if (promDesde != 0.0)
             {
-
-                consulta = from x in consulta
-                           where x.Promedio >= promDesde && x.Promedio <= promHasta
-                           select x;
+                consulta = consulta.Where(p => p.PromedioUltimoPartido >= promDesde);
             }
-
+            if (promHasta != 0.0)
+            {
+                consulta = consulta.Where(p => p.PromedioUltimoPartido <= promHasta); 
+            }
+         
             int cantidad = consulta.Count();
             if (cantidad != 0)
             {

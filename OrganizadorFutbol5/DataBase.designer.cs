@@ -51,9 +51,6 @@ namespace OrganizadorFutbol5
     partial void InsertJugadorAmigo(JugadorAmigo instance);
     partial void UpdateJugadorAmigo(JugadorAmigo instance);
     partial void DeleteJugadorAmigo(JugadorAmigo instance);
-    partial void InsertPartido(Partido instance);
-    partial void UpdatePartido(Partido instance);
-    partial void DeletePartido(Partido instance);
     partial void InsertPartidoEquipo(PartidoEquipo instance);
     partial void UpdatePartidoEquipo(PartidoEquipo instance);
     partial void DeletePartidoEquipo(PartidoEquipo instance);
@@ -63,6 +60,9 @@ namespace OrganizadorFutbol5
     partial void InsertJugador(Jugador instance);
     partial void UpdateJugador(Jugador instance);
     partial void DeleteJugador(Jugador instance);
+    partial void InsertPartido(Partido instance);
+    partial void UpdatePartido(Partido instance);
+    partial void DeletePartido(Partido instance);
     #endregion
 		
 		public DataBaseDataContext() : 
@@ -151,14 +151,6 @@ namespace OrganizadorFutbol5
 			}
 		}
 		
-		public System.Data.Linq.Table<Partido> Partidos
-		{
-			get
-			{
-				return this.GetTable<Partido>();
-			}
-		}
-		
 		public System.Data.Linq.Table<PartidoEquipo> PartidoEquipos
 		{
 			get
@@ -204,6 +196,14 @@ namespace OrganizadorFutbol5
 			get
 			{
 				return this.GetTable<Jugador>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Partido> Partidos
+		{
+			get
+			{
+				return this.GetTable<Partido>();
 			}
 		}
 	}
@@ -537,11 +537,11 @@ namespace OrganizadorFutbol5
 		
 		private string _Descripcion;
 		
-		private EntityRef<Partido> _Partido;
-		
 		private EntityRef<Jugador> _Jugador;
 		
 		private EntityRef<Jugador> _Jugador1;
+		
+		private EntityRef<Partido> _Partido;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -561,9 +561,9 @@ namespace OrganizadorFutbol5
 		
 		public Calificacion()
 		{
-			this._Partido = default(EntityRef<Partido>);
 			this._Jugador = default(EntityRef<Jugador>);
 			this._Jugador1 = default(EntityRef<Jugador>);
+			this._Partido = default(EntityRef<Partido>);
 			OnCreated();
 		}
 		
@@ -679,40 +679,6 @@ namespace OrganizadorFutbol5
 			}
 		}
 		
-		[Association(Name="Partido_Calificacion", Storage="_Partido", ThisKey="PartidoID", OtherKey="ID", IsForeignKey=true)]
-		public Partido Partido
-		{
-			get
-			{
-				return this._Partido.Entity;
-			}
-			set
-			{
-				Partido previousValue = this._Partido.Entity;
-				if (((previousValue != value) 
-							|| (this._Partido.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Partido.Entity = null;
-						previousValue.Calificacions.Remove(this);
-					}
-					this._Partido.Entity = value;
-					if ((value != null))
-					{
-						value.Calificacions.Add(this);
-						this._PartidoID = value.ID;
-					}
-					else
-					{
-						this._PartidoID = default(decimal);
-					}
-					this.SendPropertyChanged("Partido");
-				}
-			}
-		}
-		
 		[Association(Name="Jugador_Calificacion", Storage="_Jugador", ThisKey="CalificadorID", OtherKey="ID", IsForeignKey=true)]
 		public Jugador Jugador
 		{
@@ -781,6 +747,40 @@ namespace OrganizadorFutbol5
 			}
 		}
 		
+		[Association(Name="Partido_Calificacion", Storage="_Partido", ThisKey="PartidoID", OtherKey="ID", IsForeignKey=true)]
+		public Partido Partido
+		{
+			get
+			{
+				return this._Partido.Entity;
+			}
+			set
+			{
+				Partido previousValue = this._Partido.Entity;
+				if (((previousValue != value) 
+							|| (this._Partido.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Partido.Entity = null;
+						previousValue.Calificacions.Remove(this);
+					}
+					this._Partido.Entity = value;
+					if ((value != null))
+					{
+						value.Calificacions.Add(this);
+						this._PartidoID = value.ID;
+					}
+					else
+					{
+						this._PartidoID = default(decimal);
+					}
+					this.SendPropertyChanged("Partido");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -814,11 +814,11 @@ namespace OrganizadorFutbol5
 		
 		private decimal _JugadorID;
 		
-		private EntityRef<Partido> _Partido;
-		
 		private EntityRef<Jugador> _Jugador;
 		
 		private EntityRef<Jugador> _Jugador1;
+		
+		private EntityRef<Partido> _Partido;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -834,9 +834,9 @@ namespace OrganizadorFutbol5
 		
 		public CalificacionPendiente()
 		{
-			this._Partido = default(EntityRef<Partido>);
 			this._Jugador = default(EntityRef<Jugador>);
 			this._Jugador1 = default(EntityRef<Jugador>);
+			this._Partido = default(EntityRef<Partido>);
 			OnCreated();
 		}
 		
@@ -912,40 +912,6 @@ namespace OrganizadorFutbol5
 			}
 		}
 		
-		[Association(Name="Partido_CalificacionPendiente", Storage="_Partido", ThisKey="PartidoID", OtherKey="ID", IsForeignKey=true)]
-		public Partido Partido
-		{
-			get
-			{
-				return this._Partido.Entity;
-			}
-			set
-			{
-				Partido previousValue = this._Partido.Entity;
-				if (((previousValue != value) 
-							|| (this._Partido.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Partido.Entity = null;
-						previousValue.CalificacionPendientes.Remove(this);
-					}
-					this._Partido.Entity = value;
-					if ((value != null))
-					{
-						value.CalificacionPendientes.Add(this);
-						this._PartidoID = value.ID;
-					}
-					else
-					{
-						this._PartidoID = default(decimal);
-					}
-					this.SendPropertyChanged("Partido");
-				}
-			}
-		}
-		
 		[Association(Name="Jugador_CalificacionPendiente", Storage="_Jugador", ThisKey="CalificadorID", OtherKey="ID", IsForeignKey=true)]
 		public Jugador Jugador
 		{
@@ -1014,6 +980,40 @@ namespace OrganizadorFutbol5
 			}
 		}
 		
+		[Association(Name="Partido_CalificacionPendiente", Storage="_Partido", ThisKey="PartidoID", OtherKey="ID", IsForeignKey=true)]
+		public Partido Partido
+		{
+			get
+			{
+				return this._Partido.Entity;
+			}
+			set
+			{
+				Partido previousValue = this._Partido.Entity;
+				if (((previousValue != value) 
+							|| (this._Partido.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Partido.Entity = null;
+						previousValue.CalificacionPendientes.Remove(this);
+					}
+					this._Partido.Entity = value;
+					if ((value != null))
+					{
+						value.CalificacionPendientes.Add(this);
+						this._PartidoID = value.ID;
+					}
+					else
+					{
+						this._PartidoID = default(decimal);
+					}
+					this.SendPropertyChanged("Partido");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1049,9 +1049,9 @@ namespace OrganizadorFutbol5
 		
 		private string _Motivo;
 		
-		private EntityRef<Partido> _Partido;
-		
 		private EntityRef<Jugador> _Jugador;
+		
+		private EntityRef<Partido> _Partido;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1069,8 +1069,8 @@ namespace OrganizadorFutbol5
 		
 		public Infraccion()
 		{
-			this._Partido = default(EntityRef<Partido>);
 			this._Jugador = default(EntityRef<Jugador>);
+			this._Partido = default(EntityRef<Partido>);
 			OnCreated();
 		}
 		
@@ -1162,40 +1162,6 @@ namespace OrganizadorFutbol5
 			}
 		}
 		
-		[Association(Name="Partido_Infraccion", Storage="_Partido", ThisKey="PartidoID", OtherKey="ID", IsForeignKey=true)]
-		public Partido Partido
-		{
-			get
-			{
-				return this._Partido.Entity;
-			}
-			set
-			{
-				Partido previousValue = this._Partido.Entity;
-				if (((previousValue != value) 
-							|| (this._Partido.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Partido.Entity = null;
-						previousValue.Infraccions.Remove(this);
-					}
-					this._Partido.Entity = value;
-					if ((value != null))
-					{
-						value.Infraccions.Add(this);
-						this._PartidoID = value.ID;
-					}
-					else
-					{
-						this._PartidoID = default(decimal);
-					}
-					this.SendPropertyChanged("Partido");
-				}
-			}
-		}
-		
 		[Association(Name="Jugador_Infraccion", Storage="_Jugador", ThisKey="JugadorID", OtherKey="ID", IsForeignKey=true)]
 		public Jugador Jugador
 		{
@@ -1226,6 +1192,40 @@ namespace OrganizadorFutbol5
 						this._JugadorID = default(decimal);
 					}
 					this.SendPropertyChanged("Jugador");
+				}
+			}
+		}
+		
+		[Association(Name="Partido_Infraccion", Storage="_Partido", ThisKey="PartidoID", OtherKey="ID", IsForeignKey=true)]
+		public Partido Partido
+		{
+			get
+			{
+				return this._Partido.Entity;
+			}
+			set
+			{
+				Partido previousValue = this._Partido.Entity;
+				if (((previousValue != value) 
+							|| (this._Partido.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Partido.Entity = null;
+						previousValue.Infraccions.Remove(this);
+					}
+					this._Partido.Entity = value;
+					if ((value != null))
+					{
+						value.Infraccions.Add(this);
+						this._PartidoID = value.ID;
+					}
+					else
+					{
+						this._PartidoID = default(decimal);
+					}
+					this.SendPropertyChanged("Partido");
 				}
 			}
 		}
@@ -1505,353 +1505,6 @@ namespace OrganizadorFutbol5
 		}
 	}
 	
-	[Table(Name="dds_esquema.Partido")]
-	public partial class Partido : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private decimal _ID;
-		
-		private decimal _AdministradorID;
-		
-		private System.DateTime _Fecha;
-		
-		private EntitySet<Rechazo> _Rechazos;
-		
-		private EntitySet<Calificacion> _Calificacions;
-		
-		private EntitySet<CalificacionPendiente> _CalificacionPendientes;
-		
-		private EntitySet<Infraccion> _Infraccions;
-		
-		private EntitySet<InscripcionPendiente> _InscripcionPendientes;
-		
-		private EntitySet<PartidoEquipo> _PartidoEquipos;
-		
-		private EntitySet<Inscripcion> _Inscripcions;
-		
-		private EntityRef<Administrador> _Administrador;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(decimal value);
-    partial void OnIDChanged();
-    partial void OnAdministradorIDChanging(decimal value);
-    partial void OnAdministradorIDChanged();
-    partial void OnFechaChanging(System.DateTime value);
-    partial void OnFechaChanged();
-    #endregion
-		
-		public Partido()
-		{
-			this._Rechazos = new EntitySet<Rechazo>(new Action<Rechazo>(this.attach_Rechazos), new Action<Rechazo>(this.detach_Rechazos));
-			this._Calificacions = new EntitySet<Calificacion>(new Action<Calificacion>(this.attach_Calificacions), new Action<Calificacion>(this.detach_Calificacions));
-			this._CalificacionPendientes = new EntitySet<CalificacionPendiente>(new Action<CalificacionPendiente>(this.attach_CalificacionPendientes), new Action<CalificacionPendiente>(this.detach_CalificacionPendientes));
-			this._Infraccions = new EntitySet<Infraccion>(new Action<Infraccion>(this.attach_Infraccions), new Action<Infraccion>(this.detach_Infraccions));
-			this._InscripcionPendientes = new EntitySet<InscripcionPendiente>(new Action<InscripcionPendiente>(this.attach_InscripcionPendientes), new Action<InscripcionPendiente>(this.detach_InscripcionPendientes));
-			this._PartidoEquipos = new EntitySet<PartidoEquipo>(new Action<PartidoEquipo>(this.attach_PartidoEquipos), new Action<PartidoEquipo>(this.detach_PartidoEquipos));
-			this._Inscripcions = new EntitySet<Inscripcion>(new Action<Inscripcion>(this.attach_Inscripcions), new Action<Inscripcion>(this.detach_Inscripcions));
-			this._Administrador = default(EntityRef<Administrador>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public decimal ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_AdministradorID", DbType="Decimal(18,0) NOT NULL")]
-		public decimal AdministradorID
-		{
-			get
-			{
-				return this._AdministradorID;
-			}
-			set
-			{
-				if ((this._AdministradorID != value))
-				{
-					if (this._Administrador.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnAdministradorIDChanging(value);
-					this.SendPropertyChanging();
-					this._AdministradorID = value;
-					this.SendPropertyChanged("AdministradorID");
-					this.OnAdministradorIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Fecha", DbType="DateTime NOT NULL")]
-		public System.DateTime Fecha
-		{
-			get
-			{
-				return this._Fecha;
-			}
-			set
-			{
-				if ((this._Fecha != value))
-				{
-					this.OnFechaChanging(value);
-					this.SendPropertyChanging();
-					this._Fecha = value;
-					this.SendPropertyChanged("Fecha");
-					this.OnFechaChanged();
-				}
-			}
-		}
-		
-		[Association(Name="Partido_Rechazo", Storage="_Rechazos", ThisKey="ID", OtherKey="PartidoID")]
-		public EntitySet<Rechazo> Rechazos
-		{
-			get
-			{
-				return this._Rechazos;
-			}
-			set
-			{
-				this._Rechazos.Assign(value);
-			}
-		}
-		
-		[Association(Name="Partido_Calificacion", Storage="_Calificacions", ThisKey="ID", OtherKey="PartidoID")]
-		public EntitySet<Calificacion> Calificacions
-		{
-			get
-			{
-				return this._Calificacions;
-			}
-			set
-			{
-				this._Calificacions.Assign(value);
-			}
-		}
-		
-		[Association(Name="Partido_CalificacionPendiente", Storage="_CalificacionPendientes", ThisKey="ID", OtherKey="PartidoID")]
-		public EntitySet<CalificacionPendiente> CalificacionPendientes
-		{
-			get
-			{
-				return this._CalificacionPendientes;
-			}
-			set
-			{
-				this._CalificacionPendientes.Assign(value);
-			}
-		}
-		
-		[Association(Name="Partido_Infraccion", Storage="_Infraccions", ThisKey="ID", OtherKey="PartidoID")]
-		public EntitySet<Infraccion> Infraccions
-		{
-			get
-			{
-				return this._Infraccions;
-			}
-			set
-			{
-				this._Infraccions.Assign(value);
-			}
-		}
-		
-		[Association(Name="Partido_InscripcionPendiente", Storage="_InscripcionPendientes", ThisKey="ID", OtherKey="PartidoID")]
-		public EntitySet<InscripcionPendiente> InscripcionPendientes
-		{
-			get
-			{
-				return this._InscripcionPendientes;
-			}
-			set
-			{
-				this._InscripcionPendientes.Assign(value);
-			}
-		}
-		
-		[Association(Name="Partido_PartidoEquipo", Storage="_PartidoEquipos", ThisKey="ID", OtherKey="PartidoID")]
-		public EntitySet<PartidoEquipo> PartidoEquipos
-		{
-			get
-			{
-				return this._PartidoEquipos;
-			}
-			set
-			{
-				this._PartidoEquipos.Assign(value);
-			}
-		}
-		
-		[Association(Name="Partido_Inscripcion", Storage="_Inscripcions", ThisKey="ID", OtherKey="PartidoID")]
-		public EntitySet<Inscripcion> Inscripcions
-		{
-			get
-			{
-				return this._Inscripcions;
-			}
-			set
-			{
-				this._Inscripcions.Assign(value);
-			}
-		}
-		
-		[Association(Name="Administrador_Partido", Storage="_Administrador", ThisKey="AdministradorID", OtherKey="ID", IsForeignKey=true)]
-		public Administrador Administrador
-		{
-			get
-			{
-				return this._Administrador.Entity;
-			}
-			set
-			{
-				Administrador previousValue = this._Administrador.Entity;
-				if (((previousValue != value) 
-							|| (this._Administrador.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Administrador.Entity = null;
-						previousValue.Partidos.Remove(this);
-					}
-					this._Administrador.Entity = value;
-					if ((value != null))
-					{
-						value.Partidos.Add(this);
-						this._AdministradorID = value.ID;
-					}
-					else
-					{
-						this._AdministradorID = default(decimal);
-					}
-					this.SendPropertyChanged("Administrador");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Rechazos(Rechazo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = this;
-		}
-		
-		private void detach_Rechazos(Rechazo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = null;
-		}
-		
-		private void attach_Calificacions(Calificacion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = this;
-		}
-		
-		private void detach_Calificacions(Calificacion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = null;
-		}
-		
-		private void attach_CalificacionPendientes(CalificacionPendiente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = this;
-		}
-		
-		private void detach_CalificacionPendientes(CalificacionPendiente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = null;
-		}
-		
-		private void attach_Infraccions(Infraccion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = this;
-		}
-		
-		private void detach_Infraccions(Infraccion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = null;
-		}
-		
-		private void attach_InscripcionPendientes(InscripcionPendiente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = this;
-		}
-		
-		private void detach_InscripcionPendientes(InscripcionPendiente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = null;
-		}
-		
-		private void attach_PartidoEquipos(PartidoEquipo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = this;
-		}
-		
-		private void detach_PartidoEquipos(PartidoEquipo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = null;
-		}
-		
-		private void attach_Inscripcions(Inscripcion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = this;
-		}
-		
-		private void detach_Inscripcions(Inscripcion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partido = null;
-		}
-	}
-	
 	[Table(Name="dds_esquema.PartidoEquipo")]
 	public partial class PartidoEquipo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1864,9 +1517,9 @@ namespace OrganizadorFutbol5
 		
 		private char _Equipo;
 		
-		private EntityRef<Partido> _Partido;
-		
 		private EntityRef<Jugador> _Jugador;
+		
+		private EntityRef<Partido> _Partido;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1882,8 +1535,8 @@ namespace OrganizadorFutbol5
 		
 		public PartidoEquipo()
 		{
-			this._Partido = default(EntityRef<Partido>);
 			this._Jugador = default(EntityRef<Jugador>);
+			this._Partido = default(EntityRef<Partido>);
 			OnCreated();
 		}
 		
@@ -1955,40 +1608,6 @@ namespace OrganizadorFutbol5
 			}
 		}
 		
-		[Association(Name="Partido_PartidoEquipo", Storage="_Partido", ThisKey="PartidoID", OtherKey="ID", IsForeignKey=true)]
-		public Partido Partido
-		{
-			get
-			{
-				return this._Partido.Entity;
-			}
-			set
-			{
-				Partido previousValue = this._Partido.Entity;
-				if (((previousValue != value) 
-							|| (this._Partido.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Partido.Entity = null;
-						previousValue.PartidoEquipos.Remove(this);
-					}
-					this._Partido.Entity = value;
-					if ((value != null))
-					{
-						value.PartidoEquipos.Add(this);
-						this._PartidoID = value.ID;
-					}
-					else
-					{
-						this._PartidoID = default(decimal);
-					}
-					this.SendPropertyChanged("Partido");
-				}
-			}
-		}
-		
 		[Association(Name="Jugador_PartidoEquipo", Storage="_Jugador", ThisKey="JugadorID", OtherKey="ID", IsForeignKey=true)]
 		public Jugador Jugador
 		{
@@ -2019,6 +1638,40 @@ namespace OrganizadorFutbol5
 						this._JugadorID = default(decimal);
 					}
 					this.SendPropertyChanged("Jugador");
+				}
+			}
+		}
+		
+		[Association(Name="Partido_PartidoEquipo", Storage="_Partido", ThisKey="PartidoID", OtherKey="ID", IsForeignKey=true)]
+		public Partido Partido
+		{
+			get
+			{
+				return this._Partido.Entity;
+			}
+			set
+			{
+				Partido previousValue = this._Partido.Entity;
+				if (((previousValue != value) 
+							|| (this._Partido.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Partido.Entity = null;
+						previousValue.PartidoEquipos.Remove(this);
+					}
+					this._Partido.Entity = value;
+					if ((value != null))
+					{
+						value.PartidoEquipos.Add(this);
+						this._PartidoID = value.ID;
+					}
+					else
+					{
+						this._PartidoID = default(decimal);
+					}
+					this.SendPropertyChanged("Partido");
 				}
 			}
 		}
@@ -2283,9 +1936,9 @@ namespace OrganizadorFutbol5
 		
 		private System.DateTime _Fecha;
 		
-		private EntityRef<Partido> _Partido;
-		
 		private EntityRef<Jugador> _Jugador;
+		
+		private EntityRef<Partido> _Partido;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2303,8 +1956,8 @@ namespace OrganizadorFutbol5
 		
 		public Inscripcion()
 		{
-			this._Partido = default(EntityRef<Partido>);
 			this._Jugador = default(EntityRef<Jugador>);
+			this._Partido = default(EntityRef<Partido>);
 			OnCreated();
 		}
 		
@@ -2396,40 +2049,6 @@ namespace OrganizadorFutbol5
 			}
 		}
 		
-		[Association(Name="Partido_Inscripcion", Storage="_Partido", ThisKey="PartidoID", OtherKey="ID", IsForeignKey=true)]
-		public Partido Partido
-		{
-			get
-			{
-				return this._Partido.Entity;
-			}
-			set
-			{
-				Partido previousValue = this._Partido.Entity;
-				if (((previousValue != value) 
-							|| (this._Partido.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Partido.Entity = null;
-						previousValue.Inscripcions.Remove(this);
-					}
-					this._Partido.Entity = value;
-					if ((value != null))
-					{
-						value.Inscripcions.Add(this);
-						this._PartidoID = value.ID;
-					}
-					else
-					{
-						this._PartidoID = default(decimal);
-					}
-					this.SendPropertyChanged("Partido");
-				}
-			}
-		}
-		
 		[Association(Name="Jugador_Inscripcion", Storage="_Jugador", ThisKey="JugadorID", OtherKey="ID", IsForeignKey=true)]
 		public Jugador Jugador
 		{
@@ -2460,6 +2079,40 @@ namespace OrganizadorFutbol5
 						this._JugadorID = default(decimal);
 					}
 					this.SendPropertyChanged("Jugador");
+				}
+			}
+		}
+		
+		[Association(Name="Partido_Inscripcion", Storage="_Partido", ThisKey="PartidoID", OtherKey="ID", IsForeignKey=true)]
+		public Partido Partido
+		{
+			get
+			{
+				return this._Partido.Entity;
+			}
+			set
+			{
+				Partido previousValue = this._Partido.Entity;
+				if (((previousValue != value) 
+							|| (this._Partido.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Partido.Entity = null;
+						previousValue.Inscripcions.Remove(this);
+					}
+					this._Partido.Entity = value;
+					if ((value != null))
+					{
+						value.Inscripcions.Add(this);
+						this._PartidoID = value.ID;
+					}
+					else
+					{
+						this._PartidoID = default(decimal);
+					}
+					this.SendPropertyChanged("Partido");
 				}
 			}
 		}
@@ -2864,6 +2517,377 @@ namespace OrganizadorFutbol5
 		{
 			this.SendPropertyChanging();
 			entity.Jugador = null;
+		}
+	}
+	
+	[Table(Name="dds_esquema.Partido")]
+	public partial class Partido : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _ID;
+		
+		private decimal _AdministradorID;
+		
+		private System.DateTime _Fecha;
+		
+		private System.Nullable<decimal> _Estado;
+		
+		private EntitySet<Rechazo> _Rechazos;
+		
+		private EntitySet<Calificacion> _Calificacions;
+		
+		private EntitySet<CalificacionPendiente> _CalificacionPendientes;
+		
+		private EntitySet<Infraccion> _Infraccions;
+		
+		private EntitySet<InscripcionPendiente> _InscripcionPendientes;
+		
+		private EntitySet<PartidoEquipo> _PartidoEquipos;
+		
+		private EntitySet<Inscripcion> _Inscripcions;
+		
+		private EntityRef<Administrador> _Administrador;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(decimal value);
+    partial void OnIDChanged();
+    partial void OnAdministradorIDChanging(decimal value);
+    partial void OnAdministradorIDChanged();
+    partial void OnFechaChanging(System.DateTime value);
+    partial void OnFechaChanged();
+    partial void OnEstadoChanging(System.Nullable<decimal> value);
+    partial void OnEstadoChanged();
+    #endregion
+		
+		public Partido()
+		{
+			this._Rechazos = new EntitySet<Rechazo>(new Action<Rechazo>(this.attach_Rechazos), new Action<Rechazo>(this.detach_Rechazos));
+			this._Calificacions = new EntitySet<Calificacion>(new Action<Calificacion>(this.attach_Calificacions), new Action<Calificacion>(this.detach_Calificacions));
+			this._CalificacionPendientes = new EntitySet<CalificacionPendiente>(new Action<CalificacionPendiente>(this.attach_CalificacionPendientes), new Action<CalificacionPendiente>(this.detach_CalificacionPendientes));
+			this._Infraccions = new EntitySet<Infraccion>(new Action<Infraccion>(this.attach_Infraccions), new Action<Infraccion>(this.detach_Infraccions));
+			this._InscripcionPendientes = new EntitySet<InscripcionPendiente>(new Action<InscripcionPendiente>(this.attach_InscripcionPendientes), new Action<InscripcionPendiente>(this.detach_InscripcionPendientes));
+			this._PartidoEquipos = new EntitySet<PartidoEquipo>(new Action<PartidoEquipo>(this.attach_PartidoEquipos), new Action<PartidoEquipo>(this.detach_PartidoEquipos));
+			this._Inscripcions = new EntitySet<Inscripcion>(new Action<Inscripcion>(this.attach_Inscripcions), new Action<Inscripcion>(this.detach_Inscripcions));
+			this._Administrador = default(EntityRef<Administrador>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public decimal ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AdministradorID", DbType="Decimal(18,0) NOT NULL")]
+		public decimal AdministradorID
+		{
+			get
+			{
+				return this._AdministradorID;
+			}
+			set
+			{
+				if ((this._AdministradorID != value))
+				{
+					if (this._Administrador.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAdministradorIDChanging(value);
+					this.SendPropertyChanging();
+					this._AdministradorID = value;
+					this.SendPropertyChanged("AdministradorID");
+					this.OnAdministradorIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Fecha", DbType="DateTime NOT NULL")]
+		public System.DateTime Fecha
+		{
+			get
+			{
+				return this._Fecha;
+			}
+			set
+			{
+				if ((this._Fecha != value))
+				{
+					this.OnFechaChanging(value);
+					this.SendPropertyChanging();
+					this._Fecha = value;
+					this.SendPropertyChanged("Fecha");
+					this.OnFechaChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Estado", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> Estado
+		{
+			get
+			{
+				return this._Estado;
+			}
+			set
+			{
+				if ((this._Estado != value))
+				{
+					this.OnEstadoChanging(value);
+					this.SendPropertyChanging();
+					this._Estado = value;
+					this.SendPropertyChanged("Estado");
+					this.OnEstadoChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Partido_Rechazo", Storage="_Rechazos", ThisKey="ID", OtherKey="PartidoID")]
+		public EntitySet<Rechazo> Rechazos
+		{
+			get
+			{
+				return this._Rechazos;
+			}
+			set
+			{
+				this._Rechazos.Assign(value);
+			}
+		}
+		
+		[Association(Name="Partido_Calificacion", Storage="_Calificacions", ThisKey="ID", OtherKey="PartidoID")]
+		public EntitySet<Calificacion> Calificacions
+		{
+			get
+			{
+				return this._Calificacions;
+			}
+			set
+			{
+				this._Calificacions.Assign(value);
+			}
+		}
+		
+		[Association(Name="Partido_CalificacionPendiente", Storage="_CalificacionPendientes", ThisKey="ID", OtherKey="PartidoID")]
+		public EntitySet<CalificacionPendiente> CalificacionPendientes
+		{
+			get
+			{
+				return this._CalificacionPendientes;
+			}
+			set
+			{
+				this._CalificacionPendientes.Assign(value);
+			}
+		}
+		
+		[Association(Name="Partido_Infraccion", Storage="_Infraccions", ThisKey="ID", OtherKey="PartidoID")]
+		public EntitySet<Infraccion> Infraccions
+		{
+			get
+			{
+				return this._Infraccions;
+			}
+			set
+			{
+				this._Infraccions.Assign(value);
+			}
+		}
+		
+		[Association(Name="Partido_InscripcionPendiente", Storage="_InscripcionPendientes", ThisKey="ID", OtherKey="PartidoID")]
+		public EntitySet<InscripcionPendiente> InscripcionPendientes
+		{
+			get
+			{
+				return this._InscripcionPendientes;
+			}
+			set
+			{
+				this._InscripcionPendientes.Assign(value);
+			}
+		}
+		
+		[Association(Name="Partido_PartidoEquipo", Storage="_PartidoEquipos", ThisKey="ID", OtherKey="PartidoID")]
+		public EntitySet<PartidoEquipo> PartidoEquipos
+		{
+			get
+			{
+				return this._PartidoEquipos;
+			}
+			set
+			{
+				this._PartidoEquipos.Assign(value);
+			}
+		}
+		
+		[Association(Name="Partido_Inscripcion", Storage="_Inscripcions", ThisKey="ID", OtherKey="PartidoID")]
+		public EntitySet<Inscripcion> Inscripcions
+		{
+			get
+			{
+				return this._Inscripcions;
+			}
+			set
+			{
+				this._Inscripcions.Assign(value);
+			}
+		}
+		
+		[Association(Name="Administrador_Partido", Storage="_Administrador", ThisKey="AdministradorID", OtherKey="ID", IsForeignKey=true)]
+		public Administrador Administrador
+		{
+			get
+			{
+				return this._Administrador.Entity;
+			}
+			set
+			{
+				Administrador previousValue = this._Administrador.Entity;
+				if (((previousValue != value) 
+							|| (this._Administrador.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Administrador.Entity = null;
+						previousValue.Partidos.Remove(this);
+					}
+					this._Administrador.Entity = value;
+					if ((value != null))
+					{
+						value.Partidos.Add(this);
+						this._AdministradorID = value.ID;
+					}
+					else
+					{
+						this._AdministradorID = default(decimal);
+					}
+					this.SendPropertyChanged("Administrador");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Rechazos(Rechazo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = this;
+		}
+		
+		private void detach_Rechazos(Rechazo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = null;
+		}
+		
+		private void attach_Calificacions(Calificacion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = this;
+		}
+		
+		private void detach_Calificacions(Calificacion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = null;
+		}
+		
+		private void attach_CalificacionPendientes(CalificacionPendiente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = this;
+		}
+		
+		private void detach_CalificacionPendientes(CalificacionPendiente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = null;
+		}
+		
+		private void attach_Infraccions(Infraccion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = this;
+		}
+		
+		private void detach_Infraccions(Infraccion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = null;
+		}
+		
+		private void attach_InscripcionPendientes(InscripcionPendiente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = this;
+		}
+		
+		private void detach_InscripcionPendientes(InscripcionPendiente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = null;
+		}
+		
+		private void attach_PartidoEquipos(PartidoEquipo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = this;
+		}
+		
+		private void detach_PartidoEquipos(PartidoEquipo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = null;
+		}
+		
+		private void attach_Inscripcions(Inscripcion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = this;
+		}
+		
+		private void detach_Inscripcions(Inscripcion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partido = null;
 		}
 	}
 }

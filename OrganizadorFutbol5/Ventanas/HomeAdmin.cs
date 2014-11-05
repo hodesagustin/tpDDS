@@ -32,16 +32,18 @@ namespace OrganizadorFutbol5.Ventanas
             (new BusquedaJugadores()).ShowDialog();
         }
 
-        private void HomeAdmin_Activated(object sender, EventArgs e)
+        private void llenarGrillaPartidos()
         {
             var consulta = from x in db.Partidos
                            select x;
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = consulta;
             dataGridView1.Columns["AdministradorID"].Visible = false;
             dataGridView1.Columns["Fecha"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss.fff";
-            dataGridView1.Columns["ID"].Width = 150; 
+            dataGridView1.Columns["ID"].Width = 150;
             dataGridView1.Columns["Fecha"].Width = 170;
             dataGridView1.Columns["Administrador"].Visible = false;
+            dataGridView1.Columns["Estado"].Visible = false;
             dataGridView1.Columns[0].HeaderCell.Value = "Numero de Partido";
             dataGridView1.Columns[2].HeaderCell.Value = "Fecha y Hora del Partido";
         }
@@ -62,9 +64,16 @@ namespace OrganizadorFutbol5.Ventanas
         private void button3_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
+            {
                 (new VisualizarPartido(int.Parse(textBox1.Text))).ShowDialog();
+            }
             else
                 MessageBox.Show("No se ha seleccionado ningun partido");
+        }
+
+        private void HomeAdmin_Load(object sender, EventArgs e)
+        {
+            llenarGrillaPartidos();
         }
 
 

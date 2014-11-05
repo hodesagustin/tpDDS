@@ -12,7 +12,7 @@ namespace OrganizadorFutbol5.Negocio
 {
     public class Commons
     {
-        public const int handicap = 4;
+        public const int handicap = 8;
 
         public void colorear(DataGridView dg, int i)
         {

@@ -9,18 +9,18 @@ insert into dds_esquema.Partido (AdministradorID,Fecha) values (1,'2000-02-01')
 
 --jugadores
 
-insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j1' ,'2000-01-01', 'nico@gmail.com',3)
-insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j2' ,'2000-01-01', 'eze@gmail.com',5)
+insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j1' ,'2000-01-01', 'nico@gmail.com',1)
+insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j2' ,'2000-01-01', 'eze@gmail.com',2)
 insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j3' ,'2000-01-01', 'nico@gmail.com',3)
-insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j4' ,'2000-01-01', 'eze@gmail.com',5)
-insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j5' ,'2000-01-01', 'nico@gmail.com',3)
-insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j6' ,'2000-01-01', 'eze@gmail.com',5)
-insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j7' ,'2000-01-01', 'nico@gmail.com',3)
-insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j8' ,'2000-01-01', 'eze@gmail.com',5)
-insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j9' ,'2000-01-01', 'nico@gmail.com',3)
-insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j10' ,'2000-01-01', 'eze@gmail.com',5)
-insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j11' ,'2000-01-01', 'nico@gmail.com',3)
-insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j12' ,'2000-01-01', 'eze@gmail.com',5)
+insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j4' ,'2000-01-01', 'eze@gmail.com',4)
+insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j5' ,'2000-01-01', 'nico@gmail.com',5)
+insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j6' ,'2000-01-01', 'eze@gmail.com',6)
+insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j7' ,'2000-01-01', 'nico@gmail.com',7)
+insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j8' ,'2000-01-01', 'eze@gmail.com',8)
+insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j9' ,'2000-01-01', 'nico@gmail.com',9)
+insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j10' ,'2000-01-01', 'eze@gmail.com',10)
+insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j11' ,'2000-01-01', 'nico@gmail.com',2)
+insert into dds_esquema.Jugador (Nombre,FechaNacimiento,Mail,Handicap) values ('j12' ,'2000-01-01', 'eze@gmail.com',6)
 
 --infraccion
 

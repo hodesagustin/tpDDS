@@ -162,7 +162,7 @@
             this.Name = "HomeAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mein Führer!";
-            this.Activated += new System.EventHandler(this.HomeAdmin_Activated);
+            this.Load += new System.EventHandler(this.HomeAdmin_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HomeAdmin_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

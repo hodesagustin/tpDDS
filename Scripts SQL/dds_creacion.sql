@@ -43,6 +43,7 @@ CREATE TABLE [dds_esquema].[Partido](
 	[ID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[AdministradorID] [numeric](18, 0) NOT NULL,
 	[Fecha] [datetime] NOT NULL,
+	[Estado] numeric(18,0) Default 0, 
  CONSTRAINT [PK_Partido] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -177,7 +178,8 @@ CREATE TABLE [dds_esquema].[Infraccion](
  CONSTRAINT [PK_Infraccion] PRIMARY KEY CLUSTERED 
 (
 	[PartidoID] ASC,
-	[JugadorID] ASC
+	[JugadorID] ASC,
+	[Fecha] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -265,7 +267,7 @@ BEGIN
 	Declare @Max datetime = (SELECT MAX(P.Fecha) 
 						from [dds_esquema].Partido P
 						JOIN [dds_esquema].Calificacion C ON C.PartidoID = P.ID
-						where @Id_Jugador = C.JugadorID)
+						where @Id_Jugador = C.JugadorID)	
 	RETURN @Max
 END
 GO
@@ -274,16 +276,18 @@ GO
 
 CREATE VIEW [dds_esquema].[vw_JugadorPromedio]
 AS
-SELECT C.JugadorID as JugadorID, AVG(CAST(C.Puntaje as float)) as Promedio
-FROM [dds_esquema].Calificacion C
-GROUP BY C.JugadorID
+SELECT J.ID as JugadorID, ISNULL (AVG(CAST(C.Puntaje as float)),0) as Promedio
+FROM [dds_esquema].Jugador J
+LEFT JOIN [dds_esquema].Calificacion C ON C.JugadorID = J.ID
+GROUP BY J.ID
 GO
+
 -------------------------------------------------------
 
 CREATE VIEW [dds_esquema].[vw_JugadorPromedioUltimoPartido]
 AS
 SELECT C.JugadorID as JugadorID, AVG(CAST(C.Puntaje as float)) as PromedioUltimoPartido
-FROM [dds_esquema].Calificacion C
+FROM [dds_esquema].Calificacion C 
 JOIN [dds_esquema].Partido P ON P.ID = C.PartidoID
 WHERE P.Fecha = (SELECT [dds_esquema].[fx_UltimoPartidoJugador](C.JugadorID))
 GROUP BY C.JugadorID
@@ -291,8 +295,8 @@ go
 
 CREATE VIEW [dds_esquema].vw_Jugador
 AS
-SELECT J.*, JP.Promedio, JPUP.PromedioUltimoPartido
+SELECT J.*, JP.Promedio, ISNULL(JPUP.PromedioUltimoPartido,0) as PromedioUltimoPartido
 FROM [dds_esquema].Jugador J
 JOIN [dds_esquema].vw_JugadorPromedio JP ON J.ID=JP.JugadorID
-JOIN [dds_esquema].vw_JugadorPromedioUltimoPartido JPUP ON J.ID=JPUP.JugadorID
+LEFT JOIN [dds_esquema].vw_JugadorPromedioUltimoPartido JPUP ON J.ID=JPUP.JugadorID
 GO
