@@ -14,7 +14,6 @@ namespace OrganizadorFutbol5.Negocio
         DataBaseDataContext db = new DataBaseDataContext();
         Negocio.Commons commons = new Negocio.Commons();
 
-
         public void buscar(DataGridView dg, string comienzaNombre, DateTime fechaAnterior, int handicapDesde, int handicapHasta, float promDesde, float promHasta, string infraccion)
         {
             var consulta = from x in db.vw_Jugadors
