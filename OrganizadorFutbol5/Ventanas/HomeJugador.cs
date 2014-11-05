@@ -72,12 +72,6 @@ namespace OrganizadorFutbol5.Ventanas
                                 select x;
 
             dataGridViewBaja.DataSource = inscripciones;
-
-            var inscripciones = from x in db.Inscripcions
-                                where x.JugadorID == jugadorID
-                                select x;
-
-            dataGridViewBaja.DataSource = inscripciones;
         }
 
         private void HomeJugador_FormClosing(object sender, FormClosingEventArgs e)
