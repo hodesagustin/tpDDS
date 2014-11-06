@@ -47,9 +47,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(246, 146);
+            this.button1.Font = new System.Drawing.Font("Bauhaus 93", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(215, 111);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 66);
+            this.button1.Size = new System.Drawing.Size(221, 108);
             this.button1.TabIndex = 0;
             this.button1.Text = "Buscar Jugadores";
             this.button1.UseVisualStyleBackColor = true;
@@ -80,6 +81,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Bauhaus 93", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(506, 273);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(162, 56);
@@ -131,6 +133,7 @@
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Bauhaus 93", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(194, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(161, 56);

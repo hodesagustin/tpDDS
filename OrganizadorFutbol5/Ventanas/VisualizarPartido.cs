@@ -142,6 +142,10 @@ namespace OrganizadorFutbol5.Ventanas
                            select x;
 
             dataGridView3.DataSource = consulta;
+            dataGridView3.Columns["PartidoID"].Visible = false;
+            dataGridView3.Columns["JugadorID"].Visible = false;
+            dataGridView3.Columns["Partido"].Visible = false;
+
         }
 
         private void btnFinalizarPartido_Click(object sender, EventArgs e)

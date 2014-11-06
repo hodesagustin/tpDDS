@@ -21,9 +21,7 @@ namespace OrganizadorFutbol5.Ventanas
         {
             jugadorID = id;
 
-            InitializeComponent();
-
-            
+            InitializeComponent();        
 
             var partidos = from x in db.Partidos
                                select new {x.ID , x.Fecha };
@@ -48,9 +46,11 @@ namespace OrganizadorFutbol5.Ventanas
 
             dataGridViewBaja.DataSource = inscripciones;
 
-
-
-
+            dataGridViewBaja.Columns["Partido"].Visible = false;
+            dataGridViewBaja.Columns["Jugador"].Visible = false;
+            dataGridViewBaja.Columns["JugadorID"].Visible = false;
+            dataGridViewBaja.Columns["PartidoID"].Width = 130;
+            dataGridViewBaja.Columns[2].HeaderCell.Value = "N°Partido";
         }
 
         private void refrescarDataGridView()
@@ -60,12 +60,24 @@ namespace OrganizadorFutbol5.Ventanas
                                            select x;
 
             dataGridViewCalificacionesPendientes.DataSource = calificacionesPendientes;
+            dataGridViewCalificacionesPendientes.Columns["JugadorID"].Visible = false;
+            dataGridViewCalificacionesPendientes.Columns["Partido"].Visible = false;
+            dataGridViewCalificacionesPendientes.Columns["CalificadorID"].Visible = false;
+            dataGridViewCalificacionesPendientes.Columns["Jugador"].Visible = false;
+            dataGridViewCalificacionesPendientes.Columns[2].HeaderCell.Value = "N° Partido";
+            dataGridViewCalificacionesPendientes.Columns[5].HeaderCell.Value = "Calificado";
 
             var calificaciones = from x in db.Calificacions
                                  where x.CalificadorID == jugadorID
                                  select x;
 
             dataGridViewCalificaciones.DataSource = calificaciones;
+            dataGridViewCalificaciones.Columns["Partido"].Visible = false;
+            dataGridViewCalificaciones.Columns["JugadorID"].Visible = false;
+            dataGridViewCalificaciones.Columns["CalificadorID"].Visible = false;
+            dataGridViewCalificaciones.Columns["Jugador"].Visible = false;
+            dataGridViewCalificaciones.Columns[1].HeaderCell.Value = "N° Partido";
+            dataGridViewCalificaciones.Columns[6].HeaderCell.Value = "Calificado";
 
             var inscripciones = from x in db.Inscripcions
                                 where x.JugadorID == jugadorID
@@ -107,6 +119,9 @@ namespace OrganizadorFutbol5.Ventanas
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex != 0)
+                return;
+            
             int partidoID = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value);
 
             Partido partido = (from p in db.Partidos

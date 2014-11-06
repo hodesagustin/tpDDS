@@ -64,6 +64,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Bauhaus 93", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(13, 88);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 40);
@@ -74,6 +75,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Bauhaus 93", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(246, 89);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 39);

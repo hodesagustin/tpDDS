@@ -119,6 +119,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Bauhaus 93", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(148, 306);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 42);
@@ -129,6 +130,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Bauhaus 93", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(148, 258);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 42);
@@ -158,6 +160,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(7, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
@@ -246,6 +249,7 @@
             // 
             // button4
             // 
+            this.button4.Font = new System.Drawing.Font("Bauhaus 93", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(134, 302);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(124, 42);
@@ -256,6 +260,7 @@
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Bauhaus 93", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(7, 302);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(121, 42);
@@ -278,6 +283,7 @@
             // 
             // v
             // 
+            this.v.Font = new System.Drawing.Font("Bauhaus 93", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.v.Location = new System.Drawing.Point(686, 375);
             this.v.Name = "v";
             this.v.Size = new System.Drawing.Size(120, 50);
@@ -307,6 +313,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(8, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 13);
